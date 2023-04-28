@@ -1,3 +1,6 @@
 {
-	"cSpell.words": ["ktdra"]
+	"cSpell.words": ["ktdra"],
+	"reactCreateComponent.settings.importReactOnTop": true,
+	"reactCreateComponent.settings.SelectTypeStyle": "Not style",
+	"reactCreateComponent.settings.SelectLanguage": "TypeScript"
 }

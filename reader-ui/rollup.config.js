@@ -35,9 +35,18 @@ export default [
 			babel({ babelHelpers: 'bundled' }),
 			postcss({
 				plugins: [autoprefixer()],
+				extensions: ['.css'],
 				inject: true,
 			}),
 		],
-		external: ['react', 'react-dom', '@mui/material', '@mui/material', '@emotion/styled'],
+		external: [
+			'/node_modules/',
+			/@ktdra\/icons\//,
+			'react',
+			'react-dom',
+			'@mui/material',
+			'@mui/material',
+			'@emotion/styled',
+		],
 	},
 ];

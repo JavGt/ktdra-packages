@@ -1,0 +1,61 @@
+{
+	"name": "@ktdra/reader-t",
+	"version": "0.0.24",
+	"main": "dist/index.js",
+	"license": "MIT",
+	"type": "module",
+	"types": "dist/index.d.ts",
+	"author": "Ktdra Team",
+	"files": [
+		"dist",
+		"src"
+	],
+	"publishConfig": {
+		"access": "restricted"
+	},
+	"scripts": {
+		"build": "rollup -c",
+		"publish:npm": "rm dist yarn build ",
+		"storybook": "storybook dev -p 6006",
+		"build-storybook": "storybook build"
+	},
+	"dependencies": {
+		"@emotion/react": "^11.10.6",
+		"@emotion/styled": "^11.10.6",
+		"@mui/material": "^5.12.2",
+		"@types/react": "^18.2.0",
+		"@types/react-dom": "^18.2.1",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"rollup-plugin-styles": "^4.0.0"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.21.4",
+		"@babel/preset-env": "^7.21.4",
+		"@babel/preset-react": "^7.18.6",
+		"@babel/preset-typescript": "^7.21.4",
+		"@rollup/plugin-babel": "^6.0.3",
+		"@rollup/plugin-commonjs": "^24.1.0",
+		"@rollup/plugin-node-resolve": "^15.0.2",
+		"@rollup/plugin-terser": "^0.4.1",
+		"@rollup/plugin-typescript": "^11.1.0",
+		"@storybook/addon-essentials": "7.0.7",
+		"@storybook/addon-interactions": "7.0.7",
+		"@storybook/addon-links": "7.0.7",
+		"@storybook/blocks": "7.0.7",
+		"@storybook/react": "7.0.7",
+		"@storybook/react-webpack5": "7.0.7",
+		"@storybook/testing-library": "0.0.14-next.2",
+		"@types/babel__core": "^7.20.0",
+		"autoprefixer": "^10.4.14",
+		"postcss": "^8.4.23",
+		"prop-types": "15.8.1",
+		"rollup": "^3.21.0",
+		"rollup-plugin-css-only": "^4.3.0",
+		"rollup-plugin-dts": "^5.3.0",
+		"rollup-plugin-postcss": "^4.0.2",
+		"storybook": "7.0.7",
+		"tslib": "^2.5.0",
+		"typescript": "^5.0.4"
+	}
+}

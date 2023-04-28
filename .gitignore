@@ -7,3 +7,4 @@ icons/node_modules
 
 # reader-ui
 reader-ui/node_modules
+reader-ui/dist

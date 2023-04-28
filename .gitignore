@@ -1,0 +1,9 @@
+# icons
+icons/BT/**/*.d.ts
+icons/BT/**/*.tsx
+icons/BT/**/*.js
+icons/node_modules
+
+
+# reader-ui
+reader-ui/node_modules

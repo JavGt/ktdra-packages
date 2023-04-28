@@ -1,0 +1,28 @@
+{
+	"name": "@ktdra/icons",
+	"version": "0.0.21",
+	"license": "MIT",
+	"author": {
+		"name": "ktdra Team",
+		"email": "mvp.desarrollo@gmail.com",
+		"url": "https://k-tdra.com/"
+	},
+	"type": "module",
+	"publishConfig": {
+		"access": "public"
+	},
+	"files": [
+		"BT/**/*.{js,d.ts}"
+	],
+	"scripts": {
+		"build": "svgr --typescript  -d ./ ./ && tsc",
+		"delete": "node ./scripts/delete"
+	},
+	"devDependencies": {
+		"@svgr/cli": "^7.0.0",
+		"@types/react": "^18.2.0",
+		"react": "^18.2.0",
+		"@types/node": "^18.16.2"
+	},
+	"dependencies": {}
+}

@@ -2,39 +2,32 @@ import React from 'react';
 import { Stack, Typography } from '@mui/material';
 import { Selector, useColorsAC } from '../../hooks/useColorsAC';
 import { AreaConocimiento } from '../../constants/area-conocimiento';
-import {
-	Elaboramos,
-	Exploramos,
-	Enganchamos,
-	Explicamos,
-	Evaluamos,
-} from '@ktdra/icons/BT';
 
 export const Placas5EVariant = {
 	enganchamos: {
 		label: 'Enganchamos',
 		color: 'secondary',
-		Icon: Enganchamos,
+		Icon: 'Enganchamos',
 	},
 	exploramos: {
 		label: 'Exploramos',
 		color: 'primary',
-		Icon: Exploramos,
+		Icon: 'Exploramos',
 	},
 	explicamos: {
 		label: 'Explicamos',
 		color: 'secondary',
-		Icon: Explicamos,
+		Icon: 'Explicamos',
 	},
 	elaboramos: {
 		label: 'Elaboramos',
 		color: 'secondary',
-		Icon: Elaboramos,
+		Icon: 'Elaboramos',
 	},
 	evaluamos: {
 		label: 'Evaluamos',
 		color: 'primary',
-		Icon: Evaluamos,
+		Icon: 'Evaluamos',
 	},
 };
 
@@ -53,7 +46,10 @@ export type Placas5EProps = {
 
 const Placas5E: React.FC<Placas5EProps> = ({ variant, AC }) => {
 	const color = useColorsAC(AC, Placas5EVariant[variant].color as Selector);
-	const { label, Icon } = Placas5EVariant[variant];
+
+	const { label, Icon: icon } = Placas5EVariant[variant];
+
+	const { [icon]: Icon } = require('@ktdra/icons/BT');
 
 	return (
 		<Stack

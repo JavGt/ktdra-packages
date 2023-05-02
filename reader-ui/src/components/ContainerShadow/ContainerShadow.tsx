@@ -2,6 +2,7 @@ import React from 'react';
 import { AreaConocimiento } from '../../constants/area-conocimiento';
 import { useColorsAC } from '../../hooks/useColorsAC';
 import { Box } from '@mui/material';
+import { marked } from 'marked';
 
 export type ContainerShadowProps = {
 	AC: keyof typeof AreaConocimiento;
@@ -10,11 +11,12 @@ export type ContainerShadowProps = {
 
 const ContainerShadow: React.FC<ContainerShadowProps> = ({ AC, children }) => {
 	const color = useColorsAC(AC, 'primary');
-	console.log(color.main);
 
 	return (
 		<Box
 			sx={{
+				maxWidth: '100%',
+				width: '100%',
 				boxShadow: `10px 10px 0px 0 ${color.main}`,
 				border: `3px solid ${color.main}`,
 				borderRadius: '20px',
@@ -22,7 +24,7 @@ const ContainerShadow: React.FC<ContainerShadowProps> = ({ AC, children }) => {
 				marginTop: '10px',
 			}}
 		>
-			{children}
+			<div dangerouslySetInnerHTML={{ __html: marked.parse(children) }} />
 		</Box>
 	);
 };

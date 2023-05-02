@@ -1,31 +1,53 @@
-import { Box, Divider, Stack, Typography } from '@mui/material';
+import { Box, Divider, Stack } from '@mui/material';
 import React from 'react';
 import { useColorsAC } from '../../hooks/useColorsAC';
 import { AreaConocimiento } from '../../constants/area-conocimiento';
+import { marked } from 'marked';
 
 export type EjemploProps = {
+	numberExample?: number;
 	AC: keyof typeof AreaConocimiento;
-	children: string;
+	text: string;
 	isLabel?: boolean;
 	footer?: string;
+	width: string;
+	center: boolean;
+	textCenter: boolean;
 };
 
-const Ejemplo: React.FC<EjemploProps> = ({ AC, children, isLabel, footer }) => {
-	const color = useColorsAC(AC, 'primary');
+const Ejemplo: React.FC<EjemploProps> = ({
+	AC,
+	text,
+	isLabel,
+	footer,
+	width,
+	center,
+	textCenter,
+	numberExample,
+}) => {
+	const color = useColorsAC(AC, 'primary') as {
+		alternative: string;
+	};
 
 	return (
-		<Stack alignItems='flex-start' mb='10px' mr='10px'>
+		<Stack
+			width={`${width}%`}
+			alignItems='flex-start'
+			mb='10px'
+			mr='10px'
+			mx={center ? 'auto' : ''}
+		>
 			{isLabel && (
 				<Box
 					sx={{
-						background: color.main,
-						padding: '10px',
+						background: color.alternative,
+						padding: '5px 10px',
 						borderRadius: '0 10px 0 0 ',
 						color: 'white',
 						textTransform: 'uppercase',
 					}}
 				>
-					Ejemplo 1
+					Ejemplo {numberExample}
 				</Box>
 			)}
 			<Box
@@ -34,25 +56,30 @@ const Ejemplo: React.FC<EjemploProps> = ({ AC, children, isLabel, footer }) => {
 					background: '#f8f8f5',
 					borderRadius: '0 20px ',
 					boxShadow: '10px 10px 10px 0 rgba(0, 0, 0, 0.2)',
+					fontFamily: 'serif',
 				}}
 			>
-				{children}
+				<Box sx={{ textAlign: textCenter ? 'center' : 'initial' }}>
+					<div dangerouslySetInnerHTML={{ __html: marked.parse(text) }} />
+				</Box>
 
 				{footer && (
-					<Box
-						sx={{
-							mb: 2,
-						}}
-					>
+					<Box sx={{ mb: 2 }}>
 						<Divider sx={{ mt: 3, mb: 1 }} />
-						<Typography component='blockquote' fontFamily='serif'>
-							{footer}
-						</Typography>
+						<Box color='#7b7b7b' fontFamily='serif'>
+							<div dangerouslySetInnerHTML={{ __html: marked.parse(footer) }} />
+						</Box>
 					</Box>
 				)}
 			</Box>
 		</Stack>
 	);
+};
+
+Ejemplo.defaultProps = {
+	text: 'Este es un texto de prueba',
+	width: '100',
+	numberExample: 1,
 };
 
 export default Ejemplo;

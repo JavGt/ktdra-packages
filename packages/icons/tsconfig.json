@@ -1,0 +1,8 @@
+{
+	"compilerOptions": {
+		"jsx": "react" /* Specify what JSX code is generated. */,
+		"declaration": true /* Generates corresponding '.d.ts' file. */,
+		"moduleResolution": "nodenext"
+	},
+	"extends": "../../tsconfig.json"
+}

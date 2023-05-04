@@ -1,4 +1,3 @@
 {
-	"conventionalCommits.scopes": ["icons", "reader-ui"],
-	"cSpell.words": ["ktdra"]
+	"cSpell.words": ["ktdra", "svgr"]
 }

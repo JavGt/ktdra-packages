@@ -1,0 +1,17 @@
+{
+	"name": "@ktdra/monorepo",
+	"private": true,
+	"scripts": {
+		"build:icons": "lerna run build --scope=@ktdra/icons"
+	},
+	"devDependencies": {
+		"@types/fs-extra": "^11.0.1",
+		"@types/node": "^18.16.3",
+		"chalk": "^5.2.0",
+		"fs-extra": "^11.1.1",
+		"lerna": "^6.6.1"
+	},
+	"workspaces": [
+		"packages/*"
+	]
+}

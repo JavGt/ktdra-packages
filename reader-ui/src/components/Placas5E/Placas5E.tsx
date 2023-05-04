@@ -2,6 +2,7 @@ import React from 'react';
 import { Stack, Typography } from '@mui/material';
 import { useColorsAC } from '../../hooks/useColorsAC';
 import type { AC, PaletteKeys, Color } from '../../utils/AreasConocimiento';
+import { Parejas } from '@ktdra/icons/dist';
 
 export const Placas5EVariant = {
 	enganchamos: {

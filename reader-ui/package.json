@@ -24,7 +24,7 @@
 	"dependencies": {
 		"@emotion/react": "^11.10.6",
 		"@emotion/styled": "^11.10.6",
-		"@ktdra/icons": "^0.0.40",
+		"@ktdra/icons": "^0.0.49",
 		"@mui/material": "^5.12.2",
 		"@rollup/plugin-alias": "^5.0.0",
 		"@types/react": "^18.2.0",

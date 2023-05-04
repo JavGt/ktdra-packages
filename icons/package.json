@@ -1,6 +1,6 @@
 {
 	"name": "@ktdra/icons",
-	"version": "0.0.40",
+	"version": "0.0.45",
 	"license": "MIT",
 	"type": "module",
 	"author": {
@@ -13,8 +13,9 @@
 		"tag": "latest"
 	},
 	"files": [
-		"**/!(scripts)/*.{js,ts,tsx.d.ts}",
-		"**/**/utils/*.{js, d.ts}"
+		"**/!(scripts)/*.{js,ts,tsx.d.ts,json}",
+		"**/**/utils/*.{js, d.ts}",
+		"**/package.json"
 	],
 	"scripts": {
 		"build:svgr": "svgr --typescript  -d ./ ./",

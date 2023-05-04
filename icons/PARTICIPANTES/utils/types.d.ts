@@ -1,1 +1,1 @@
-export type PARTICIPANTES = "Grupo" | "Individual" | "Parejas" | "Plenaria";
+export declare type PARTICIPANTES = "Grupo" | "Individual" | "Parejas" | "Plenaria";

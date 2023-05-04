@@ -19,7 +19,6 @@ export default [
 					fileURLToPath(new URL(file, import.meta.url)),
 				])
 		),
-		// input: 'src/index.ts',
 		output: {
 			dir: 'dist',
 			format: 'esm',
@@ -47,6 +46,7 @@ export default [
 			'@mui/material',
 			'@mui/material',
 			'@emotion/styled',
+			'marked',
 		],
 	},
 ];

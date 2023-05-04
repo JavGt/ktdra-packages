@@ -2,27 +2,23 @@ import fs from 'fs/promises';
 import path from 'path';
 import glob from 'glob';
 
+const workspaceRoot = process.cwd();
+
+// TODO: Crear un script que encuentre todos los archivos con terminación .d.ts, tsx, js y los elimine.
+// - No eliminar los archivos .svg
+// - no eliminar los archivos extras como: .gitignore, .prettierrc, package.json, etc.
+// - no eliminar la carpeta node_modules y scripts
+
 (async () => {
-	// const route = path.join(process.cwd());
-	// const files = await fs.readdir(route);
+	const extensions = ['.d.ts', '.ts', '.js', '.tsx'].join();
 
-	const data = glob.sync('./**/*.tsx').map(file => {
-		return file.split('/').splice(-1)[0].replace('.tsx', '');
-	});
+	const files = glob
+		.sync(`**/*{${extensions}}`, {
+			cwd: workspaceRoot,
+			ignore: ['**/node_modules/**', '**/scripts/**'],
+			nodir: true,
+		})
+		.map(file => fs.rm(path.join(workspaceRoot, file)));
 
-	console.log(data);
-	// fs.writeFile(
-	// 	path.join(process.cwd(), 'data.js'),
-	// 	`export const data=[${data.map(file => `"${file}"`)}]`
-	// );
-
-	// files.map(file => {
-	// 	const rg = /^(?!.*\.svg$).*$/i;
-	// 	if (rg.test(file)) {
-	// 		fs.unlink(path.join(route, file), err => {
-	// 			if (err) throw err;
-	// 			console.log(`${file} eliminado.`);
-	// 		});
-	// 	}
-	// });
+	console.log(`Deleted ${files.length} files`);
 })();

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Stack, Typography } from '@mui/material';
-import { Selector, useColorsAC } from '../../hooks/useColorsAC';
-import { AreaConocimiento } from '../../constants/area-conocimiento';
+import { useColorsAC } from '../../hooks/useColorsAC';
+import type { AC, PaletteKeys, Color } from '../../utils/AreasConocimiento';
 
 export const Placas5EVariant = {
 	enganchamos: {
@@ -31,8 +31,6 @@ export const Placas5EVariant = {
 	},
 };
 
-export type Color = 'primary' | 'secondary';
-
 export type Placas5EProps = {
 	/**
 	 * Indica para que progresión de aprendizaje corresponde
@@ -41,11 +39,11 @@ export type Placas5EProps = {
 	/**
 	 * Indicar hacia que Area de conocimiento corresponde la Placa 5S
 	 */
-	AC: keyof typeof AreaConocimiento;
+	AC: AC;
 };
 
 const Placas5E: React.FC<Placas5EProps> = ({ variant, AC }) => {
-	const color = useColorsAC(AC, Placas5EVariant[variant].color as Selector);
+	const color = useColorsAC(AC, Placas5EVariant[variant].color as PaletteKeys) as Color;
 
 	const { label, Icon: icon } = Placas5EVariant[variant];
 

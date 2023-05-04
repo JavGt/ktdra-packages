@@ -1,13 +1,20 @@
-import { AreaConocimiento } from '../constants/area-conocimiento';
+import {
+	AC,
+	ACPalette,
+	Color,
+	PaletteKeys,
+	areaConocimiento,
+} from '../utils/AreasConocimiento';
 
-export type AC = keyof typeof AreaConocimiento;
+export const useColorsAC = <T extends PaletteKeys>(
+	area: AC,
+	selector?: T
+): Color | ACPalette => {
+	const { palette } = areaConocimiento[area];
 
-export type Selector = 'primary' | 'secondary';
-
-export const useColorsAC = <T extends Selector>(area: AC, selector?: T) => {
 	if (selector) {
-		return AreaConocimiento[area][selector];
+		return palette[selector] as Color;
 	}
 
-	return AreaConocimiento[area];
+	return palette as ACPalette;
 };

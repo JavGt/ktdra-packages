@@ -1,7 +1,7 @@
 import { Box, Divider, Stack } from '@mui/material';
 import React from 'react';
 import { useColorsAC } from '../../hooks/useColorsAC';
-import { AreaConocimiento } from '../../constants/area-conocimiento';
+import { AreaConocimiento } from '../../utils/AreasConocimiento';
 import { marked } from 'marked';
 
 export type EjemploProps = {

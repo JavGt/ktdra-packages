@@ -8,6 +8,15 @@ const meta: Meta<typeof Ejemplo> = {
 	parameters: {
 		layout: 'centered',
 	},
+	argTypes: {
+		width: {
+			control: {
+				type: 'range',
+				min: 0,
+				max: 100,
+			},
+		},
+	},
 };
 
 export default meta;

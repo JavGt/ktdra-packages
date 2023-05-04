@@ -1,5 +1,5 @@
 import React from 'react';
-import { AreaConocimiento } from '../../constants/area-conocimiento';
+import { AreaConocimiento } from '../../utils/AreasConocimiento';
 import { useColorsAC } from '../../hooks/useColorsAC';
 import { Box } from '@mui/material';
 import { marked } from 'marked';
@@ -10,7 +10,10 @@ export type ContainerShadowProps = {
 };
 
 const ContainerShadow: React.FC<ContainerShadowProps> = ({ AC, children }) => {
-	const color = useColorsAC(AC, 'primary');
+	const color = useColorsAC(AC, 'primary') as {
+		main: string;
+		light: string;
+	};
 
 	return (
 		<Box

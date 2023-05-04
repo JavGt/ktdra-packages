@@ -1,15 +1,18 @@
 import React, { Children, useEffect } from 'react';
-import { AreaConocimiento } from '../../constants/area-conocimiento';
+import { AC } from '../../utils/AreasConocimiento';
 import { useColorsAC } from '../../hooks/useColorsAC';
 import { styled } from '@mui/material';
 
 export type VideosProps = {
-	AC: keyof typeof AreaConocimiento;
+	AC: AC;
 	url: string;
 };
 
 const Videos: React.FC<VideosProps> = ({ AC, url }) => {
-	const color = useColorsAC(AC, 'primary');
+	const color = useColorsAC(AC, 'primary') as {
+		alternative: string;
+		light: string;
+	};
 
 	return (
 		<VideoS className='iframe' color={color.alternative} btn={color.light}>

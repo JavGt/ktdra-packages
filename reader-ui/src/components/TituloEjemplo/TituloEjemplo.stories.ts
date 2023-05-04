@@ -14,11 +14,20 @@ export default meta;
 
 type Story = StoryObj<typeof TituloEjemplo>;
 
-export const UnIcono: Story = {
+export const DosIconos: Story = {
 	args: {
 		AC: 'Ciencias sociales',
 		icon1: 'Tic',
 		icon2: 'Transversal',
+		iconParticipantes: 'Individual',
+		text: 'Actividad 1',
+	},
+};
+
+export const UnIcono: Story = {
+	args: {
+		AC: 'Ciencias sociales',
+		icon1: 'Tic',
 		iconParticipantes: 'Individual',
 		text: 'Actividad 1',
 	},

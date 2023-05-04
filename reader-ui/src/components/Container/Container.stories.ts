@@ -16,9 +16,10 @@ type Story = StoryObj<typeof Container>;
 
 export const UnIcono: Story = {
 	args: {
-		componente: 'Placas5E',
-		arg: {
-			AC: 'Ciencias sociales',
+		component: 'Placas5E',
+		args: {
+			AC: 'Ciencias biológicas y químicas',
+			variant: 'elaboramos',
 		},
 	},
 };

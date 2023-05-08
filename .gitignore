@@ -1,1 +1,3 @@
 node_modules/
+packages/icons/build/
+packages/reader-ui/build/

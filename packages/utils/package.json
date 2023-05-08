@@ -1,22 +1,25 @@
 {
 	"name": "@ktdra/utils",
-	"version": "1.0.0",
+	"version": "0.0.2",
 	"description": "Now I’m the model of a modern major general / The venerated Virginian veteran whose men are all / Lining up, to put me up on a pedestal / Writin’ letters to relatives / Embellishin’ my elegance and eloquence / But the elephant is in the room / The truth is in ya face when ya hear the British cannons go / BOOM",
 	"keywords": [],
+	"private": false,
 	"author": {
 		"name": "Ktdra Team",
 		"email": "mvp.desarrollo@gmail.com"
 	},
 	"license": "ISC",
-	"main": "lib/utils.js",
-	"directories": {
-		"lib": "lib",
-		"test": "__tests__"
+	"publishConfig": {
+		"access": "public"
 	},
-	"files": [
-		"lib"
-	],
 	"scripts": {
-		"test": "node ./__tests__/utils.test.js"
+		"build": "yarn build:tsc && yarn build:crPackage && yarn build:pckTp",
+		"build:tsc": "tsc",
+		"build:pckTp": "node ../../scripts/create-package-types.mjs",
+		"build:crPackage": "node ../../scripts/create-package.mjs",
+		"release": "cd build && npm publish --registry https://registry.npmjs.org/ "
+	},
+	"devDependencies": {
+		"typescript": "^5.0.4"
 	}
 }

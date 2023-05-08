@@ -1,7 +1,0 @@
-/lib
-.npmrc
-.svgrrc.js
-package.json
-package-lock.json
-README.md
-tsconfig.json

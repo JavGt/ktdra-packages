@@ -1,33 +1,33 @@
 {
 	"name": "@ktdra/icons",
-	"version": "0.0.49",
-	"keywords": [],
-	"main": "./dist/index.js",
+	"version": "0.0.59",
 	"license": "MIT",
+	"main": "build/index.js",
 	"author": {
 		"name": "ktdra Team",
 		"email": "mvp.desarrollo@gmail.com",
 		"url": "https://k-tdra.com/"
 	},
 	"scripts": {
-		"build:svgr": "svgr --config-file .svgrrc.js -d dist lib",
+		"build:svgr": "svgr --config-file .svgrrc.js lib",
 		"build:ts": "tsc",
-		"build": "yarn build:svgr && yarn build:barrel && yarn build:ts  && yarn build:pckTp && yarn build:crPackage && yarn delete:fTs",
+		"build": "yarn delete:dist && yarn build:svgr && yarn build:barrel && yarn build:ts  && yarn build:pckTp && yarn build:crPackage && yarn delete:fTs",
 		"build:barrel": "node ../../scripts/create-barrel.mjs",
 		"build:crPackage": "node ../../scripts/create-package.mjs",
 		"build:pckTp": "node ../../scripts/create-package-types.mjs",
 		"delete:dist": "node ../../scripts/delete-dist.mjs",
 		"delete:fTs": "node ../../scripts/delete-ts.mjs",
-		"release": "npm publish --registry https://registry.npmjs.org/ dist --config .npmrc"
+		"release": "cd build && npm publish --registry https://registry.npmjs.org/ "
 	},
+	"sideEffects": false,
 	"publishConfig": {
-		"access": "public"
+		"access": "public",
+		"directory": "build"
 	},
-	"dependencies": {},
 	"devDependencies": {
 		"@svgr/cli": "^7.0.0",
 		"@types/react": "^18.2.3",
-		"react": "^18.2.0"
-	},
-	"sideEffects": false
+		"react": "^18.2.0",
+		"typescript": "^5.0.4"
+	}
 }

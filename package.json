@@ -2,7 +2,10 @@
 	"name": "@ktdra/monorepo",
 	"private": true,
 	"scripts": {
-		"build:icons": "lerna run build --scope=@ktdra/icons"
+		"build:icons": "lerna run build --scope=@ktdra/icons",
+		"build:reader-ui": "lerna run build --scope=@ktdra/reader-ui",
+		"build:utils": "lerna run build --scope=@ktdra/utils",
+		"clean": "lerna clean"
 	},
 	"devDependencies": {
 		"@types/fs-extra": "^11.0.1",

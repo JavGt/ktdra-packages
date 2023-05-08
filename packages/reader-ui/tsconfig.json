@@ -1,0 +1,12 @@
+{
+	"compilerOptions": {
+		"jsx": "react",
+		"declaration": true,
+		"moduleResolution": "node",
+		"outDir": "build",
+		"module": "ES6"
+	},
+	"include": ["lib/**/*"],
+	"exclude": ["**/**.stories.ts"],
+	"extends": "../../tsconfig.json"
+}

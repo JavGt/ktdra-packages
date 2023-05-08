@@ -30,6 +30,9 @@ const config = {
 	typescript: true,
 	svgo: true,
 	template,
+	outDir: 'build',
+	silent: true,
+	prettier: true,
 };
 
 module.exports = config;

@@ -1,6 +1,7 @@
 import fse from 'fs-extra';
 import path from 'path';
 import chalk from 'chalk';
+import { buildPath } from './utils/index.mjs';
 
 const log = console.log;
 // Agregar padding a la consola
@@ -8,7 +9,6 @@ const log = console.log;
 const panel = chalk.bgMagenta.white;
 
 const packagePath = process.cwd();
-const buildPath = path.join(packagePath, 'dist');
 
 (async () => {
 	// Leer todos los archivos en el directorio de compilación y verificar si son directorios

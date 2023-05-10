@@ -7,16 +7,6 @@
 		"strict": true,
 		"declaration": true,
 		"skipLibCheck": true,
-		"baseUrl": "./",
-		"moduleResolution": "node",
-		"jsx": "react",
-		"paths": {
-			"@ktdra/icons": ["./packages/icons/build"],
-			"@ktdra/icons/*": ["./packages/icons/build/*"],
-			"@ktdra/reader-ui": ["./packages/reader-ui/build"],
-			"@ktdra/reader-ui/*": ["./packages/reader-ui/build/*"],
-			"@ktdra/utils": ["./packages/utils/lib"],
-			"@ktdra/utils/*": ["./packages/utils/lib/*"]
-		}
+		"jsx": "react"
 	}
 }

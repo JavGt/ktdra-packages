@@ -3,8 +3,10 @@
 	"private": true,
 	"scripts": {
 		"build:icons": "lerna run build --scope=@ktdra/icons",
+		"release:icons": "lerna run release --scope=@ktdra/icons",
 		"build:reader-ui": "lerna run build --scope=@ktdra/reader-ui",
 		"build:utils": "lerna run build --scope=@ktdra/utils",
+		"reader-ui:story": "npx lerna run storybook --scope @ktdra/reader-ui",
 		"clean": "lerna clean"
 	},
 	"devDependencies": {
@@ -12,7 +14,8 @@
 		"@types/node": "^18.16.3",
 		"chalk": "^5.2.0",
 		"fs-extra": "^11.1.1",
-		"lerna": "^6.6.1"
+		"lerna": "^6.6.1",
+		"typescript": "^5.0.4"
 	},
 	"workspaces": [
 		"packages/*"

@@ -3,27 +3,21 @@ import chalk from 'chalk';
 import fse from 'fs-extra';
 import glob from 'glob';
 
-// Eliminar todos los archivos .ts dentro de la carpeta dist
+/**
+ * Elimina los archivos .ts de la carpeta dist después de la compilación
+ */
 
 const { name } = await packageJson();
 
-// regex para borrar solo los archivos .ts y tsx, no los .d.ts
-
-const files = glob.sync('build/**/*.{ts,tsx}', {
-	ignore: ['build/**/*.d.ts'],
+const files = glob.sync('dist/**/*.{ts,tsx}', {
+	ignore: ['dist/**/*.d.ts'],
 });
-
-console.log({ files });
 
 files.forEach(async file => {
 	try {
 		await fse.remove(file);
-		console.log(chalk.bgGreen.black(` ${name} `));
 	} catch (err) {
-		console.error(
-			chalk.bgRed.black(` ${name} `),
-			chalk.red.bold('> ', `Error al eliminar el archivo ${file}`)
-		);
+		console.error(chalk.red.bold('> ', `Error al eliminar el archivo ${file}`));
 	}
 });
 

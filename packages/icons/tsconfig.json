@@ -1,9 +1,11 @@
 {
 	"compilerOptions": {
+		"outDir": "dist",
 		"jsx": "react" /* Specify what JSX code is generated. */,
 		"declaration": true /* Generates corresponding '.d.ts' file. */,
-		"moduleResolution": "node",
-		"module": "CommonJS"
+		"module": "ES6",
+		"moduleResolution": "node"
 	},
+	"exclude": [],
 	"extends": "../../tsconfig.json"
 }

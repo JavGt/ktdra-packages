@@ -22,17 +22,19 @@ const template = (variables, context) => {
 	`;
 };
 
-/**
- *  @type {import('@svgr/core').Config}
- * @see https://react-svgr.com/docs/options/
- */
 const config = {
 	typescript: true,
 	svgo: true,
 	template,
-	outDir: 'build',
+	outDir: 'dist',
 	silent: true,
 	prettier: true,
+	jsx: {
+		babelConfig: {
+			minified: true,
+			compact: true,
+		},
+	},
 };
 
 module.exports = config;

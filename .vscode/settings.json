@@ -1,3 +1,7 @@
 {
-	"cSpell.words": ["ktdra", "svgr"]
+	"cSpell.words": ["ktdra", "svgr"],
+	"js/ts.implicitProjectConfig.checkJs": true,
+	"reactCreateComponent.settings.importReactOnTop": true,
+	"reactCreateComponent.settings.SelectLanguage": "TypeScript",
+	"reactCreateComponent.settings.SelectTypeStyle": "Style Component"
 }

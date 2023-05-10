@@ -1,14 +1,11 @@
 import fse from 'fs-extra';
 import path from 'path';
 import chalk from 'chalk';
-import { buildPath } from './utils/index.mjs';
+import { buildPath, lineLog, packageJson, tagLog } from './utils/index.mjs';
 
-const log = console.log;
 // Agregar padding a la consola
 
-const panel = chalk.bgMagenta.white;
-
-const packagePath = process.cwd();
+const { name } = await packageJson();
 
 (async () => {
 	// Leer todos los archivos en el directorio de compilación y verificar si son directorios
@@ -26,5 +23,6 @@ const packagePath = process.cwd();
 	const template = `${dirs.map(d => `export * from './${d}';`).join('\n')}`;
 
 	fse.writeFileSync(barrelPath, template);
-	log(chalk.magenta('> build:barrel ', panel(' Barrel file generated ')));
+	tagLog(name);
+	lineLog(`El archivo index.ts se ha creado con éxito en ${dirs.length} carpetas`);
 })();

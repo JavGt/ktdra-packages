@@ -13,13 +13,14 @@ const ContainerShadow: StylesContainerFC<ContainerShadowProps> = ({
 	children,
 	colorAC,
 }) => {
+	const color = colorAC as Color;
 	return (
 		<Box
 			sx={{
 				maxWidth: '100%',
 				width: '100%',
-				boxShadow: `10px 10px 0px 0 ${colorAC.main}`,
-				border: `3px solid ${colorAC.main}`,
+				boxShadow: `10px 10px 0px 0 ${color.main}`,
+				border: `3px solid ${color.main}`,
 				borderRadius: '20px',
 				padding: '10px',
 				marginTop: '10px',
@@ -30,4 +31,6 @@ const ContainerShadow: StylesContainerFC<ContainerShadowProps> = ({
 	);
 };
 
-export default stylesContainer(ContainerShadow, {});
+export default stylesContainer(ContainerShadow, {
+	colorSelector: 'primary',
+});

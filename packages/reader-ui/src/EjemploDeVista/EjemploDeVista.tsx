@@ -17,7 +17,16 @@ export type EjemploDeVistaProps = {
 const EjemploDeVista: StylesContainerFC<EjemploDeVistaProps> = ({ text, styleText }) => {
 	return (
 		<div>
-			<ContainerShadow children='Data' AC='Ciencias biológicas y químicas' />
+			<ContainerShadow
+				children='Data'
+				AC='Ciencias biológicas y químicas'
+				background={{
+					backgroundColor: '#f5f5f5',
+				}}
+				item={{
+					backgroundColor: '',
+				}}
+			/>
 			{/* <p
 				style={{
 					fontSize: styleText?.fontSize,

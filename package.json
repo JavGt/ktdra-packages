@@ -4,6 +4,7 @@
 	"scripts": {
 		"build:icons": "lerna run build --scope=@ktdra/icons",
 		"release:icons": "lerna run release --scope=@ktdra/icons",
+		"release:reader-ui": "lerna run release --scope=@ktdra/reader-ui",
 		"build:reader-ui": "lerna run build --scope=@ktdra/reader-ui",
 		"build:utils": "lerna run build --scope=@ktdra/utils",
 		"reader-ui:story": "npx lerna run storybook --scope @ktdra/reader-ui",
@@ -19,5 +20,8 @@
 	},
 	"workspaces": [
 		"packages/*"
-	]
+	],
+	"engines": {
+		"node": ">=18.0.0"
+	}
 }

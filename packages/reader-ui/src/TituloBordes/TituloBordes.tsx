@@ -1,14 +1,14 @@
-import { AC, Color, useGetColorsAC } from '@ktdra/utils';
+import { Color } from '@ktdra/utils';
 import React from 'react';
 import styled from 'styled-components';
+import { stylesContainer, StylesContainerFC } from '../utils';
 
 export type TituloBordesProps = {
-	AC: AC;
 	text: string;
 };
 
-const TituloBordes: React.FC<TituloBordesProps> = ({ AC, text }) => {
-	const color = useGetColorsAC(AC, 'secondary') as Color;
+const TituloBordes: StylesContainerFC<TituloBordesProps> = ({ colorAC, text }) => {
+	const color = colorAC as Color;
 
 	return (
 		<TituloBordesStyle color={color.alternative}>
@@ -40,4 +40,4 @@ export const TituloBordesStyle = styled.div<{
 	}
 `;
 
-export default TituloBordes;
+export default stylesContainer(TituloBordes, { colorSelector: 'primary' });

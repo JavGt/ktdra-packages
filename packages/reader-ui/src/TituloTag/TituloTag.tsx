@@ -1,17 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
-import { AC, ACPalette, useGetColorsAC } from '@ktdra/utils';
+import { ACPalette } from '@ktdra/utils';
 import type { BT } from '@ktdra/icons/dist/BT/utils/types';
+import { stylesContainer, StylesContainerFC } from '../utils';
 
 export type TituloTagProps = {
-	AC: AC;
 	text: string;
 	icon?: BT;
 	position?: 'left' | 'right';
 };
 
-const TituloTag: React.FC<TituloTagProps> = ({ AC, text, icon, position }) => {
-	const colors = useGetColorsAC(AC) as ACPalette;
+const TituloTag: StylesContainerFC<TituloTagProps> = ({
+	text,
+	icon,
+	position,
+	colorAC,
+}) => {
+	const colors = colorAC as ACPalette;
 
 	const Icon = icon && require('@ktdra/icons/dist/BT')[icon];
 
@@ -30,7 +35,7 @@ TituloTag.defaultProps = {
 	position: 'left',
 };
 
-export default TituloTag;
+export default stylesContainer(TituloTag);
 
 export const TituloContainer = styled.div<{
 	position?: 'left' | 'right';

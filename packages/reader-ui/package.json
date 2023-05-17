@@ -1,6 +1,6 @@
 {
 	"name": "@ktdra/reader-ui",
-	"version": "1.0.4",
+	"version": "1.0.7",
 	"description": "Now I’m the model of a modern major general / The venerated Virginian veteran whose men are all / Lining up, to put me up on a pedestal / Writin’ letters to relatives / Embellishin’ my elegance and eloquence / But the elephant is in the room / The truth is in ya face when ya hear the British cannons go / BOOM",
 	"keywords": [],
 	"main": "dist/index.js",
@@ -15,8 +15,11 @@
 	"scripts": {
 		"storybook": "storybook dev -p 6006",
 		"build-storybook": "storybook build",
-		"build": "tsc",
-		"release": "npm publish --registry https://registry.npmjs.org/ "
+		"build": "yarn delete:dist && yarn build:tsc && yarn build:pckTp",
+		"build:pckTp": "node ../../scripts/create-package-types.mjs",
+		"build:tsc": "tsc",
+		"delete:dist": "node ../../scripts/delete-dist.mjs",
+		"release": "npm publish --registry https://registry.npmjs.org/"
 	},
 	"dependencies": {
 		"@emotion/react": "^11.11.0",
@@ -44,7 +47,6 @@
 		"prop-types": "15.8.1",
 		"react": "^18.2.0",
 		"react-dom": "18.2.0",
-		"rollup": "^3.22.0",
 		"storybook": "7.0.9",
 		"typescript": "^5.0.4"
 	},

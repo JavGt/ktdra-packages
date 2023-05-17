@@ -1,11 +1,12 @@
 import React from 'react';
 import { marked } from 'marked';
+import { stylesContainer, StylesContainerFC } from '../utils';
 
 export type TextoProps = {
-	texto: string;
+	text: string;
 };
 
-const Texto: React.FC<TextoProps> = ({ texto }) => {
+const Texto: StylesContainerFC<TextoProps> = ({ text }) => {
 	return (
 		<div
 			style={{
@@ -13,9 +14,9 @@ const Texto: React.FC<TextoProps> = ({ texto }) => {
 				textRendering: 'optimizeLegibility',
 				fontFamily: 'sans-serif',
 			}}
-			dangerouslySetInnerHTML={{ __html: marked.parse(texto) }}
+			dangerouslySetInnerHTML={{ __html: marked.parse(text) }}
 		></div>
 	);
 };
 
-export default Texto;
+export default stylesContainer(Texto, { colorSelector: 'primary' });

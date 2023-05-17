@@ -1,9 +1,7 @@
 import React from 'react';
 import { Stack, Typography } from '@mui/material';
-import { useGetColorsAC } from '@ktdra/utils/dist/hooks';
-import type { AC, PaletteKeys, Color } from '@ktdra/utils/dist/data';
-import { WrapperStyle } from '../WrapperStyle';
-import { ComponentStyled } from '../WrapperStyle/WrapperStyle';
+import type { AC, Color } from '@ktdra/utils/dist/data';
+import { type StylesContainerFC, stylesContainer } from '../utils';
 
 export const Placas5EVariant = {
 	enganchamos: {
@@ -44,68 +42,65 @@ export type Placas5EProps = {
 	AC: AC;
 };
 
-const Placas5E: ComponentStyled<Placas5EProps> = ({ variant, AC, background, item }) => {
-	const color = useGetColorsAC(
-		AC,
-		Placas5EVariant[variant].color as PaletteKeys
-	) as Color;
+const Placas5E: StylesContainerFC<Placas5EProps> = ({ variant, colorAC }) => {
+	const color = colorAC as Color;
 
 	const { label, Icon: icon } = Placas5EVariant[variant];
 
 	const { [icon]: Icon } = require('@ktdra/icons/dist/BT');
 
 	return (
-		<WrapperStyle background={background} item={item}>
+		<Stack
+			direction='row'
+			width='100%'
+			alignItems='center'
+			gap={0.5}
+			justifyContent='center'
+		>
 			<Stack
-				direction='row'
-				width='100%'
 				alignItems='center'
-				gap={0.5}
-				justifyContent='center'
+				sx={{
+					width: 60,
+					'& > svg': {
+						fill: color.main,
+						'& path:nth-child(2)': { fill: `${color.light} !important` },
+					},
+				}}
 			>
-				<Stack
-					alignItems='center'
-					sx={{
-						width: 60,
-						'& > svg': {
-							fill: color.main,
-							'& path:nth-child(2)': { fill: `${color.light} !important` },
-						},
-					}}
-				>
-					<Icon />
-				</Stack>
-
-				<Typography
-					sx={{ color: color.main }}
-					marginRight={0.5}
-					fontSize={{ xs: 18, md: 22 }}
-				>
-					{label}
-				</Typography>
-
-				<Stack
-					justifyContent='center'
-					alignItems='end'
-					sx={{
-						flexGrow: 1,
-						height: 2,
-						background: color.main,
-						position: 'relative',
-
-						'&::after': {
-							position: 'absolute',
-							content: '""',
-							borderRadius: '100%',
-							height: 7,
-							width: 7,
-							background: 'inherit',
-						},
-					}}
-				/>
+				<Icon />
 			</Stack>
-		</WrapperStyle>
+
+			<Typography
+				sx={{ color: color.main }}
+				marginRight={0.5}
+				fontSize={{ xs: 18, md: 22 }}
+			>
+				{label}
+			</Typography>
+
+			<Stack
+				justifyContent='center'
+				alignItems='end'
+				sx={{
+					flexGrow: 1,
+					height: 2,
+					background: color.main,
+					position: 'relative',
+
+					'&::after': {
+						position: 'absolute',
+						content: '""',
+						borderRadius: '100%',
+						height: 7,
+						width: 7,
+						background: 'inherit',
+					},
+				}}
+			/>
+		</Stack>
 	);
 };
 
-export default Placas5E;
+export default stylesContainer(Placas5E, {
+	colorSelector: 'primary',
+});

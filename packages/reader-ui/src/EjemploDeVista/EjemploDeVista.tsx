@@ -1,66 +1,67 @@
-import React from 'react';
 import { AC } from '@ktdra/utils';
+import React from 'react';
+import { TituloBordes } from '../TituloBordes';
+import { Lectura } from '../Lectura';
 import { ContainerShadow } from '../ContainerShadow';
-import { StylesContainerFC } from '../utils/styleContainer';
-import Ejemplo from '../Ejemplo/Ejemplo';
+import { TituloTag } from '../TituloTag';
 
 export type EjemploDeVistaProps = {
-	text: string;
-	styleText?: Partial<{
-		fontSize: string;
-		lineHeight: string;
-		fontWeight: 'normal' | 'bold' | 'bolder' | 'lighter';
-		color: string;
-	}>;
+	AC: AC;
 };
 
-const EjemploDeVista: StylesContainerFC<EjemploDeVistaProps> = ({ text, styleText }) => {
+const EjemploDeVista: React.FC<EjemploDeVistaProps> = ({ AC }) => {
+	const background = {
+		principal: '#F2F2F2',
+		secundario: '#ffffff',
+	};
 	return (
 		<div>
-			<ContainerShadow
-				children='Data'
-				AC='Ciencias biológicas y químicas'
+			<TituloBordes
 				background={{
-					backgroundColor: '#f5f5f5',
+					backgroundColor: background.principal,
+				}}
+				text='Proyecto 1'
+				AC={AC}
+			/>
+
+			<Lectura
+				AC={AC}
+				background={{
+					backgroundColor: background.principal,
 				}}
 				item={{
-					backgroundColor: '',
+					position: 'center',
+					width: '50%',
 				}}
+				text='<h2 align="center">El primer músculo creado en el laboratorio es asombrosamente contráctil y flexible</h2>
+ <p>Investigadores de la universidad de Duke en Estados Unidos publicaron en la revista e-Life, sobre  el desarrollo y la especialización de células madre que poco a poco consiguen transformarse en  células musculares. Antes de llegar a este tipo celular, los investigadores obtuvieron los llamados  precursores miogénicos, algo más diferenciados que las células madre, aunque no tanto como para  ser similar a las células que encontramos en nuestros músculos. Como vemos, el primer músculo artificial no es sólo increíblemente asombroso. También permite avanzar un poco más en el estudio de una enfermedad realmente grave. Tal vez estas primeras  contracciones sean sólo un síntoma, y el movimiento muscular refleje que también caminamos  hacia la cura de la distrofia de Duchenne</p>'
+			></Lectura>
+			<TituloTag
+				background={{
+					backgroundColor: background.principal,
+				}}
+				AC={AC}
+				text='Proyecto 1 - sdaasd'
 			/>
-			{/* <p
-				style={{
-					fontSize: styleText?.fontSize,
-					lineHeight: styleText?.lineHeight,
-					fontWeight: styleText?.fontWeight,
-					color: styleText?.color,
-				}}
-			>
-				{text}
-			</p>
 
-			<code
-				style={{
-					fontFamily: 'monospace',
-					backgroundColor: '#f5f5f5',
-					padding: '10px',
-					borderRadius: '5px',
-					display: 'block',
-					maxWidth: '100%',
-					overflowX: 'auto',
-					boxShadow: '0px 2px 5px rgba(0,0,0,0.1)',
+			<ContainerShadow
+				AC={AC}
+				background={{
+					backgroundColor: background.principal,
+
+					padding: '50px',
+				}}
+				item={{
+					position: 'center',
+					width: '90%',
 				}}
 			>
-				<pre
-					style={{
-						margin: 0,
-						whiteSpace: 'pre-wrap',
-						wordWrap: 'break-word',
-						lineHeight: 1.5,
-					}}
-				>
-					{JSON.stringify(styleText, null, 2)}
-				</pre>
-			</code> */}
+				- ¿Cómo les beneficia **trabajar** en equipo para llegar a un común acuerdo? - ¿De
+				qué manera podrían administrar su dinero para no rebasar su presupuesto? - ¿Por
+				qué es importante tomar en cuenta las características físicas al momento de
+				comprar un artículo electrónico? - ¿Cuál es el principio físico que rige el
+				funcionamiento de los micrófonos y audífonos?
+			</ContainerShadow>
 		</div>
 	);
 };

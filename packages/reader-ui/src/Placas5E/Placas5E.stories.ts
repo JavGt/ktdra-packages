@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Placas5E from './Placas5E';
 
 const meta: Meta<typeof Placas5E> = {
-	title: 'Reader/Placas 5E',
+	title: 'Reader/Titulos/Placas 5E',
 	component: Placas5E,
 	tags: ['autodocs'],
 	parameters: {

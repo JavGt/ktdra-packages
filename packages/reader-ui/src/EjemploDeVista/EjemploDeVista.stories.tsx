@@ -7,16 +7,10 @@ const meta: Meta<typeof EjemploDeVista> = {
 	component: EjemploDeVista,
 	tags: ['autodocs'],
 	parameters: {
-		layout: 'centered',
+		layout: 'fullscreen',
 	},
 
-	argTypes: {
-		text: {
-			control: {
-				type: 'text',
-			},
-		},
-	},
+	argTypes: {},
 };
 
 export default meta;
@@ -25,11 +19,6 @@ type Story = StoryObj<typeof EjemploDeVista>;
 
 export const Text: Story = {
 	args: {
-		text: 'Ejemplo de vista',
-		styleText: {
-			fontWeight: 'bold',
-			color: 'red',
-			lineHeight: '1.5',
-		},
+		AC: 'Ciencias biológicas y químicas',
 	},
 };

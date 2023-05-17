@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Lectura from './Lectura';
 
 const meta: Meta<typeof Lectura> = {
-	title: 'Reader/Lectura',
+	title: 'Reader/Containers/Lectura',
 	component: Lectura,
 	tags: ['autodocs'],
 	parameters: {
@@ -16,7 +16,22 @@ type Story = StoryObj<typeof Lectura>;
 
 export const Elaboramos: Story = {
 	args: {
-		variant: 'elaboramos',
-		AC: 'Ciencias sociales',
+		AC: 'Ciencias biológicas y químicas',
+		text: '<h2 align="center">El primer músculo creado en el laboratorio es asombrosamente contráctil y flexible</h2>\n <p>Investigadores de la universidad de Duke en Estados Unidos publicaron en la revista e-Life, sobre  el desarrollo y la especialización de células madre que poco a poco consiguen transformarse en  células musculares. Antes de llegar a este tipo celular, los investigadores obtuvieron los llamados  precursores miogénicos, algo más diferenciados que las células madre, aunque no tanto como para  ser similar a las células que encontramos en nuestros músculos. Como vemos, el primer músculo artificial no es sólo increíblemente asombroso. También permite avanzar un poco más en el estudio de una enfermedad realmente grave. Tal vez estas primeras  contracciones sean sólo un síntoma, y el movimiento muscular refleje que también caminamos  hacia la cura de la distrofia de Duchenne</p>',
+	},
+};
+
+export const ElaboramosConEstilos: Story = {
+	args: {
+		item: {
+			width: '50%',
+			position: 'center',
+		},
+		background: {
+			backgroundColor: '#F2F2F2',
+			padding: '10px',
+		},
+		AC: 'Ciencias biológicas y químicas',
+		text: '<h2 align="center">El primer músculo creado en el laboratorio es asombrosamente contráctil y flexible</h2>\n <p>Investigadores de la universidad de Duke en Estados Unidos publicaron en la revista e-Life, sobre  el desarrollo y la especialización de células madre que poco a poco consiguen transformarse en  células musculares. Antes de llegar a este tipo celular, los investigadores obtuvieron los llamados  precursores miogénicos, algo más diferenciados que las células madre, aunque no tanto como para  ser similar a las células que encontramos en nuestros músculos. Como vemos, el primer músculo artificial no es sólo increíblemente asombroso. También permite avanzar un poco más en el estudio de una enfermedad realmente grave. Tal vez estas primeras  contracciones sean sólo un síntoma, y el movimiento muscular refleje que también caminamos  hacia la cura de la distrofia de Duchenne</p>',
 	},
 };

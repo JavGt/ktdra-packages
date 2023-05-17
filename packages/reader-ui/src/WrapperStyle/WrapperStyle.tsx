@@ -8,14 +8,13 @@ export type Px = `${number}px`;
 
 export type Hex = `#${string}`;
 
-export type Insets = {
-	top?: Px;
-	right?: Px;
-	bottom?: Px;
-	left?: Px;
-};
+export type Insets = Record<Sides, Px>;
 
-export type Sides = 'top' | 'right' | 'bottom' | 'left' | 'full';
+export type SidesHorizontal = 'right' | 'left';
+
+export type SidesVertical = 'top' | 'bottom';
+
+export type Sides = SidesHorizontal | SidesVertical;
 
 export type InsetsGroup = {
 	x?: Px;
@@ -30,17 +29,22 @@ export type InsetsVertex = {
 };
 
 // Types styles -------------------------------
-export type StylesProps = Partial<{
+export type BgStyles = Partial<{
 	margin?: Px | InsetsGroup | Insets;
 	padding: Px | InsetsGroup | Insets;
 	backgroundColor?: Hex | React.CSSProperties['backgroundColor'];
-	color?: Hex;
+	color?: Hex | React.CSSProperties['backgroundColor'];
 	borderRadius?: BorderRadius;
 	border?: Border;
 }>;
 
+export type ItemStyles = Partial<{
+	width?: Px | Porcentajes;
+	position?: SidesHorizontal | 'center';
+}>;
+
 export type Border = {
-	position?: Sides;
+	position?: Sides | 'full';
 	color?: Hex | React.CSSProperties['borderColor'];
 	width?: Px;
 	type?: React.CSSProperties['borderStyle'];
@@ -49,8 +53,8 @@ export type Border = {
 export type BorderRadius = Px | Porcentajes | InsetsVertex;
 
 export type Styles = {
-	background?: StylesProps;
-	item?: StylesProps;
+	background?: BgStyles;
+	item?: ItemStyles;
 };
 
 export type ComponentStyled<T = {}> = React.FC<T & Styles>;
@@ -62,12 +66,36 @@ const WrapperStyle: React.FC<Styles & { children?: React.ReactNode }> = ({
 }) => {
 	return (
 		<StyledComponent {...background}>
-			<StyledComponent {...item}>{children}</StyledComponent>
+			<ItemStyle {...item}>{children}</ItemStyle>
 		</StyledComponent>
 	);
 };
 
-export const StyledComponent = styled.div<StylesProps>`
+export const ItemStyle = styled.div<ItemStyles>`
+	${({ width }) => {
+		if (!width) return '';
+
+		if (typeof width === 'string') return `width: ${width};`;
+
+		return `width: ${width};`;
+	}}
+
+	${({ position }) => {
+		if (!position) return '';
+
+		if (position === 'center') return 'margin: 0 auto;';
+		if (position === 'right') return 'margin-left: auto;';
+		if (position === 'left') return 'margin-right: auto;';
+	}}
+`;
+
+export const StyledComponent = styled.div<BgStyles>`
+	font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+
+	p {
+		line-height: 1.5;
+	}
+
 	background-color: ${({ backgroundColor }) => backgroundColor || 'transparent'};
 	overflow: auto;
 	color: ${({ color }) => color || 'black'};

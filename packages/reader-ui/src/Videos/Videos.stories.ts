@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Videos from './Videos';
 
 const meta: Meta<typeof Videos> = {
-	title: 'Reader/Videos',
+	title: 'Reader/Recursos/Videos',
 	component: Videos,
 	tags: ['autodocs'],
 	parameters: {

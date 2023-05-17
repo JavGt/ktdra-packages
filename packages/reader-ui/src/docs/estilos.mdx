@@ -1,0 +1,16 @@
+# ¿Como usar los estilos globales?
+
+Por defecto Storybook no permite los controles, pero si pero aqui te dejo un ejemplo de como es el objeto para que los pruebes
+
+## Ejemplo de uso para el componente padre o background
+
+```ts
+export type StylesProps = Partial<{
+	margin?: Px | InsetsGroup | Insets;
+	padding: Px | InsetsGroup | Insets;
+	backgroundColor?: Hex | React.CSSProperties['backgroundColor'];
+	color?: Hex;
+	borderRadius?: BorderRadius;
+	border?: Border;
+}>;
+```

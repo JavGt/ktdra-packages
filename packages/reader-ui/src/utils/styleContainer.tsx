@@ -44,7 +44,7 @@ export const stylesContainer = <PropsComponent = {},>(
 	const { colorSelector } = options || {};
 
 	return ({ background, item, ...rest }: PropsHOC<PropsComponent>): JSX.Element => {
-		const colors = useGetColorsAC('Ciencias biológicas y químicas', colorSelector);
+		const colors = useGetColorsAC(rest.AC, colorSelector);
 
 		const injectProps = {
 			colorAC: colors,

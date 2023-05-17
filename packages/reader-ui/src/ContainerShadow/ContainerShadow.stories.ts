@@ -6,7 +6,7 @@ const meta: Meta<typeof ContainerShadow> = {
 	component: ContainerShadow,
 	tags: ['autodocs'],
 	parameters: {
-		layout: 'centered',
+		layout: 'fullscreen',
 	},
 };
 
@@ -21,9 +21,24 @@ export const ContainerCBQ: Story = {
 	},
 };
 
-export const ContainerH: Story = {
+export const ConEstilo: Story = {
 	args: {
+		background: {
+			backgroundColor: '#F2F2F2',
+			padding: '50px',
+			margin: '20px',
+			borderRadius: '10px',
+			border: {
+				width: '1px',
+				color: '#000000',
+				type: 'solid',
+			},
+		},
+		item: {
+			width: '50%',
+			position: 'center',
+		},
 		AC: 'Humanidades',
-		children: `- ¿Cómo les beneficia trabajar en equipo para llegar a un común acuerdo? \n - ¿De qué manera podrían administrar su dinero para no rebasar su presupuesto?  \n- ¿Por qué es importante tomar en cuenta las características físicas al momento de comprar un artículo electrónico? \n- ¿Cuál es el principio físico que rige el funcionamiento de los  micrófonos y audífonos?`,
+		children: `- ¿Cómo les beneficia **trabajar** en equipo para llegar a un común acuerdo? \n - ¿De qué manera podrían administrar su dinero para no rebasar su presupuesto?  \n- ¿Por qué es importante tomar en cuenta las características físicas al momento de comprar un artículo electrónico? \n- ¿Cuál es el principio físico que rige el funcionamiento de los  micrófonos y audífonos?`,
 	},
 };

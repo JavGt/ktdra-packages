@@ -1,3 +1,4 @@
+import React from 'react';
 import type { AC, ACPalette, Color, PaletteKeys } from '../data/areaconocimiento';
 import { areaConocimiento } from '../data/areaconocimiento';
 

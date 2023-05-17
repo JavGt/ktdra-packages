@@ -28,75 +28,69 @@ import Math from '@isaul32/ckeditor5-math/src/math';
 import AutoformatMath from '@isaul32/ckeditor5-math/src/autoformatmath';
 import { PasteFromOffice } from '@ckeditor/ckeditor5-paste-from-office';
 
-'use strict';
+class Editor extends ClassicEditor { }
 
-module.exports = textEditor;
+// Plugins to include in the build.
+Editor.builtinPlugins = [
+  Alignment,
+  Autoformat,
+  AutoLink,
+  Bold,
+  Essentials,
+  FontSize,
+  Heading,
+  Highlight,
+  Indent,
+  Italic,
+  Link,
+  List,
+  Paragraph,
+  SelectAll,
+  SpecialCharacters,
+  SpecialCharactersCurrency,
+  SpecialCharactersLatin,
+  SpecialCharactersMathematical,
+  SpecialCharactersText,
+  TextTransformation,
+  Math,
+  AutoformatMath,
+  PasteFromOffice
+];
 
-function textEditor() {
-  class Editor extends ClassicEditor { }
-
-  // Plugins to include in the build.
-  Editor.builtinPlugins = [
-    Alignment,
-    Autoformat,
-    AutoLink,
-    Bold,
-    Essentials,
-    FontSize,
-    Heading,
-    Highlight,
-    Indent,
-    Italic,
-    Link,
-    List,
-    Paragraph,
-    SelectAll,
-    SpecialCharacters,
-    SpecialCharactersCurrency,
-    SpecialCharactersLatin,
-    SpecialCharactersMathematical,
-    SpecialCharactersText,
-    TextTransformation,
-    Math,
-    AutoformatMath,
-    PasteFromOffice
-  ];
-
-  // Editor configuration.
-  Editor.defaultConfig = {
-    toolbar: {
-      items: [
-        'fontSize',
-        'bold',
-        'italic',
-        'link',
-        'bulletedList',
-        'numberedList',
-        '|',
-        'specialCharacters',
-        'math',
-        '|',
-        'alignment',
-        'highlight',
-        'selectAll',
-        '|',
-        'undo',
-        'redo'
-      ]
-    },
-    math: {
-      engine: 'mathjax', // or katex or function. E.g. (equation, element, display) => { ... }
-      lazyLoad: undefined, // async () => { ... }, called once before rendering first equation if engine doesn't exist. After resolving promise, plugin renders equations.
-      outputType: 'script', // or span
-      className: 'math-tex', // class name to use with span output type, change e.g. MathJax processClass (v2) / processHtmlClass (v3) is set
-      forceOutputType: false, // forces output to use outputType
-      enablePreview: true, // Enable preview view
-      previewClassName: [], // Class names to add to previews
-      popupClassName: [], // Class names to add to math popup balloon
-      katexRenderOptions: {}  // KaTeX only options for katex.render(ToString)
-    },
-    language: 'es',
-  };
-}
+// Editor configuration.
+Editor.defaultConfig = {
+  toolbar: {
+    items: [
+      'fontSize',
+      'bold',
+      'italic',
+      'link',
+      'bulletedList',
+      'numberedList',
+      '|',
+      'specialCharacters',
+      'math',
+      '|',
+      'alignment',
+      'highlight',
+      'selectAll',
+      '|',
+      'undo',
+      'redo'
+    ]
+  },
+  math: {
+    engine: 'mathjax', // or katex or function. E.g. (equation, element, display) => { ... }
+    lazyLoad: undefined, // async () => { ... }, called once before rendering first equation if engine doesn't exist. After resolving promise, plugin renders equations.
+    outputType: 'script', // or span
+    className: 'math-tex', // class name to use with span output type, change e.g. MathJax processClass (v2) / processHtmlClass (v3) is set
+    forceOutputType: false, // forces output to use outputType
+    enablePreview: true, // Enable preview view
+    previewClassName: [], // Class names to add to previews
+    popupClassName: [], // Class names to add to math popup balloon
+    katexRenderOptions: {}  // KaTeX only options for katex.render(ToString)
+  },
+  language: 'es',
+};
 
 export default Editor;

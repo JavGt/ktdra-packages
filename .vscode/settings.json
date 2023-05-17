@@ -3,5 +3,6 @@
 	"js/ts.implicitProjectConfig.checkJs": true,
 	"reactCreateComponent.settings.importReactOnTop": true,
 	"reactCreateComponent.settings.SelectLanguage": "TypeScript",
-	"reactCreateComponent.settings.SelectTypeStyle": "Style Component"
+	"reactCreateComponent.settings.SelectTypeStyle": "Style Component",
+	"conventionalCommits.scopes": ["text-editor"]
 }

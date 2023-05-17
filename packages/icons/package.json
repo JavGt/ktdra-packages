@@ -14,7 +14,7 @@
 	"scripts": {
 		"build:svgr": "svgr --config-file .svgrrc.js src",
 		"build:ts": "tsc",
-		"build": "yarn delete:dist && yarn build:svgr && yarn build:barrel && yarn array  && yarn build:ts  && yarn build:pckTp  && yarn delete:fTs",
+		"build": "yarn delete:dist && yarn build:svgr && yarn build:barrel && yarn array  && yarn build:ts  && yarn build:pckTp  ",
 		"build:barrel": "node ../../scripts/create-barrel.mjs",
 		"build:crPackage": "node ../../scripts/create-package.mjs",
 		"build:pckTp": "node ../../scripts/create-package-types.mjs",

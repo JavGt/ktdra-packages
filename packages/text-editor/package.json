@@ -1,11 +1,14 @@
 {
 	"name": "@ktdra/text-editor",
-	"version": "1.0.0",
+	"version": "0.0.2",
 	"description": "Now I’m the model of a modern major general / The venerated Virginian veteran whose men are all / Lining up, to put me up on a pedestal / Writin’ letters to relatives / Embellishin’ my elegance and eloquence / But the elephant is in the room / The truth is in ya face when ya hear the British cannons go / BOOM",
 	"keywords": [],
-	"author": "Angel Ramirez <angel.rmrz.cal@gmail.com>",
+	"author": {
+		"name": "Ktdra Team",
+		"email": "mvp.desarrollo@gmail.com"
+	},
 	"license": "ISC",
-	"main": "lib/text-editor.js",
+	"main": "dist/ckeditor.js",
 	"dependencies": {
 		"@ckeditor/ckeditor5-alignment": "^37.1.0",
 		"@ckeditor/ckeditor5-autoformat": "^37.1.0",
@@ -41,18 +44,24 @@
 		"test": "__tests__"
 	},
 	"files": [
-		"lib"
+		"dist",
+		"build"
 	],
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/JavGt/ktdra-packages.git"
 	},
 	"scripts": {
-		"test": "node ./__tests__/text-editor.test.js",
-		"build": "webpack --mode production"
+		"build": "webpack --mode production",
+		"release": "npm publish --registry https://registry.npmjs.org/"
 	},
 	"bugs": {
 		"url": "https://github.com/JavGt/ktdra-packages/issues"
 	},
-	"homepage": "https://github.com/JavGt/ktdra-packages#readme"
+	"homepage": "https://github.com/JavGt/ktdra-packages#readme",
+	"sideEffects": false,
+	"publishConfig": {
+		"access": "public",
+		"directory": "dist"
+	}
 }

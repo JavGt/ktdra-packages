@@ -8,7 +8,7 @@ import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat.js';
 import AutoLink from '@ckeditor/ckeditor5-link/src/autolink.js';
 import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold.js';
 import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials.js';
-// import FontSize from '@ckeditor/ckeditor5-font/src/fontsize.js';
+import FontSize from '@ckeditor/ckeditor5-font/src/fontsize.js';
 import Heading from '@ckeditor/ckeditor5-heading/src/heading.js';
 import Highlight from '@ckeditor/ckeditor5-highlight/src/highlight.js';
 import Indent from '@ckeditor/ckeditor5-indent/src/indent.js';
@@ -37,7 +37,7 @@ Editor.builtinPlugins = [
   AutoLink,
   Bold,
   Essentials,
-  // FontSize,
+  FontSize,
   Heading,
   Highlight,
   Indent,
@@ -81,9 +81,7 @@ Editor.defaultConfig = {
   },
   math: {
     engine: 'mathjax',
-    lazyLoad: async () => {
-      await import('@isaul32/ckeditor5-math/src/mathjax');
-    },
+    lazyLoad: undefined,
     outputType: 'script',
     className: 'math-tex',
     forceOutputType: true,

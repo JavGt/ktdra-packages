@@ -4,6 +4,7 @@ icons/BT/**/*.tsx
 icons/BT/**/*.js
 icons/node_modules
 node_modules
+**/dist
 
 
 # reader-ui

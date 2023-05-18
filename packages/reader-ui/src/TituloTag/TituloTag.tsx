@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ACPalette } from '@ktdra/utils';
-import type { BT } from '@ktdra/icons/dist/BT/utils/types';
+import { ACPalette } from '@ktdra-digital/utils';
+import type { BT } from '@ktdra-digital/icons/dist/BT/utils/types';
 import { stylesContainer, StylesContainerFC } from '../utils';
 
 export type TituloTagProps = {
@@ -18,7 +18,7 @@ const TituloTag: StylesContainerFC<TituloTagProps> = ({
 }) => {
 	const colors = colorAC as ACPalette;
 
-	const Icon = icon && require('@ktdra/icons/dist/BT')[icon];
+	const Icon = icon && require('@ktdra-digital/icons/dist/BT')[icon];
 
 	return (
 		<TituloContainer position={position}>

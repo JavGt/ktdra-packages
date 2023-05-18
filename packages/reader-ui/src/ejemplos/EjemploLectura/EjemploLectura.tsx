@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { TextEditor } from '../../TextEditor';
 import { Lectura } from '../../Lectura';
-import { AC } from '@ktdra/utils';
-import Editor from '@ckeditor/ckeditor5-react'
+import { AC } from '@ktdra-digital/utils';
+import Editor from '@ckeditor/ckeditor5-react';
 
 export type EjemploLecturaProps = {
 	AC: AC;

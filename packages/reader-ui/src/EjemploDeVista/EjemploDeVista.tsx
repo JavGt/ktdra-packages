@@ -1,4 +1,4 @@
-import { AC } from '@ktdra/utils';
+import { AC } from '@ktdra-digital/utils';
 import React from 'react';
 import { TituloBordes } from '../TituloBordes';
 import { Lectura } from '../Lectura';

@@ -1,6 +1,6 @@
 import React from 'react';
 import { marked } from 'marked';
-import { type Color } from '@ktdra/utils';
+import { type Color } from '@ktdra-digital/utils';
 import styled from 'styled-components';
 import { type StylesContainerFC, stylesContainer } from '../utils/styleContainer';
 

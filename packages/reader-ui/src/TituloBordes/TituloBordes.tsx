@@ -1,4 +1,4 @@
-import { Color } from '@ktdra/utils';
+import { Color } from '@ktdra-digital/utils';
 import React from 'react';
 import styled from 'styled-components';
 import { stylesContainer, StylesContainerFC } from '../utils';

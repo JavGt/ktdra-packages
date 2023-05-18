@@ -1,1 +1,1 @@
-# @ktdra/icons
+# @ktdra-digital/icons

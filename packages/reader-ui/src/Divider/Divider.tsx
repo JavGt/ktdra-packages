@@ -1,5 +1,5 @@
 import React from 'react';
-import { AC, Color, useGetColorsAC } from '@ktdra/utils';
+import { AC, Color, useGetColorsAC } from '@ktdra-digital/utils';
 import styled from 'styled-components';
 
 export type DividerProps = {

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Box, Stack, Typography } from '@mui/material';
-import { Complementate } from '@ktdra/icons/dist/BT';
-import type { BT } from '@ktdra/icons/dist/BT/utils/types';
-import type { PARTICIPANTES } from '@ktdra/icons/dist/PARTICIPANTES/utils/types';
-import { AC, ACPalette, useGetColorsAC } from '@ktdra/utils';
+import { Complementate } from '@ktdra-digital/icons/dist/BT';
+import type { BT } from '@ktdra-digital/icons/dist/BT/utils/types';
+import type { PARTICIPANTES } from '@ktdra-digital/icons/dist/PARTICIPANTES/utils/types';
+import { AC, ACPalette, useGetColorsAC } from '@ktdra-digital/utils';
 import WrapperStyle, { ComponentStyled } from '../WrapperStyle/WrapperStyle';
 
 export type TituloEjemploProps = {
@@ -25,13 +25,13 @@ const TituloEjemplo: ComponentStyled<TituloEjemploProps> = ({
 }) => {
 	const { primary, secondary } = useGetColorsAC(AC) as ACPalette;
 
-	const Icon1 = icon1 && require('@ktdra/icons/dist/BT')[icon1];
+	const Icon1 = icon1 && require('@ktdra-digital/icons/dist/BT')[icon1];
 
-	const Icon2 = icon2 && require('@ktdra/icons/dist/BT')[icon2];
+	const Icon2 = icon2 && require('@ktdra-digital/icons/dist/BT')[icon2];
 
 	const {
 		[iconParticipantes]: Participantes,
-	} = require('@ktdra/icons/dist/PARTICIPANTES');
+	} = require('@ktdra-digital/icons/dist/PARTICIPANTES');
 
 	return (
 		<WrapperStyle background={background} item={item}>

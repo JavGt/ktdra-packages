@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Complementate } from '@ktdra/icons';
-import { AC, ACPalette, Color, useGetColorsAC } from '@ktdra/utils';
+import { Complementate } from '@ktdra-digital/icons';
+import { AC, ACPalette, Color, useGetColorsAC } from '@ktdra-digital/utils';
 
 export type TituloComplementateProps = {
 	AC: AC;

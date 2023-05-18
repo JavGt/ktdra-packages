@@ -15,7 +15,7 @@ const TextEditor: React.FC<TextEditorProps> = ({ value, onChange }) => {
 	useEffect(() => {
 		editorRef.current = {
 			CKEditor: require('@ckeditor/ckeditor5-react').CKEditor,
-			Editor: require('@ktdra/text-editor'),
+			Editor: require('@ktdra-digital/text-editor'),
 		};
 		setEditorLoaded(true);
 	}, []);

@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { StylesContainerFC, stylesContainer } from '../utils';
-import { type Color } from '@ktdra/utils';
+import { type Color } from '@ktdra-digital/utils';
 import { marked } from 'marked';
-import { Lectura as LecturaIcon } from '@ktdra/icons';
+import { Lectura as LecturaIcon } from '@ktdra-digital/icons';
 
 export type LecturaProps = {
 	text: string;

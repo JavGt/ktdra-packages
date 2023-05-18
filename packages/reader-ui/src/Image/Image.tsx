@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { stylesContainer, StylesContainerFC } from '../utils';
-import { Color } from '@ktdra/utils';
+import { Color } from '@ktdra-digital/utils';
 import { marked } from 'marked';
 
 export type ImageProps = {

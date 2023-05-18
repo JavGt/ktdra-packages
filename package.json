@@ -2,12 +2,12 @@
 	"name": "@ktdra-digital/monorepo",
 	"private": true,
 	"scripts": {
-		"build:icons": "lerna run build --scope=@ktdra/icons",
-		"release:icons": "lerna run release --scope=@ktdra/icons",
-		"release:reader-ui": "lerna run release --scope=@ktdra/reader-ui",
-		"build:reader-ui": "lerna run build --scope=@ktdra/reader-ui",
-		"build:utils": "lerna run build --scope=@ktdra/utils",
-		"reader-ui:story": "npx lerna run storybook --scope @ktdra/reader-ui",
+		"build:icons": "lerna run build --scope=@ktdra-digital/icons",
+		"release:icons": "lerna run release --scope=@ktdra-digital/icons",
+		"release:reader-ui": "lerna run release --scope=@ktdra-digital/reader-ui",
+		"build:reader-ui": "lerna run build --scope=@ktdra-digital/reader-ui",
+		"build:utils": "lerna run build --scope=@ktdra-digital/utils",
+		"reader-ui:story": "npx lerna run storybook --scope @ktdra-digital/reader-ui",
 		"clean": "lerna clean"
 	},
 	"devDependencies": {

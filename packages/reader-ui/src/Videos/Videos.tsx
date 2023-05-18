@@ -1,6 +1,6 @@
 import React from 'react';
 import { styled } from '@mui/material';
-import { AC, Color, useGetColorsAC } from '@ktdra/utils';
+import { AC, Color, useGetColorsAC } from '@ktdra-digital/utils';
 import { WrapperStyle } from '../WrapperStyle';
 import { ComponentStyled } from '../WrapperStyle/WrapperStyle';
 

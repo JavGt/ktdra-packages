@@ -1,6 +1,6 @@
 import React from 'react';
 import WrapperStyle, { type Styles } from '../WrapperStyle/WrapperStyle';
-import { AC, ACPalette, Color, PaletteKeys, useGetColorsAC } from '@ktdra/utils';
+import { AC, ACPalette, Color, PaletteKeys, useGetColorsAC } from '@ktdra-digital/utils';
 
 export type OptionsStyles = Partial<{
 	colorSelector: PaletteKeys;

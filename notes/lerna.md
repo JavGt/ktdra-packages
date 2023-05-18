@@ -12,7 +12,7 @@
 >
 > ```json
 > }
->   "name": "@ktdra/icons",
+>   "name": "@ktdra-digital/icons",
 >   ...
 > }
 > ```
@@ -52,7 +52,7 @@ npx lerna add <nombre-de-la-librería> --scope=<nombre-del-paquete>
 > Ejemplo
 >
 > ```cmd
-> npx lerna add @svgr/cli --scope=@ktdra/icons
+> npx lerna add @svgr/cli --scope=@ktdra-digital/icons
 > ```
 
 ## Ver todas las librerías de los paquetes
@@ -70,7 +70,7 @@ lerna exec --scope=<nombre-del-paquete> npm uninstall <nombre-de-la-dependencia>
 Ejemplo:
 
 ```cmd
-lerna exec --scope=@ktdra/icons npm uninstall @svgr/cli
+lerna exec --scope=@ktdra-digital/icons npm uninstall @svgr/cli
 ```
 
 ## Como instalar una dependencia, pero que aparezca en los paquetes, sea única en el proyecto

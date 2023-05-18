@@ -1,7 +1,7 @@
 import React from 'react';
-import { Lectura } from '@ktdra/icons';
+import { Lectura } from '@ktdra-digital/icons';
 import styled from 'styled-components';
-import { AC, Color, useGetColorsAC } from '@ktdra/utils';
+import { AC, Color, useGetColorsAC } from '@ktdra-digital/utils';
 import WrapperStyle, { ComponentStyled } from '../WrapperStyle/WrapperStyle';
 
 export type TituloLecturaProps = { AC: AC };

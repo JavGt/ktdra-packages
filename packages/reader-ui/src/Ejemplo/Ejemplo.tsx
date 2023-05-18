@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Divider, Stack } from '@mui/material';
-import type { Color } from '@ktdra/utils/dist/data';
+import type { Color } from '@ktdra-digital/utils/dist/data';
 import { marked } from 'marked';
 import { StylesContainerFC, stylesContainer } from '../utils';
 

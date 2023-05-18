@@ -24,8 +24,8 @@
 	"dependencies": {
 		"@emotion/react": "^11.11.0",
 		"@emotion/styled": "^11.11.0",
-		"@ktdra/icons": "*",
-		"@ktdra/utils": "*",
+		"@ktdra-digital/icons": "*",
+		"@ktdra-digital/utils": "*",
 		"@mui/material": "^5.12.3",
 		"marked": "^5.0.1",
 		"@ckeditor/ckeditor5-react": "^6.0.0",

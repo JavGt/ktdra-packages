@@ -1,6 +1,6 @@
 import React from 'react';
 import { Stack, Typography } from '@mui/material';
-import type { AC, Color } from '@ktdra/utils/dist/data';
+import type { AC, Color } from '@ktdra-digital/utils/dist/data';
 import { type StylesContainerFC, stylesContainer } from '../utils';
 
 export const Placas5EVariant = {
@@ -47,7 +47,7 @@ const Placas5E: StylesContainerFC<Placas5EProps> = ({ variant, colorAC }) => {
 
 	const { label, Icon: icon } = Placas5EVariant[variant];
 
-	const { [icon]: Icon } = require('@ktdra/icons/dist/BT');
+	const { [icon]: Icon } = require('@ktdra-digital/icons/dist/BT');
 
 	return (
 		<Stack

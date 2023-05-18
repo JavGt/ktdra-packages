@@ -80,15 +80,15 @@ Editor.defaultConfig = {
     ]
   },
   math: {
-    engine: 'mathjax', // or katex or function. E.g. (equation, element, display) => { ... }
-    lazyLoad: undefined, // async () => { ... }, called once before rendering first equation if engine doesn't exist. After resolving promise, plugin renders equations.
-    outputType: 'script', // or span
-    className: 'math-tex', // class name to use with span output type, change e.g. MathJax processClass (v2) / processHtmlClass (v3) is set
-    forceOutputType: false, // forces output to use outputType
-    enablePreview: true, // Enable preview view
-    previewClassName: [], // Class names to add to previews
-    popupClassName: [], // Class names to add to math popup balloon
-    katexRenderOptions: {}  // KaTeX only options for katex.render(ToString)
+    engine: 'mathjax',
+    lazyLoad: undefined,
+    outputType: 'script',
+    className: 'math-tex',
+    forceOutputType: true,
+    enablePreview: true,
+    previewClassName: [],
+    popupClassName: [],
+    katexRenderOptions: {}
   },
   language: 'es',
 };

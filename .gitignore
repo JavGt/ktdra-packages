@@ -1,3 +1,11 @@
-node_modules/
-**/**/dist/
-**/node_modules/
+# icons
+icons/BT/**/*.d.ts
+icons/BT/**/*.tsx
+icons/BT/**/*.js
+icons/node_modules
+node_modules
+
+
+# reader-ui
+reader-ui/node_modules
+reader-ui/dist

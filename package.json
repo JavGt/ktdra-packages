@@ -1,5 +1,5 @@
 {
-	"name": "@ktdra/monorepo",
+	"name": "@ktdra-digital/monorepo",
 	"private": true,
 	"scripts": {
 		"build:icons": "lerna run build --scope=@ktdra/icons",

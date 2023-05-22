@@ -1,8 +1,8 @@
 import React from 'react';
-import { marked } from 'marked';
 import { type Color } from '@ktdra-digital/utils';
 import styled from 'styled-components';
 import { type StylesContainerFC, stylesContainer } from '../utils/styleContainer';
+import { markdownToHtml } from '../utils/marked';
 
 export type ContainerShadowProps = {
 	children: string;
@@ -17,7 +17,7 @@ const ContainerShadow: StylesContainerFC<ContainerShadowProps> = ({
 	return (
 		<ContainerShadowStyled
 			color={color.main}
-			dangerouslySetInnerHTML={{ __html: marked.parse(children) }}
+			dangerouslySetInnerHTML={{ __html: markdownToHtml(children) }}
 		/>
 	);
 };

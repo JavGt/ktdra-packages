@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { stylesContainer, StylesContainerFC } from '../utils';
 import { Color } from '@ktdra-digital/utils';
-import { marked } from 'marked';
+import { markdownToHtml } from '../utils/marked';
 
 export type ImageProps = {
 	src: string;
@@ -31,7 +31,7 @@ const Image: StylesContainerFC<ImageProps> = ({
 					style={{
 						color: color.main,
 					}}
-					dangerouslySetInnerHTML={{ __html: marked.parse(figcaption || '') }}
+					dangerouslySetInnerHTML={{ __html: markdownToHtml(figcaption || '') }}
 				></figcaption>
 			</picture>
 		</ImageStyle>

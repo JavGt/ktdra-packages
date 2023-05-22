@@ -1,1 +1,1 @@
-export { default as asdsad } from './Texto';
+export { default as Texto } from './Texto';

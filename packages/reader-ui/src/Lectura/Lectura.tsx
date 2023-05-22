@@ -4,6 +4,7 @@ import { StylesContainerFC, stylesContainer } from '../utils';
 import { type Color } from '@ktdra-digital/utils';
 import { marked } from 'marked';
 import { Lectura as LecturaIcon } from '@ktdra-digital/icons';
+import { markdownToHtml } from '../utils/marked';
 
 export type LecturaProps = {
 	text: string;
@@ -20,7 +21,7 @@ const Lectura: StylesContainerFC<LecturaProps> = ({ colorAC, text }) => {
 
 			<LecturaStyled
 				color={color.light}
-				dangerouslySetInnerHTML={{ __html: marked.parse(text) }}
+				dangerouslySetInnerHTML={{ __html: markdownToHtml(text) }}
 			></LecturaStyled>
 		</div>
 	);

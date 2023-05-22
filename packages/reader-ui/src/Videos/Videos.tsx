@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { styled } from '@mui/material';
 import { AC, Color, useGetColorsAC } from '@ktdra-digital/utils';
 import { WrapperStyle } from '../WrapperStyle';
@@ -11,6 +11,26 @@ export type VideosProps = {
 
 const Videos: ComponentStyled<VideosProps> = ({ AC, url, background, item }) => {
 	const color = useGetColorsAC(AC, 'primary') as Color;
+	const [videoId, setVideoId] = useState('' as string);
+	const [isShorts, setIsShorts] = useState(false as boolean);
+
+	useEffect(() => {
+		const youtubeURL = new URL(url);
+
+		if (youtubeURL.pathname.startsWith('/shorts')) {
+			const path = youtubeURL.pathname.split('/');
+			const videoId = path[path.length - 1];
+			setIsShorts(true);
+			setVideoId(videoId);
+			return;
+		}
+
+		const params = new URLSearchParams(youtubeURL.search);
+
+		const videoId = params.get('v') as string;
+
+		setVideoId(videoId);
+	}, [url]);
 
 	return (
 		<WrapperStyle background={background} item={item}>
@@ -23,7 +43,7 @@ const Videos: ComponentStyled<VideosProps> = ({ AC, url, background, item }) => 
 
 				<div className='content'>
 					<iframe
-						src={url}
+						src={`https://www.youtube.com/embed/${videoId}`}
 						title='YouTube video player'
 						allowFullScreen
 						allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'

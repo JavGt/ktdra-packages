@@ -1,28 +1,28 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Complementate } from '@ktdra-digital/icons';
-import { AC, ACPalette, Color, useGetColorsAC } from '@ktdra-digital/utils';
+import { ACPalette, Color } from '@ktdra-digital/utils';
+import { StylesContainerFC, markdownToHtml, stylesContainer } from '../utils';
 
 export type TituloComplementateProps = {
-	AC: AC;
 	text: string;
 };
 
-const TituloComplementate: React.FC<TituloComplementateProps> = ({ AC, text }) => {
-	const { primary, secondary } = useGetColorsAC(AC) as ACPalette;
+const TituloComplementate: StylesContainerFC<TituloComplementateProps> = ({ text, colorAC }) => {
+	const { primary, secondary } = colorAC as ACPalette;
 
 	return (
 		<TituloComplementateStyle primary={primary} secondary={secondary}>
 			<Complementate />
 
-			<div className='text'>{text}</div>
+			<div className='text' dangerouslySetInnerHTML={{ __html: markdownToHtml(text) }} />
 
 			<div className='line' />
 		</TituloComplementateStyle>
 	);
 };
 
-export default TituloComplementate;
+export default stylesContainer(TituloComplementate);
 
 export const TituloComplementateStyle = styled.div<{
 	primary: Color;

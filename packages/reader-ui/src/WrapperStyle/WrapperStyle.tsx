@@ -59,11 +59,7 @@ export type Styles = {
 
 export type ComponentStyled<T = {}> = React.FC<T & Styles>;
 
-const WrapperStyle: React.FC<Styles & { children?: React.ReactNode }> = ({
-	children,
-	background,
-	item,
-}) => {
+const WrapperStyle: React.FC<Styles & { children?: React.ReactNode }> = ({ children, background, item }) => {
 	return (
 		<StyledComponent {...background}>
 			<ItemStyle {...item}>{children}</ItemStyle>
@@ -121,7 +117,7 @@ export const StyledComponent = styled.div<BgStyles>`
 `;
 
 export const FactorySize = (prop: Px | InsetsGroup | Insets | undefined) => {
-	if (!prop) return '0px';
+	if (!prop) return '0';
 
 	if (typeof prop === 'string') return prop;
 

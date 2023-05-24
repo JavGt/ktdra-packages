@@ -1,27 +1,20 @@
 import React from 'react';
 import { Lectura } from '@ktdra-digital/icons';
 import styled from 'styled-components';
-import { AC, Color, useGetColorsAC } from '@ktdra-digital/utils';
-import WrapperStyle, { ComponentStyled } from '../WrapperStyle/WrapperStyle';
+import { Color } from '@ktdra-digital/utils';
+import { StylesContainerFC, stylesContainer } from '../utils';
 
-export type TituloLecturaProps = { AC: AC };
+export type TituloLecturaProps = {};
 
-const TituloLectura: ComponentStyled<TituloLecturaProps> = ({ AC, background, item }) => {
-	const colors = useGetColorsAC(AC, 'primary') as Color;
+const TituloLectura: StylesContainerFC<TituloLecturaProps> = ({ colorAC }) => {
+	const colors = colorAC as Color;
 
 	return (
-		<WrapperStyle background={background} item={item}>
-			<TituloLecturaStyle colors={colors}>
-				<Lectura
-					style={{
-						width: 60,
-						fill: colors.main,
-					}}
-				/>
+		<TituloLecturaStyle colors={colors}>
+			<Lectura style={{ width: 60, fill: colors.main }} />
 
-				<div className='linea' />
-			</TituloLecturaStyle>
-		</WrapperStyle>
+			<div className='linea' />
+		</TituloLecturaStyle>
 	);
 };
 
@@ -29,6 +22,7 @@ export const TituloLecturaStyle = styled.div<{ colors: Color }>`
 	display: flex;
 	align-items: center;
 	gap: 10px;
+	width: 100%;
 
 	& .linea {
 		height: 2px;
@@ -50,4 +44,6 @@ export const TituloLecturaStyle = styled.div<{ colors: Color }>`
 	}
 `;
 
-export default TituloLectura;
+export default stylesContainer(TituloLectura, {
+	colorSelector: 'primary',
+});

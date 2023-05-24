@@ -1,6 +1,6 @@
 {
 	"name": "@ktdra-digital/reader-ui",
-	"version": "0.0.3",
+	"version": "0.0.7",
 	"description": "Now I’m the model of a modern major general / The venerated Virginian veteran whose men are all / Lining up, to put me up on a pedestal / Writin’ letters to relatives / Embellishin’ my elegance and eloquence / But the elephant is in the room / The truth is in ya face when ya hear the British cannons go / BOOM",
 	"keywords": [],
 	"main": "dist/index.js",
@@ -22,13 +22,14 @@
 		"release": "npm publish --registry https://registry.npmjs.org/"
 	},
 	"dependencies": {
+		"@ckeditor/ckeditor5-react": "^6.0.0",
 		"@emotion/react": "^11.11.0",
 		"@emotion/styled": "^11.11.0",
 		"@ktdra-digital/icons": "*",
 		"@ktdra-digital/utils": "*",
 		"@mui/material": "^5.12.3",
 		"marked": "^5.0.1",
-		"@ckeditor/ckeditor5-react": "^6.0.0",
+		"marked-mangle": "^1.0.1",
 		"styled-components": "^5.3.10"
 	},
 	"devDependencies": {

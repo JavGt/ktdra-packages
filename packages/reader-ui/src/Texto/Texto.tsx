@@ -1,6 +1,6 @@
 import React from 'react';
-import { marked } from 'marked';
 import { stylesContainer, StylesContainerFC } from '../utils';
+import { markdownToHtml } from '../utils/marked';
 
 export type TextoProps = {
 	text: string;
@@ -14,7 +14,7 @@ const Texto: StylesContainerFC<TextoProps> = ({ text }) => {
 				textRendering: 'optimizeLegibility',
 				fontFamily: 'sans-serif',
 			}}
-			dangerouslySetInnerHTML={{ __html: marked.parse(text) }}
+			dangerouslySetInnerHTML={{ __html: markdownToHtml(text) }}
 		></div>
 	);
 };

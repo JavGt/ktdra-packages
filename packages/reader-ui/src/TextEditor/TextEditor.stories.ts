@@ -15,8 +15,5 @@ export default meta;
 type Story = StoryObj<typeof TextEditor>;
 
 export const Elaboramos: Story = {
-	args: {
-		variant: 'elaboramos',
-		AC: 'Ciencias sociales',
-	},
+	args: {},
 };

@@ -1,23 +1,17 @@
 import React from 'react';
 import { Box, Divider, Stack } from '@mui/material';
 import type { Color } from '@ktdra-digital/utils/dist/data';
-import { marked } from 'marked';
 import { StylesContainerFC, stylesContainer } from '../utils';
+import { markdownToHtml } from '../utils/marked';
 
 export type EjemploProps = {
 	numberExample?: number;
 	text: string;
-	isLabel?: boolean;
+	isLabel: boolean;
 	footer?: string;
 };
 
-const Ejemplo: StylesContainerFC<EjemploProps> = ({
-	text,
-	isLabel,
-	footer,
-	numberExample,
-	colorAC,
-}) => {
+const Ejemplo: StylesContainerFC<EjemploProps> = ({ text, isLabel, footer, numberExample, colorAC }) => {
 	const color = colorAC as Color;
 
 	return (
@@ -43,14 +37,14 @@ const Ejemplo: StylesContainerFC<EjemploProps> = ({
 					boxShadow: '10px 10px 10px 0 rgba(0, 0, 0, 0.2)',
 				}}
 			>
-				<div dangerouslySetInnerHTML={{ __html: marked.parse(text) }} />
+				<div dangerouslySetInnerHTML={{ __html: markdownToHtml(text) }} />
 
 				{footer && (
 					<Box sx={{ mb: 2 }}>
 						<Divider sx={{ mt: 3, mb: 1 }} />
 
 						<Box sx={{ fontFamily: 'serif' }} color='#7b7b7b'>
-							<div dangerouslySetInnerHTML={{ __html: marked.parse(footer) }} />
+							<div dangerouslySetInnerHTML={{ __html: markdownToHtml(footer) }} />
 						</Box>
 					</Box>
 				)}

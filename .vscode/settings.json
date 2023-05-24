@@ -4,5 +4,5 @@
 	"reactCreateComponent.settings.importReactOnTop": true,
 	"reactCreateComponent.settings.SelectLanguage": "TypeScript",
 	"reactCreateComponent.settings.SelectTypeStyle": "Style Component",
-	"conventionalCommits.scopes": ["text-editor"]
+	"conventionalCommits.scopes": ["text-editor", "reader-ui"]
 }

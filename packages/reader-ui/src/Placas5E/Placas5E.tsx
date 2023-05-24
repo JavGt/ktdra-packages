@@ -1,6 +1,6 @@
 import React from 'react';
 import { Stack, Typography } from '@mui/material';
-import type { AC, Color } from '@ktdra-digital/utils/dist/data';
+import type { Color } from '@ktdra-digital/utils/dist/data';
 import { type StylesContainerFC, stylesContainer } from '../utils';
 
 export const Placas5EVariant = {
@@ -36,10 +36,6 @@ export type Placas5EProps = {
 	 * Indica para que progresión de aprendizaje corresponde
 	 */
 	variant: keyof typeof Placas5EVariant;
-	/**
-	 * Indicar hacia que Area de conocimiento corresponde la Placa 5S
-	 */
-	AC: AC;
 };
 
 const Placas5E: StylesContainerFC<Placas5EProps> = ({ variant, colorAC }) => {
@@ -50,31 +46,23 @@ const Placas5E: StylesContainerFC<Placas5EProps> = ({ variant, colorAC }) => {
 	const { [icon]: Icon } = require('@ktdra-digital/icons/dist/BT');
 
 	return (
-		<Stack
-			direction='row'
-			width='100%'
-			alignItems='center'
-			gap={0.5}
-			justifyContent='center'
-		>
+		<Stack direction='row' width='100%' alignItems='center' gap={0.5} justifyContent='center'>
 			<Stack
 				alignItems='center'
 				sx={{
 					width: 60,
 					'& > svg': {
 						fill: color.main,
-						'& path:nth-child(2)': { fill: `${color.light} !important` },
+						'& path:nth-of-type(2)': {
+							fill: `${color.light} !important`,
+						},
 					},
 				}}
 			>
 				<Icon />
 			</Stack>
 
-			<Typography
-				sx={{ color: color.main }}
-				marginRight={0.5}
-				fontSize={{ xs: 18, md: 22 }}
-			>
+			<Typography sx={{ color: color.main }} marginRight={0.5} fontSize={{ xs: 18, md: 22 }}>
 				{label}
 			</Typography>
 

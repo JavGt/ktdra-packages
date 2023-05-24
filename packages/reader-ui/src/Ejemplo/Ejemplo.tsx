@@ -7,17 +7,11 @@ import { markdownToHtml } from '../utils/marked';
 export type EjemploProps = {
 	numberExample?: number;
 	text: string;
-	isLabel?: boolean;
+	isLabel: boolean;
 	footer?: string;
 };
 
-const Ejemplo: StylesContainerFC<EjemploProps> = ({
-	text,
-	isLabel,
-	footer,
-	numberExample,
-	colorAC,
-}) => {
+const Ejemplo: StylesContainerFC<EjemploProps> = ({ text, isLabel, footer, numberExample, colorAC }) => {
 	const color = colorAC as Color;
 
 	return (

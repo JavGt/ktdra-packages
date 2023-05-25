@@ -1,12 +1,17 @@
 {
 	"name": "@ktdra-digital/icons",
-	"version": "0.0.3",
+	"version": "0.0.7",
 	"license": "MIT",
 	"main": "dist/index.js",
 	"author": {
 		"name": "ktdra Team",
 		"email": "mvp.desarrollo@gmail.com",
 		"url": "https://k-tdra.com/"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/JavGt/ktdra-packages/",
+		"directory": "packages/icons"
 	},
 	"files": [
 		"dist"

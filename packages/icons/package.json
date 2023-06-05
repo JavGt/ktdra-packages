@@ -1,8 +1,9 @@
 {
 	"name": "@ktdra-digital/icons",
-	"version": "0.0.7",
+	"version": "0.0.11",
 	"license": "MIT",
-	"main": "dist/index.js",
+	"module": "./dist/index.js",
+	"types":"./dist/index.d.ts",
 	"author": {
 		"name": "ktdra Team",
 		"email": "mvp.desarrollo@gmail.com",
@@ -14,10 +15,13 @@
 		"directory": "packages/icons"
 	},
 	"files": [
-		"dist"
+		"dist",
+		"!dist/**/*.map"
 	],
 	"scripts": {
-		"build:svgr": "svgr --config-file .svgrrc.js src",
+		"delete:components":"node ../../scripts/icons/delete.mjs components",
+		"build:ts-watch": "tsc -w",
+		"build:svgr": "svgr --config-file .svgrrc.js svgs --out-dir src --silent",
 		"build:ts": "tsc",
 		"build": "yarn delete:dist && yarn build:svgr && yarn build:barrel && yarn array  && yarn build:ts  && yarn build:pckTp  ",
 		"build:barrel": "node ../../scripts/create-barrel.mjs",
@@ -38,5 +42,6 @@
 		"@types/react": "^18.2.3",
 		"react": "^18.2.0",
 		"typescript": "^5.0.4"
-	}
+	},
+	"dependencies": {}
 }

@@ -8,7 +8,6 @@ export type VideosProps = {
 };
 
 const Videos: StylesContainerFC<VideosProps> = ({ url, colorAC }) => {
-	const color = colorAC as Color;
 	const [videoId, setVideoId] = useState('' as string);
 
 	const [isShorts, setIsShorts] = useState(false as boolean);
@@ -18,7 +17,10 @@ const Videos: StylesContainerFC<VideosProps> = ({ url, colorAC }) => {
 		try {
 			const youtubeURL = new URL(url);
 
-			if (youtubeURL.pathname.startsWith('/shorts') || youtubeURL.pathname.startsWith('/embed')) {
+			if (
+				youtubeURL.pathname.startsWith('/shorts') ||
+				youtubeURL.pathname.startsWith('/embed')
+			) {
 				const path = youtubeURL.pathname.split('/');
 				const videoId = path[path.length - 1];
 				setIsShorts(true);
@@ -37,7 +39,7 @@ const Videos: StylesContainerFC<VideosProps> = ({ url, colorAC }) => {
 	}, [url]);
 
 	return (
-		<VideoS className='iframe' color={color.alternative} btn={color.light}>
+		<VideoS className='iframe' color={colorAC.alternative} btn={colorAC.light}>
 			<div className='header'>
 				<span className='btn'></span>
 				<span className='btn'></span>
@@ -112,6 +114,4 @@ const VideoS = styled('div')<{
 	},
 }));
 
-export default stylesContainer(Videos, {
-	colorSelector: 'primary',
-});
+export default stylesContainer(Videos);

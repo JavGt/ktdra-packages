@@ -1,2 +1,2 @@
-export * from './marked';
+export * from './markdownToHtml';
 export * from './styleContainer';

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Color } from '@ktdra-digital/utils';
 import styled from 'styled-components';
 import { StylesContainerFC, stylesContainer } from '../utils';
 
@@ -8,15 +7,15 @@ export type DividerProps = {
 	size: number;
 };
 
-const Divider: StylesContainerFC<DividerProps> = ({ type = 'solid', size = 10, colorAC }) => {
-	const { main } = colorAC as Color;
-
-	return <DividerStyled size={size} type={type} color={main} />;
+const Divider: StylesContainerFC<DividerProps> = ({
+	type = 'solid',
+	size = 10,
+	colorAC,
+}) => {
+	return <DividerStyled size={size} type={type} color={colorAC.main} />;
 };
 
-export default stylesContainer(Divider, {
-	colorSelector: 'primary',
-});
+export default stylesContainer(Divider);
 
 const DividerStyled = styled.div<{
 	size: number;

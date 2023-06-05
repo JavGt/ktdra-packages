@@ -1,18 +1,21 @@
-import { Color } from '@ktdra-digital/utils';
 import React from 'react';
 import styled from 'styled-components';
 import { markdownToHtml, stylesContainer, StylesContainerFC } from '../utils';
 
 export type TituloBordesProps = {
-	text: string;
+	title: string;
 };
 
-const TituloBordes: StylesContainerFC<TituloBordesProps> = ({ colorAC, text }) => {
-	const color = colorAC as Color;
-
+const TituloBordes: StylesContainerFC<TituloBordesProps> = ({
+	colorAC,
+	title,
+}) => {
 	return (
-		<TituloBordesStyle color={color.alternative}>
-			<div className='title' dangerouslySetInnerHTML={{ __html: markdownToHtml(text) }} />
+		<TituloBordesStyle color={colorAC.alternative}>
+			<div
+				className='title'
+				dangerouslySetInnerHTML={{ __html: markdownToHtml(title) }}
+			/>
 		</TituloBordesStyle>
 	);
 };
@@ -32,11 +35,12 @@ export const TituloBordesStyle = styled.div<{
 		padding: 5px 30px;
 		font-size: 24px;
 		font-weight: 600;
-		font-family: '--apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell';
+		font-family: '--apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto',
+			'Oxygen', 'Ubuntu', 'Cantarell';
 		background: ${({ color }) => color};
 		color: white;
 		clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
 	}
 `;
 
-export default stylesContainer(TituloBordes, { colorSelector: 'primary' });
+export default stylesContainer(TituloBordes);

@@ -93,7 +93,6 @@ export const StyledComponent = styled.div<BgStyles>`
 	}
 
 	background-color: ${({ backgroundColor }) => backgroundColor || 'transparent'};
-	overflow: auto;
 	color: ${({ color }) => color || 'black'};
 	border-radius: ${({ borderRadius }) => {
 		if (typeof borderRadius === 'string') return borderRadius;

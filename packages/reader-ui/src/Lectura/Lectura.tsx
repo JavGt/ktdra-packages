@@ -1,33 +1,29 @@
 import React from 'react';
 import styled from 'styled-components';
 import { StylesContainerFC, stylesContainer } from '../utils';
-import { type Color } from '@ktdra-digital/utils';
-import { marked } from 'marked';
-import { Lectura as LecturaIcon } from '@ktdra-digital/icons';
-import { markdownToHtml } from '../utils/marked';
+import { Lectura as LecturaIcon } from '@ktdra-digital/icons/dist/BT';
+import { markdownToHtml } from '../utils/markdownToHtml';
 
 export type LecturaProps = {
 	text: string;
 };
 
 const Lectura: StylesContainerFC<LecturaProps> = ({ colorAC, text }) => {
-	const color = colorAC as Color;
-
 	return (
 		<div style={{ position: 'relative' }}>
-			<IconStyled color={color.main}>
+			<IconStyled color={colorAC.main}>
 				<LecturaIcon />
 			</IconStyled>
 
 			<LecturaStyled
-				color={color.light}
+				color={colorAC.light}
 				dangerouslySetInnerHTML={{ __html: markdownToHtml(text) }}
-			></LecturaStyled>
+			/>
 		</div>
 	);
 };
 
-export default stylesContainer(Lectura, { colorSelector: 'primary' });
+export default stylesContainer(Lectura);
 
 const IconStyled = styled.div<{
 	color: string;

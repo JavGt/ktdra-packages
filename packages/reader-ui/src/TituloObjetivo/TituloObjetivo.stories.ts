@@ -9,7 +9,6 @@ const meta: Meta<typeof TituloObjetivo> = {
 		layout: 'fullscreen',
 	},
 	args: {
-		AC: 'Ciencias sociales',
 	},
 };
 

@@ -9,7 +9,6 @@ const meta: Meta<typeof TituloParcial> = {
 		layout: 'fullscreen',
 	},
 	args: {
-		AC: 'Ciencias sociales',
 	},
 };
 
@@ -19,16 +18,14 @@ type Story = StoryObj<typeof TituloParcial>;
 
 export const CompletoLeft: Story = {
 	args: {
-		AC: 'Ciencias sociales',
 		title: 'Título de la unidad',
-		suffix: 'Unidad 1',
+		companion: 'Unidad 1',
 	},
 };
 
 export const SinIconoRight: Story = {
 	args: {
-		AC: 'Ciencias biológicas y químicas',
 		title: 'Título ejemplo',
-		suffix: 'Primer Parcial',
+		companion: 'Primer Parcial',
 	},
 };

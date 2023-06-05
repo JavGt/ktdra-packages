@@ -1,6 +1,6 @@
 import React from 'react';
 import { stylesContainer, StylesContainerFC } from '../utils';
-import { markdownToHtml } from '../utils/marked';
+import { markdownToHtml } from '../utils/markdownToHtml';
 
 export type TextoProps = {
 	text: string;
@@ -15,8 +15,8 @@ const Texto: StylesContainerFC<TextoProps> = ({ text }) => {
 				fontFamily: 'sans-serif',
 			}}
 			dangerouslySetInnerHTML={{ __html: markdownToHtml(text) }}
-		></div>
+		/>
 	);
 };
 
-export default stylesContainer(Texto, { colorSelector: 'primary' });
+export default stylesContainer(Texto);

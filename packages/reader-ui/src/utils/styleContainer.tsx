@@ -1,19 +1,31 @@
 import React from 'react';
 import WrapperStyle, { type Styles } from '../WrapperStyle/WrapperStyle';
-import { AC, ACPalette, Color, PaletteKeys, useGetColorsAC } from '@ktdra-digital/utils';
+import {
+	AC,
+	ACPalette,
+	Color,
+	PaletteKeys,
+	useGetColorsAC,
+} from '@ktdra-digital/utils';
 
 export type OptionsStyles = Partial<{
-	colorSelector: PaletteKeys;
+	colorType: 'ACPalette' | 'Color';
 }>;
 
+export type Subsistema = 'BT' | 'DGB';
+
 export type InjectedProps = {
-	colorAC: Color | ACPalette;
+	colorAC: Color;
+	ACPalette: ACPalette;
 	AC: AC;
+	subsistema: Subsistema;
 };
 
 export type PropsHOC<PropsComponent = {}> = PropsComponent &
 	Styles & {
 		AC: AC;
+		subsistema: Subsistema;
+		paletteKey?: PaletteKeys;
 	};
 
 /**
@@ -41,13 +53,23 @@ export const stylesContainer = <PropsComponent = {},>(
 	Component: React.ComponentType<PropsComponent & InjectedProps>,
 	options?: OptionsStyles
 ) => {
-	const { colorSelector } = options || {};
+	const { colorType } = options || {};
 
-	return ({ background, item, ...rest }: PropsHOC<PropsComponent>): JSX.Element => {
-		const colors = useGetColorsAC(rest.AC, colorSelector);
+	const ComponentHOC: React.FC<PropsHOC<PropsComponent>> = ({
+		background,
+		item,
+		AC,
+		paletteKey,
+		...rest
+	}) => {
+		const colors = useGetColorsAC(
+			AC,
+			colorType !== 'ACPalette' ? paletteKey ?? 'primary' : undefined
+		);
 
 		const injectProps = {
-			colorAC: colors,
+			colorAC: colorType === 'Color' || !colorType ? colors : undefined,
+			ACPalette: colorType === 'ACPalette' ? colors : undefined,
 		} as InjectedProps;
 
 		return (
@@ -56,4 +78,8 @@ export const stylesContainer = <PropsComponent = {},>(
 			</WrapperStyle>
 		);
 	};
+
+	ComponentHOC.displayName = 'stylesContainer';
+
+	return ComponentHOC;
 };

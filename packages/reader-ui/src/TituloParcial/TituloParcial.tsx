@@ -1,21 +1,32 @@
 import React from 'react';
 import styled from 'styled-components';
-import { type StylesContainerFC, stylesContainer } from '../utils';
-import { Color } from '@ktdra-digital/utils';
+import {
+	type StylesContainerFC,
+	stylesContainer,
+	markdownToHtml,
+} from '../utils';
 
 export type TituloParcialProps = {
 	title: string;
-	suffix: string;
+	companion: string;
 };
 
-const TituloParcial: StylesContainerFC<TituloParcialProps> = ({ colorAC, title, suffix }) => {
-	const color = colorAC as Color;
-
+const TituloParcial: StylesContainerFC<TituloParcialProps> = ({
+	colorAC,
+	title,
+	companion,
+}) => {
 	return (
-		<TituloParcialStyle color={color.main}>
-			<div className='tema'>{suffix || ''} </div>
-			<div className='divider'></div>
-			<div className='titulo'>{title || ''}</div>
+		<TituloParcialStyle color={colorAC.main}>
+			<div
+				className='tema'
+				dangerouslySetInnerHTML={{ __html: markdownToHtml(companion) }}
+			/>
+			<div className='divider' />
+			<div
+				className='titulo'
+				dangerouslySetInnerHTML={{ __html: markdownToHtml(title) }}
+			/>
 		</TituloParcialStyle>
 	);
 };
@@ -46,6 +57,4 @@ export const TituloParcialStyle = styled.div<{
 	}
 `;
 
-export default stylesContainer(TituloParcial, {
-	colorSelector: 'primary',
-});
+export default stylesContainer(TituloParcial);

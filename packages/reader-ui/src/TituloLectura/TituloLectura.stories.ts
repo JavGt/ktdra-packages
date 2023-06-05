@@ -25,6 +25,5 @@ type Story = StoryObj<typeof TituloLectura>;
 
 export const Text: Story = {
 	args: {
-		AC: 'Ciencias biológicas y químicas',
 	},
 };

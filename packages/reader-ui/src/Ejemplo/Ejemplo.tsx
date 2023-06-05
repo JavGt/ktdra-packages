@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Divider, Stack } from '@mui/material';
 import type { Color } from '@ktdra-digital/utils/dist/data';
 import { StylesContainerFC, stylesContainer } from '../utils';
-import { markdownToHtml } from '../utils/marked';
+import { markdownToHtml } from '../utils/markdownToHtml';
 
 export type EjemploProps = {
 	numberExample?: number;
@@ -11,15 +11,19 @@ export type EjemploProps = {
 	footer?: string;
 };
 
-const Ejemplo: StylesContainerFC<EjemploProps> = ({ text, isLabel, footer, numberExample, colorAC }) => {
-	const color = colorAC as Color;
-
+const Ejemplo: StylesContainerFC<EjemploProps> = ({
+	text,
+	isLabel,
+	footer,
+	numberExample,
+	colorAC,
+}) => {
 	return (
 		<Stack mb='20px' mr='20px' alignItems='flex-start'>
 			{isLabel && (
 				<Box
 					sx={{
-						background: color.alternative,
+						background: colorAC.alternative,
 						padding: '5px 10px',
 						borderRadius: '0 10px 0 0 ',
 						color: 'white',
@@ -44,7 +48,9 @@ const Ejemplo: StylesContainerFC<EjemploProps> = ({ text, isLabel, footer, numbe
 						<Divider sx={{ mt: 3, mb: 1 }} />
 
 						<Box sx={{ fontFamily: 'serif' }} color='#7b7b7b'>
-							<div dangerouslySetInnerHTML={{ __html: markdownToHtml(footer) }} />
+							<div
+								dangerouslySetInnerHTML={{ __html: markdownToHtml(footer) }}
+							/>
 						</Box>
 					</Box>
 				)}
@@ -58,6 +64,4 @@ Ejemplo.defaultProps = {
 	numberExample: 1,
 };
 
-export default stylesContainer(Ejemplo, {
-	colorSelector: 'primary',
-});
+export default stylesContainer(Ejemplo);

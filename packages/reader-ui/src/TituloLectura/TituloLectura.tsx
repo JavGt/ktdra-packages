@@ -1,17 +1,23 @@
 import React from 'react';
-import { Lectura } from '@ktdra-digital/icons';
 import styled from 'styled-components';
 import { Color } from '@ktdra-digital/utils';
 import { StylesContainerFC, stylesContainer } from '../utils';
+import { useIcon } from '@ktdra-digital/icons';
 
 export type TituloLecturaProps = {};
 
-const TituloLectura: StylesContainerFC<TituloLecturaProps> = ({ colorAC }) => {
-	const colors = colorAC as Color;
+const TituloLectura: StylesContainerFC<TituloLecturaProps> = ({
+	colorAC,
+	subsistema,
+}) => {
+	const Icon = useIcon(
+		{ name: 'Lectura', folder: '', isDependent: true },
+		subsistema
+	);
 
 	return (
-		<TituloLecturaStyle colors={colors}>
-			<Lectura style={{ width: 60, fill: colors.main }} />
+		<TituloLecturaStyle colors={colorAC}>
+			{Icon && <Icon style={{ width: 60, fill: colorAC.main }} />}
 
 			<div className='linea' />
 		</TituloLecturaStyle>
@@ -44,6 +50,4 @@ export const TituloLecturaStyle = styled.div<{ colors: Color }>`
 	}
 `;
 
-export default stylesContainer(TituloLectura, {
-	colorSelector: 'primary',
-});
+export default stylesContainer(TituloLectura);

@@ -1,31 +1,30 @@
 import React from 'react';
 import styled from 'styled-components';
 import { ACPalette } from '@ktdra-digital/utils';
-import type { BT } from '@ktdra-digital/icons/dist/BT/utils/types';
-import { stylesContainer, StylesContainerFC } from '../utils';
+import { markdownToHtml, stylesContainer, StylesContainerFC } from '../utils';
+import { Icon, useIcon } from '@ktdra-digital/icons';
 
 export type TituloTagProps = {
-	text: string;
-	icon?: BT;
+	icon?: Icon;
 	position?: 'left' | 'right';
+	title: string;
 };
 
 const TituloTag: StylesContainerFC<TituloTagProps> = ({
-	text,
+	title,
 	icon,
 	position,
 	colorAC,
+	subsistema,
 }) => {
-	const colors = colorAC as ACPalette;
-
-	const Icon = icon && require('@ktdra-digital/icons/dist/BT')[icon];
+	const Icon = icon && useIcon(icon, subsistema);
 
 	return (
 		<TituloContainer position={position}>
-			<Title haveIcon={!!icon} position={position} color={colors.primary.alternative}>
-				<div>{text}</div>
+			<Title haveIcon={!!icon} position={position} color={colorAC.alternative}>
+				<div dangerouslySetInnerHTML={{ __html: markdownToHtml(title) }} />
 
-				{icon && <Icon style={{ width: 50, height: 50 }} />}
+				{Icon && <Icon style={{ width: 50, height: 50 }} />}
 			</Title>
 		</TituloContainer>
 	);
@@ -41,7 +40,8 @@ export const TituloContainer = styled.div<{
 	position?: 'left' | 'right';
 }>`
 	display: flex;
-	justify-content: ${({ position }) => (position === 'left' ? 'flex-start' : 'flex-end')};
+	justify-content: ${({ position }) =>
+		position === 'left' ? 'flex-start' : 'flex-end'};
 `;
 
 export const Title = styled.div<{
@@ -51,7 +51,8 @@ export const Title = styled.div<{
 }>`
 	fill: #fff;
 	padding: 5px;
-	${({ position, haveIcon }) => `	padding-${position}:${!haveIcon ? '50px' : '5px'};`}
+	${({ position, haveIcon }) =>
+		`	padding-${position}:${!haveIcon ? '50px' : '5px'};`}
 
 	display: flex;
 	align-items: center;
@@ -80,7 +81,9 @@ export const Title = styled.div<{
 		height: 100%;
 		bottom: 0;
 		top: 0;
-		transform: rotate(${({ position }) => (position === 'left' ? '180deg' : '0deg')});
+		transform: rotate(
+			${({ position }) => (position === 'left' ? '180deg' : '0deg')}
+		);
 	}
 
 	&::before {

@@ -1,11 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import { stylesContainer, StylesContainerFC } from '../utils';
-import { Color } from '@ktdra-digital/utils';
-import { markdownToHtml } from '../utils/marked';
+import { markdownToHtml } from '../utils/markdownToHtml';
 
 export type ImageProps = {
-	src: string;
+	url: string;
 	figcaption?: string;
 	alt?: string;
 	width?: string;
@@ -13,40 +12,43 @@ export type ImageProps = {
 };
 
 const Image: StylesContainerFC<ImageProps> = ({
-	src,
+	url,
 	figcaption,
 	alt,
 	colorAC,
 	height,
 	width,
 }) => {
-	const color = colorAC as Color;
-
 	return (
 		<ImageStyle>
-			<picture>
-				<img src={src} alt={alt} width={width} height={height} />
+			<img src={url} alt={alt} width={width} height={height} />
 
-				<figcaption
-					style={{
-						color: color.main,
-					}}
-					dangerouslySetInnerHTML={{ __html: markdownToHtml(figcaption || '') }}
-				></figcaption>
-			</picture>
+			<figcaption
+				style={{ color: colorAC.main }}
+				dangerouslySetInnerHTML={{ __html: markdownToHtml(figcaption || '') }}
+			/>
 		</ImageStyle>
 	);
 };
 
-export const ImageStyle = styled.div`
-	display: grid;
-	place-content: center;
+export const ImageStyle = styled.picture`
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	text-align: center;
+	gap: 15px;
+
 	img {
 		display: block;
 		max-width: 100%;
 		max-height: 100%;
 	}
+	figcaption {
+		padding: 0 10%;
+		font-size: 14px;
+		line-height: 1.5;
+	}
 `;
 
-export default stylesContainer(Image, { colorSelector: 'primary' });
+export default stylesContainer(Image);

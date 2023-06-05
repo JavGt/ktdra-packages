@@ -2,17 +2,16 @@ import React from 'react';
 import styled from 'styled-components';
 import { StylesContainerFC, stylesContainer } from '../utils';
 import { Color } from '@ktdra-digital/utils';
-import { markdownToHtml } from '../utils/marked';
+import { markdownToHtml } from '../utils/markdownToHtml';
 
 export type TituloObjetivoProps = {
 	title: string;
 };
 
 const TituloObjetivo: StylesContainerFC<TituloObjetivoProps> = ({ colorAC, title }) => {
-	const color = colorAC as Color;
 
 	return (
-		<TituloObjetivoStyle className='objetivo-aprendizaje' color={color.main}>
+		<TituloObjetivoStyle className='objetivo-aprendizaje' color={colorAC.main}>
 			<div className='objetivo-aprendizaje__figura'>
 				<span className='objetivo-aprendizaje__linea'></span>
 				<span className='objetivo-aprendizaje__linea'></span>
@@ -54,6 +53,4 @@ export const TituloObjetivoStyle = styled.div<{
 	}
 `;
 
-export default stylesContainer(TituloObjetivo, {
-	colorSelector: 'primary',
-});
+export default stylesContainer(TituloObjetivo, );

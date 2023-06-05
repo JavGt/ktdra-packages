@@ -1,7 +1,7 @@
 import { marked } from 'marked';
 
 export const markdownToHtml = (text: string) =>
-	marked.parse(text || '', {
+	marked.parseInline(text || '', {
 		mangle: false,
 		headerIds: false,
 	});

@@ -9,7 +9,6 @@ const meta: Meta<typeof TituloTag> = {
 		layout: 'fullscreen',
 	},
 	args: {
-		AC: 'Ciencias sociales',
 	},
 };
 
@@ -19,15 +18,19 @@ type Story = StoryObj<typeof TituloTag>;
 
 export const CompletoLeft: Story = {
 	args: {
-		text: 'Avance de Proyecto integrador',
-		icon: 'Honestidad',
+		title: 'Avance de Proyecto integrador',
+		icon: {
+			folder: '',
+			name: 'Tic',
+			isDependent: true,
+		},
 		position: 'right',
 	},
 };
 
 export const SinIconoRight: Story = {
 	args: {
-		text: 'Repaso',
+		title: 'Repaso',
 		position: 'right',
 	},
 };

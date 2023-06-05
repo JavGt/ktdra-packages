@@ -19,6 +19,5 @@ type Story = StoryObj<typeof EjemploDeVista>;
 
 export const Text: Story = {
 	args: {
-		AC: 'Ciencias biológicas y químicas',
 	},
 };

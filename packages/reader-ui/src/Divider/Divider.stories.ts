@@ -15,14 +15,11 @@ export default meta;
 type Story = StoryObj<typeof Divider>;
 
 export const Default: Story = {
-	args: {
-		AC: 'Ciencias sociales',
-	},
+	args: {},
 };
 
 export const Custom: Story = {
 	args: {
-		AC: 'Ciencias sociales',
 		size: 2,
 		type: 'dashed',
 	},

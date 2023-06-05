@@ -1,28 +1,41 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Complementate } from '@ktdra-digital/icons';
 import { ACPalette, Color } from '@ktdra-digital/utils';
 import { StylesContainerFC, markdownToHtml, stylesContainer } from '../utils';
+import { useIcon } from '@ktdra-digital/icons';
 
 export type TituloComplementateProps = {
-	text: string;
+	title: string;
 };
 
-const TituloComplementate: StylesContainerFC<TituloComplementateProps> = ({ text, colorAC }) => {
-	const { primary, secondary } = colorAC as ACPalette;
+const TituloComplementate: StylesContainerFC<TituloComplementateProps> = ({
+	title,
+	subsistema,
+	ACPalette,
+}) => {
+	const { primary, secondary } = ACPalette;
+	const Icon = useIcon(
+		{ name: 'Complementate', folder: '', isDependent: true },
+		subsistema
+	);
 
 	return (
 		<TituloComplementateStyle primary={primary} secondary={secondary}>
-			<Complementate />
+			{Icon && <Icon />}
 
-			<div className='text' dangerouslySetInnerHTML={{ __html: markdownToHtml(text) }} />
+			<div
+				className='text'
+				dangerouslySetInnerHTML={{ __html: markdownToHtml(title) }}
+			/>
 
 			<div className='line' />
 		</TituloComplementateStyle>
 	);
 };
 
-export default stylesContainer(TituloComplementate);
+export default stylesContainer(TituloComplementate, {
+	colorType: 'ACPalette',
+});
 
 export const TituloComplementateStyle = styled.div<{
 	primary: Color;
@@ -34,12 +47,15 @@ export const TituloComplementateStyle = styled.div<{
 	color: ${({ secondary }) => secondary.alternative};
 
 	.text {
-		font-family: '--apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen';
+		font-family: '--apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto',
+			'Oxygen';
 		font-size: 20px;
+		max-width: 40%;
 	}
 
 	svg {
-		width: 60px;
+		width: min(60px, 60px);
+
 		path {
 			&:nth-child(1) {
 				fill: ${({ secondary }) => secondary.alternative};

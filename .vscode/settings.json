@@ -4,5 +4,7 @@
 	"reactCreateComponent.settings.importReactOnTop": true,
 	"reactCreateComponent.settings.SelectLanguage": "TypeScript",
 	"reactCreateComponent.settings.SelectTypeStyle": "Style Component",
-	"conventionalCommits.scopes": ["text-editor", "reader-ui"]
+	"conventionalCommits.scopes": ["text-editor", "reader-ui"],
+	"svg.preview.background": "transparent",
+	"editor.formatOnSave": false
 }

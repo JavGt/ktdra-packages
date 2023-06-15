@@ -1,5 +1,6 @@
 import type { Preview } from '@storybook/react';
 import withStates from './withStates';
+import { SubsArray } from '@ktdra-digital/utils';
 
 const preview: Preview = {
 	parameters: {
@@ -11,9 +12,6 @@ const preview: Preview = {
 			},
 		},
 		layout: 'fullscreen',
-		backgrounds: {
-			default: 'white',
-		},
 	},
 };
 
@@ -24,12 +22,12 @@ export const globalTypes: Preview['globalTypes'] = {
 		// Mostrar el nombre y la opcion seleccionada en el toolbar
 		name: 'Subsistema',
 		description: 'Subsistemas escolares',
-		type: 'number',
-		defaultValue: 'BT',
+		type: 'string',
+		defaultValue: SubsArray[0],
 		toolbar: {
 			icon: 'circlehollow',
 			dynamicTitle: true,
-			items: ['BT', 'DGB'],
+			items: SubsArray,
 		},
 	},
 	AC: {

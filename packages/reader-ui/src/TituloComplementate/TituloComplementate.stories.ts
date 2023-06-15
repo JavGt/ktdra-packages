@@ -17,5 +17,10 @@ type Story = StoryObj<typeof TituloComplementate>;
 export const Elaboramos: Story = {
 	args: {
 		title: 'Complementate',
+		icon: {
+			folder: '',
+			name: 'ProyectoIntegrador',
+			isDependent: true,
+		},
 	},
 };

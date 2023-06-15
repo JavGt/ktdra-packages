@@ -9,11 +9,6 @@ export type TextoProps = {
 const Texto: StylesContainerFC<TextoProps> = ({ text }) => {
 	return (
 		<div
-			style={{
-				lineHeight: 1.8,
-				textRendering: 'optimizeLegibility',
-				fontFamily: 'sans-serif',
-			}}
 			dangerouslySetInnerHTML={{ __html: markdownToHtml(text) }}
 		/>
 	);

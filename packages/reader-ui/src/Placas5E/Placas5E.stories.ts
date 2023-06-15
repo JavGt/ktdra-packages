@@ -17,6 +17,9 @@ type Story = StoryObj<typeof Placas5E>;
 export const Elaboramos: Story = {
 	args: {
 		variant: 'elaboramos',
+		item:{
+			width: 30,
+		}
 	},
 };
 
@@ -29,6 +32,7 @@ export const Enganchamos: Story = {
 export const Evaluamos: Story = {
 	args: {
 		variant: 'evaluamos',
+		idioma:"en"
 	},
 };
 

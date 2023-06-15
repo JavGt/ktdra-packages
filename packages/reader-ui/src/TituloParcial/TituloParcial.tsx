@@ -1,28 +1,31 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import {
 	type StylesContainerFC,
 	stylesContainer,
 	markdownToHtml,
 } from '../utils';
+import { PaletteKeys } from '@ktdra-digital/utils';
 
 export type TituloParcialProps = {
 	title: string;
 	companion: string;
+	paletteKey?: PaletteKeys;
 };
 
 const TituloParcial: StylesContainerFC<TituloParcialProps> = ({
-	colorAC,
+	colors,
 	title,
 	companion,
+	paletteKey = 'primary',
 }) => {
 	return (
-		<TituloParcialStyle color={colorAC.main}>
+		<TituloParcialStyle color={colors[paletteKey].main}>
 			<div
 				className='tema'
 				dangerouslySetInnerHTML={{ __html: markdownToHtml(companion) }}
 			/>
-			<div className='divider' />
+			{companion && <div className='divider' />}
 			<div
 				className='titulo'
 				dangerouslySetInnerHTML={{ __html: markdownToHtml(title) }}

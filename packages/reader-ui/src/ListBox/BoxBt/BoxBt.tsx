@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import { BoxProps } from '../ListBox';
 import { markdownToHtml } from '../../utils';
 import { Complementate } from '@ktdra-digital/icons/dist/BT';
@@ -29,6 +29,7 @@ export const ListBoxItem = styled.div<Pick<BoxProps, 'colorCustom'>>`
 	padding: 10px;
 	background-color: ${({ colorCustom }) => colorCustom.light};
 	border-radius: 10px;
+	word-break: break-all;
 
 	@media (hover: hover) {
 		&:hover {
@@ -47,7 +48,10 @@ export const ListBoxItem = styled.div<Pick<BoxProps, 'colorCustom'>>`
 		gap: 5px;
 		font-weight: 500;
 
+
+
 		svg {
+			flex-shrink: 0;
 			width: min(40px, 40px);
 			fill: ${({ colorCustom }) => colorCustom.alternative};
 		}

@@ -1,42 +1,91 @@
-export const Placas5EVariant = {
-	enganchamos: {
-		label: 'Enganchamos',
-		color: {
-			BT: 'secondary',
-			DGB: 'primary',
+export const Placas5EVariant = Object.freeze({
+	BT: {
+		enganchamos: {
+			labelKey: 'enganchamos',
+			color: 'secondary',
+			icon: 'Enganchamos',
 		},
-		icon: 'Enganchamos',
+		exploramos: {
+			labelKey: 'exploramos',
+			color: 'primary',
+			icon: 'Exploramos',
+		},
+		explicamos: {
+			labelKey: 'explicamos',
+			color: 'secondary',
+			icon: 'Explicamos',
+		},
+		elaboramos: {
+			labelKey: 'elaboramos',
+			color: 'secondary',
+			icon: 'Elaboramos',
+		},
+		evaluamos: {
+			labelKey: 'evaluamos',
+			color: 'primary',
+			icon: 'Evaluamos',
+		},
+	},
+	DGB: {
+		enganchamos: {
+			labelKey: 'enganchamos',
+			color: 'primary',
+			icon: 'Enganchamos',
+			dots: 1,
+		},
+		exploramos: {
+			labelKey: 'exploramos',
+			color: 'secondary',
+			icon: 'Exploramos',
+			dots: 2,
+		},
+		explicamos: {
+			labelKey: 'explicamos',
+			color: 'primary',
+			icon: 'Explicamos',
+			dots: 3,
+		},
+		elaboramos: {
+			labelKey: 'elaboramos',
+			color: 'secondary',
+			icon: 'Elaboramos',
+			dots: 4,
+		},
+		evaluamos: {
+			labelKey: 'evaluamos',
+			color: 'primary',
+			icon: 'Evaluamos',
+			dots: 5,
+		},
+	},
+});
+
+export const labels = {
+	enganchamos: {
+		es: 'Enganchamos',
+		en: 'Engage',
 	},
 	exploramos: {
-		label: 'Exploramos',
-		color: {
-			BT: 'primary',
-			DGB: 'secondary',
-		},
-		icon: 'Exploramos',
+		es: 'Exploramos',
+		en: 'Explore',
 	},
 	explicamos: {
-		label: 'Explicamos',
-		color: {
-			BT: 'secondary',
-			DGB: 'primary',
-		},
-		icon: 'Explicamos',
+		es: 'Explicamos',
+		en: 'Explain',
 	},
 	elaboramos: {
-		label: 'Elaboramos',
-		color: {
-			BT: 'secondary',
-			DGB: 'primary',
-		},
-		icon: 'Elaboramos',
+		es: 'Elaboramos',
+		en: 'Elaborate',
 	},
 	evaluamos: {
-		label: 'Evaluamos',
-		color: {
-			BT: 'primary',
-			DGB: 'secondary',
-		},
-		icon: 'Evaluamos',
+		es: 'Evaluamos',
+		en: 'Evaluate',
 	},
 };
+export const Placas5EVariantKeys = [
+	'enganchamos',
+	'exploramos',
+	'explicamos',
+	'elaboramos',
+	'evaluamos',
+];

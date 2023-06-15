@@ -19,8 +19,8 @@ export const Default: Story = {
 		list: [
 			{
 				icon: {
-					name: 'Paginas',
-					folder: '',
+					name: 'Elaboramos',
+					folder: '/PLACAS5E',
 					isDependent: true,
 				},
 				title: 'Páginas',
@@ -28,21 +28,20 @@ export const Default: Story = {
 			},
 			{
 				icon: {
-					name: 'Tiempo',
-					folder: '',
+					name: 'Explicamos',
+					folder: '/PLACAS5E',
 					isDependent: true,
 				},
 				title: 'Tiempo',
-				text: '21-22',
 			},
 			{
 				icon: {
-					name: 'DesarrolloClase',
-					folder: '',
+					name: 'Evaluamos',
+					folder: '/PLACAS5E',
 					isDependent: true,
 				},
 				title: 'Desarrollo de clase',
-				text: 'El docente podrá iniciar la clase ampliando los ejemplos de una organización, a partir de material audiovisual como los siguientes videos: ',
+				text: 'El docente podrá iniciar la clase ampliando los ejemplos de una organización, a partir de material audiovisual como los siguientes videos: El docente podrá iniciar la clase ampliando los ejemplos de una organización, a partir de material audiovisual como los siguientes videos:El docente podrá iniciar la clase ampliando los ejemplos de una organización, a partir de material audiovisual como los siguientes videos:	',
 			},
 		],
 	},

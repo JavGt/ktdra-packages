@@ -1,51 +1,61 @@
 import React from 'react';
-import type {
-	ACPalette,
-	Color,
-	PaletteKeys,
-} from '@ktdra-digital/utils/dist/data';
 import { type StylesContainerFC, stylesContainer } from '../utils';
-import { Placas5EVariant } from './variants';
+import { Placas5EVariant, labels } from './variants';
 import { Placa5EBT } from './Placa5E-BT';
 import { Placa5EDGB } from './Placa5E-DGB';
+import { Color, Palette, PaletteKeys } from '@ktdra-digital/utils';
 
 export type Placas5EFactoryProps = {
-	variant: keyof typeof Placas5EVariant;
+	variant:
+		| 'enganchamos'
+		| 'exploramos'
+		| 'explicamos'
+		| 'elaboramos'
+		| 'evaluamos';
+	idioma: 'es' | 'en';
 };
 export type Placas5EProps = {
 	label: string;
 	color: Color;
 	icon: string;
+	dots?: number;
+	colors?: Palette;
 };
 
 const Placas5E: StylesContainerFC<Placas5EFactoryProps> = ({
 	variant,
 	subsistema,
-	ACPalette,
+	colors,
+	idioma = 'es',
 }) => {
-	const data = Placas5EVariant[variant];
+	const data = Placas5EVariant[subsistema][variant] as {
+		labelKey: string;
+		color: PaletteKeys;
+		icon: string;
+		dots?: number;
+	};
 
 	if (subsistema === 'BT')
 		return (
 			<Placa5EBT
-				color={ACPalette[data.color[subsistema] as PaletteKeys]}
+				color={colors[data.color]}
 				icon={data.icon}
-				label={data.label}
+				label={labels[data.labelKey][idioma]}
 			/>
 		);
 
 	if (subsistema === 'DGB')
 		return (
 			<Placa5EDGB
-				color={ACPalette[data.color[subsistema] as PaletteKeys]}
+				color={colors[data.color]}
+				colors={colors}
 				icon={data.icon}
-				label={data.label}
+				label={labels[data.labelKey][idioma]}
+				dots={data.dots}
 			/>
 		);
 
-	return <></>;
+	return <>Placa del subsistema {subsistema} no existe</>;
 };
 
-export default stylesContainer(Placas5E, {
-	colorType: 'ACPalette',
-});
+export default stylesContainer(Placas5E);

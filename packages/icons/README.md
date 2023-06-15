@@ -4,7 +4,7 @@
 
 # @ktdra-digital/icons
 
-¡Bienvenido a la librería de iconos @ktdra-digital/icons! Esta librería ha sido diseñada especialmente para ser utilizada en nuestra empresa interna y proporciona una amplia variedad de iconos para mejorar la experiencia visual de nuestras aplicaciones y proyectos.
+¡Bienvenido a la librería de iconos @ktdra-digital/icons! Esta librería ha sido diseñada especialmente para ser utilizada en nuestra empresa interna y proporciona una amplia variedad de iconos para mejorar la experiencia visual de nuestras aplicaciones y proyectos para la empresa [Ktdra](https://www.k-tdra.com).
 
 ## Instalación
 
@@ -42,22 +42,6 @@ import { IconoNombre } from '@ktdra-digital/icons';
 <IconoNombre className='mi-clase-css' style={{ color: 'red', fontSize: '2rem' }} />;
 ```
 
-## Documentación
-
-Para obtener más detalles sobre los iconos disponibles y cómo utilizarlos, consulta la documentación completa de la librería. Puedes encontrarla en el archivo "DOCUMENTACIÓN.md" incluido en este repositorio.
-
-## Contribuciones
-
-Agradecemos y animamos a las contribuciones a nuestra librería de iconos. Si deseas colaborar, por favor consulta las pautas de contribución en el archivo "CONTRIBUTING.md".
-
-## Problemas y soporte
-
-Si encuentras algún problema o tienes alguna pregunta relacionada con la librería de iconos @ktdra-digital/icons, no dudes en abrir un issue en este repositorio. Nos comprometemos a revisar y responder a tus inquietudes lo antes posible.
-
 ## Licencia
 
 La librería de iconos @ktdra-digital/icons se distribuye bajo la licencia MIT. Puedes consultar el archivo "LICENSE.md" para obtener más información sobre los términos de la licencia.
-
-¡Esperamos que disfrutes utilizando los iconos de @ktdra-digital/icons en tus proyectos! Si tienes alguna sugerencia o comentario, no dudes en compartirlo con nosotros.
-
-¡Gracias por elegir @ktdra-digital/icons!

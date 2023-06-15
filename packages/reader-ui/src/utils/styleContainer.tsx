@@ -1,39 +1,28 @@
 import React from 'react';
-import WrapperStyle, { type Styles } from '../WrapperStyle/WrapperStyle';
-import {
-	AC,
-	ACPalette,
-	Color,
-	PaletteKeys,
-	useGetColorsAC,
-} from '@ktdra-digital/utils';
+import { type Styles, WrapperStyle } from '../WrapperStyle';
+import { AC, Palette, useColorsAC } from '@ktdra-digital/utils';
 
-export type OptionsStyles = Partial<{
-	colorType: 'ACPalette' | 'Color';
-}>;
+export type FormValues<T> = T & Styles;
 
 export type Subsistema = 'BT' | 'DGB';
 
 export type InjectedProps = {
-	colorAC: Color;
-	ACPalette: ACPalette;
+	colors: Palette;
 	AC: AC;
 	subsistema: Subsistema;
 };
 
-export type PropsHOC<PropsComponent = {}> = PropsComponent &
-	Styles & {
-		AC: AC;
-		subsistema: Subsistema;
-		paletteKey?: PaletteKeys;
-	};
+export type PropsHOC<PropsComponent = {}> = PropsComponent & {
+	AC: AC;
+	subsistema: Subsistema;
+	styles?: Styles;
+};
 
 /**
  * @description
  * Este tipo se usa en los componentes que se crean con el HOC stylesContainer
  * El tipo funciona para agregar el tipo de las props inyectadas por el HOC
  * @example
- * const Component: ComponentStyled<PropsComponent> = ({...}) => {...}
  */
 export type StylesContainerFC<PropsComponent = {}> = React.FC<
 	PropsComponent & InjectedProps
@@ -50,30 +39,22 @@ export type StylesContainerFC<PropsComponent = {}> = React.FC<
  * export default stylesContainer(Component, {colorSelector: 'primary'})
  */
 export const stylesContainer = <PropsComponent = {},>(
-	Component: React.ComponentType<PropsComponent & InjectedProps>,
-	options?: OptionsStyles
+	Component: React.ComponentType<PropsComponent & InjectedProps>
 ) => {
-	const { colorType } = options || {};
-
 	const ComponentHOC: React.FC<PropsHOC<PropsComponent>> = ({
-		background,
-		item,
-		AC,
-		paletteKey,
+		styles,
 		...rest
 	}) => {
-		const colors = useGetColorsAC(
-			AC,
-			colorType !== 'ACPalette' ? paletteKey ?? 'primary' : undefined
-		);
+		const colors = useColorsAC({ area: rest.AC, subsistema: rest.subsistema });
 
 		const injectProps = {
-			colorAC: colorType === 'Color' || !colorType ? colors : undefined,
-			ACPalette: colorType === 'ACPalette' ? colors : undefined,
+			colors,
+			AC: rest.AC,
+			subsistema: rest.subsistema,
 		} as InjectedProps;
 
 		return (
-			<WrapperStyle background={background} item={item}>
+			<WrapperStyle styles={styles}>
 				<Component {...injectProps} {...(rest as PropsComponent)} />
 			</WrapperStyle>
 		);

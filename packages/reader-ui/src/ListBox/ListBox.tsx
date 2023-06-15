@@ -1,13 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
-import {
-	StylesContainerFC,
-	Subsistema,
-	markdownToHtml,
-	stylesContainer,
-} from '../utils';
-import { PaletteKeys, ACPalette, Color } from '@ktdra-digital/utils';
-import { Complementate } from '@ktdra-digital/icons/dist/BT';
+import styled from '@emotion/styled';
+import { StylesContainerFC, Subsistema, stylesContainer } from '../utils';
+import { PaletteKeys, Color } from '@ktdra-digital/utils';
 import { BoxBt } from './BoxBt';
 import { BoxDGB } from './BoxDGB';
 
@@ -29,8 +23,8 @@ export type BoxProps = {
 
 const ListBox: StylesContainerFC<ListBoxProps> = ({
 	list,
-	colorAC,
-	ACPalette,
+	colors,
+
 	subsistema,
 }) => {
 	const selectBox = (sub: Subsistema): React.ElementType => {
@@ -58,7 +52,7 @@ const ListBox: StylesContainerFC<ListBoxProps> = ({
 					>
 						<Component
 							{...item}
-							colorCustom={ACPalette[item.paletteKey as PaletteKeys]}
+							colorCustom={colors[item.paletteKey as PaletteKeys]}
 						/>
 					</ListBoxItem>
 				);
@@ -108,6 +102,4 @@ export const ListBoxItem = styled.div<ItemGrid>`
 	}
 `;
 
-export default stylesContainer(ListBox, {
-	colorType: 'ACPalette',
-});
+export default stylesContainer(ListBox);

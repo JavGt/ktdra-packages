@@ -1,1 +1,1 @@
-export * from './IconHooks';
+export { default as useIcon } from './useIcon/useIcon';

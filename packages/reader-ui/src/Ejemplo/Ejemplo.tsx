@@ -1,61 +1,37 @@
 import React from 'react';
-import { Box, Divider, Stack } from '@mui/material';
-import type { Color } from '@ktdra-digital/utils/dist/data';
 import { StylesContainerFC, stylesContainer } from '../utils';
 import { markdownToHtml } from '../utils/markdownToHtml';
+import { EjemploStyled } from './Ejemplo.styled';
+import { PaletteKeys } from '@ktdra-digital/utils';
 
 export type EjemploProps = {
 	numberExample?: number;
 	text: string;
 	isLabel: boolean;
 	footer?: string;
+	paletteKey?: PaletteKeys;
+	title?: string;
 };
 
 const Ejemplo: StylesContainerFC<EjemploProps> = ({
 	text,
 	isLabel,
-	footer,
 	numberExample,
-	colorAC,
+	colors,
+	paletteKey,
+	title,
 }) => {
 	return (
-		<Stack mb='20px' mr='20px' alignItems='flex-start'>
+		<EjemploStyled colors={colors[paletteKey || 'primary']}>
 			{isLabel && (
-				<Box
-					sx={{
-						background: colorAC.alternative,
-						padding: '5px 10px',
-						borderRadius: '0 10px 0 0 ',
-						color: 'white',
-						textTransform: 'uppercase',
-					}}
-				>
-					Ejemplo {numberExample}
-				</Box>
+				<div className='label'>
+					{title ? title : `Ejemplo ${numberExample}`}
+				</div>
 			)}
-			<Box
-				sx={{
-					padding: '10px',
-					background: '#f8f8f5',
-					borderRadius: '0 20px ',
-					boxShadow: '10px 10px 10px 0 rgba(0, 0, 0, 0.2)',
-				}}
-			>
+			<div className='content'>
 				<div dangerouslySetInnerHTML={{ __html: markdownToHtml(text) }} />
-
-				{footer && (
-					<Box sx={{ mb: 2 }}>
-						<Divider sx={{ mt: 3, mb: 1 }} />
-
-						<Box sx={{ fontFamily: 'serif' }} color='#7b7b7b'>
-							<div
-								dangerouslySetInnerHTML={{ __html: markdownToHtml(footer) }}
-							/>
-						</Box>
-					</Box>
-				)}
-			</Box>
-		</Stack>
+			</div>
+		</EjemploStyled>
 	);
 };
 

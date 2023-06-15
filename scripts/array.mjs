@@ -1,14 +1,7 @@
 import fs from 'fs/promises';
 import path from 'path';
 import glob from 'glob';
-import {
-	buildPath,
-	packagePath,
-	packageJson,
-	tagLog,
-	lineLog,
-	srcPath,
-} from './utils/index.mjs';
+import { packagePath, packageJson, srcPath } from './utils/index.mjs';
 import { camelCase } from './utils/camelCase.mjs';
 import { replaceHyphen } from './utils/replaceHyphen.mjs';
 
@@ -72,9 +65,16 @@ const run = async () => {
 		[]
 	);
 
-	const folderPath = path.join(srcPath, 'constants');
 	// Verificar si existe la carpeta utils
+	const folderPath = path.join(srcPath, 'constants');
+	const folderPathTypes = path.join(srcPath, 'types');
 
+	await createArrayFile(foldersAndFiles, folderPath);
+	await createTypeFile(foldersAndFiles, folderPathTypes);
+};
+
+/** @type {CreateFile} */
+const createArrayFile = async (items, folderPath) => {
 	const exists = await fs
 		.access(folderPath)
 		.then(() => true)
@@ -89,45 +89,8 @@ const run = async () => {
 		}
 	}
 
-	await createArrayFile(foldersAndFiles, folderPath);
-
-	return;
-	await Promise.all(
-		foldersAndFiles.map(async (item) => {
-			const { folder } = item;
-
-			try {
-				// crear la carpeta utils
-				await fs.mkdir(folderPath, { recursive: true });
-			} catch (error) {
-				console.log(error);
-			}
-
-			// await createBarrelFile(item, folderPath);
-
-			// await createTypeFile(item, folderPath);
-		})
-	);
-
-	tagLog(name);
-
-	lineLog(
-		`El archivo array.ts se ha creado con éxito en ${foldersAndFiles.length} carpetas`
-	);
-	lineLog(
-		`El archivo type.ts se ha creado con éxito en ${foldersAndFiles.length} carpetas`
-	);
-	lineLog(
-		`El archivo index.ts se ha creado con éxito en ${foldersAndFiles.length} carpetas`
-	);
-};
-
-/** @type {CreateFile} */
-const createArrayFile = async (items, folderPath) => {
-	console.log(JSON.stringify(items, null, 2));
-	console.log({ folderPath });
-
 	const template = `export const ICONS = ${JSON.stringify(items)}`;
+
 	try {
 		await fs.writeFile(path.join(folderPath, 'icons.ts'), template, {
 			encoding: 'utf-8',
@@ -135,22 +98,30 @@ const createArrayFile = async (items, folderPath) => {
 	} catch (error) {
 		console.log(error);
 	}
-	// const templateArray = `export const ${item.folder.replace('/', '_')}_ARRAY = [ ${item.files
-	// 	.map((file) => {
-	// 		return `{ name: '${file.name}', component: '${file.component}' }`;
-	// 	})
-	// 	.join(', ')} ]`;
-	//
 };
 
 /** @type {CreateFile} */
-const createTypeFile = async (item, folderPath) => {
-	const templateType = `export type ${item.folder} = ${item.files
-		.map((file) => `"${file}"`)
-		.join(' | ')}`;
+const createTypeFile = async (foldersAndFiles, folderPath) => {
+	const exists = await fs
+		.access(folderPath)
+		.then(() => true)
+		.catch(() => false);
+
+	if (!exists) {
+		try {
+			// crear la carpeta utils
+			await fs.mkdir(folderPath, { recursive: true });
+		} catch (error) {
+			console.log(error);
+		}
+	}
+
+	const template = `export type FoldersIcon = ${
+		foldersAndFiles.map((item) => `'${item.folder}'`).join(' | ') || "''"
+	}`;
 
 	try {
-		await fs.writeFile(path.join(folderPath, 'types.d.ts'), templateType, {
+		await fs.writeFile(path.join(folderPath, 'folders.ts'), template, {
 			encoding: 'utf-8',
 		});
 	} catch (error) {

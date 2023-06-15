@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import { BoxProps } from '../ListBox';
 import { markdownToHtml } from '../../utils';
 import { Color } from '@ktdra-digital/utils';

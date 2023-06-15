@@ -1,22 +1,32 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import { StylesContainerFC, stylesContainer } from '../utils';
-import { Color } from '@ktdra-digital/utils';
+import { PaletteKeys } from '@ktdra-digital/utils';
 import { markdownToHtml } from '../utils/markdownToHtml';
 
 export type TituloObjetivoProps = {
 	title: string;
+	paletteKey?: PaletteKeys;
 };
 
-const TituloObjetivo: StylesContainerFC<TituloObjetivoProps> = ({ colorAC, title }) => {
-
+const TituloObjetivo: StylesContainerFC<TituloObjetivoProps> = ({
+	colors,
+	title,
+	paletteKey = 'primary',
+}) => {
 	return (
-		<TituloObjetivoStyle className='objetivo-aprendizaje' color={colorAC.main}>
+		<TituloObjetivoStyle
+			className='objetivo-aprendizaje'
+			color={colors[paletteKey].main}
+		>
 			<div className='objetivo-aprendizaje__figura'>
 				<span className='objetivo-aprendizaje__linea'></span>
 				<span className='objetivo-aprendizaje__linea'></span>
 			</div>
-			<div className='objetivo-aprendizaje__titulo' dangerouslySetInnerHTML={{ __html: markdownToHtml(title) }} />
+			<div
+				className='objetivo-aprendizaje__titulo'
+				dangerouslySetInnerHTML={{ __html: markdownToHtml(title) }}
+			/>
 		</TituloObjetivoStyle>
 	);
 };
@@ -47,10 +57,9 @@ export const TituloObjetivoStyle = styled.div<{
 	}
 
 	.objetivo-aprendizaje__titulo {
-		font-weight: 600;
 		text-transform: capitalize;
 		font-size: 30px;
 	}
 `;
 
-export default stylesContainer(TituloObjetivo, );
+export default stylesContainer(TituloObjetivo);

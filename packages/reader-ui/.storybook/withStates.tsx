@@ -6,20 +6,7 @@ const withStates = (Story, context) => {
 		subsistema: string;
 	};
 
-	return (
-		<div>
-			<Story
-				{...context}
-				AC={AC}
-				subsistema={subsistema}
-				args={{
-					AC,
-					subsistema,
-					...context.args,
-				}}
-			/>
-		</div>
-	);
+	return <Story {...context} args={{ AC, subsistema, ...context.args }} />;
 };
 
 export default withStates;

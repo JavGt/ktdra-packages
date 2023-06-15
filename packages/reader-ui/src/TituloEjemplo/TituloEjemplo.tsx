@@ -7,8 +7,9 @@ import { StylesContainerFC, stylesContainer } from '../utils';
 export type TituloEjemploProps = {
 	icon?: Icon;
 	iconSecondary?: Icon;
-	iconParticipantes: Icon;
+	iconParticipantes?: Icon;
 	title: string;
+	notVisibleArrow?: boolean;
 };
 
 const TituloEjemplo: StylesContainerFC<TituloEjemploProps> = ({
@@ -17,13 +18,14 @@ const TituloEjemplo: StylesContainerFC<TituloEjemploProps> = ({
 	iconParticipantes,
 	title,
 	subsistema,
-	ACPalette,
+	colors,
+	notVisibleArrow,
 }) => {
-	const { primary, secondary } = ACPalette;
+	const { primary, secondary } = colors;
 
-	const Icon = icon && useIcon(icon, subsistema);
+	const Icon = useIcon(icon, subsistema);
 
-	const IconSecondary = iconSecondary && useIcon(iconSecondary, subsistema);
+	const IconSecondary = useIcon(iconSecondary, subsistema);
 
 	const Participantes = useIcon(iconParticipantes, subsistema);
 
@@ -48,7 +50,7 @@ const TituloEjemplo: StylesContainerFC<TituloEjemploProps> = ({
 
 			{IconSecondary && <IconSecondary />}
 
-			<Complementate />
+			{!notVisibleArrow && <Complementate />}
 
 			<Typography
 				mx={0.5}
@@ -64,6 +66,4 @@ const TituloEjemplo: StylesContainerFC<TituloEjemploProps> = ({
 	);
 };
 
-export default stylesContainer(TituloEjemplo, {
-	colorType: 'ACPalette',
-});
+export default stylesContainer(TituloEjemplo);

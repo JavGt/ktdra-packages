@@ -4,11 +4,11 @@
 	"reactCreateComponent.settings.importReactOnTop": true,
 	"reactCreateComponent.settings.SelectLanguage": "TypeScript",
 	"reactCreateComponent.settings.SelectTypeStyle": "Style Component",
+	"svg.preview.background": "transparent",
+	"editor.formatOnSave": false,
 	"conventionalCommits.scopes": [
 		"text-editor",
 		"reader-ui",
 		"icons"
 	],
-	"svg.preview.background": "transparent",
-	"editor.formatOnSave": false
 }

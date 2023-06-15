@@ -6,7 +6,7 @@ const meta: Meta<typeof Ejemplo> = {
 	component: Ejemplo,
 	tags: ['autodocs'],
 	parameters: {
-		layout: 'centered',
+		layout: 'fullscreen',
 	},
 	argTypes: {},
 };
@@ -26,19 +26,17 @@ export const Default: Story = {
 
 export const ConEstilo: Story = {
 	args: {
-		background: {
+		styles: {
 			backgroundColor: '#F2F2F2',
-			padding: '50px',
-			margin: '20px',
+			padding: 2,
+			margin: 20,
 			borderRadius: '10px',
 			border: {
 				width: '1px',
 				color: '#000000',
 				type: 'solid',
 			},
-		},
-		item: {
-			width: '50%',
+			width: 50,
 			position: 'center',
 		},
 		isLabel: true,

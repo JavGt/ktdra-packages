@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { styled } from '@mui/material';
-import { type Color } from '@ktdra-digital/utils';
 import { type StylesContainerFC, stylesContainer } from '../utils';
+import { VideoStyled } from './Videos.styled';
+import { PaletteKeys } from '@ktdra-digital/utils';
 
 export type VideosProps = {
 	url: string;
+	paletteKey?: PaletteKeys;
 };
 
-const Videos: StylesContainerFC<VideosProps> = ({ url, colorAC }) => {
+const Videos: StylesContainerFC<VideosProps> = ({
+	url,
+	colors,
+	paletteKey = 'primary',
+}) => {
 	const [videoId, setVideoId] = useState('' as string);
 
 	const [isShorts, setIsShorts] = useState(false as boolean);
@@ -39,7 +44,7 @@ const Videos: StylesContainerFC<VideosProps> = ({ url, colorAC }) => {
 	}, [url]);
 
 	return (
-		<VideoS className='iframe' color={colorAC.alternative} btn={colorAC.light}>
+		<VideoStyled className='iframe' colors={colors[paletteKey]}>
 			<div className='header'>
 				<span className='btn'></span>
 				<span className='btn'></span>
@@ -61,57 +66,8 @@ const Videos: StylesContainerFC<VideosProps> = ({ url, colorAC }) => {
 					/>
 				</div>
 			)}
-		</VideoS>
+		</VideoStyled>
 	);
 };
-
-const VideoS = styled('div')<{
-	color: string;
-	btn: string;
-}>(({ color, btn }) => ({
-	display: 'flex',
-	borderRadius: ' 30px 30px 20px 20px',
-	overflow: 'hidden',
-	border: `2px solid #ffffff50`,
-	flexDirection: 'column',
-	boxShadow: '10px 10px 10px 0 rgba(0, 0, 0, 0.2)',
-	margin: '0 20px 20px 0',
-
-	'& .header': {
-		display: 'flex',
-		alignItems: 'center',
-		width: '100%',
-		height: '50px',
-		background: color,
-		gap: '5px',
-		padding: '0 20px',
-	},
-
-	'& .btn': {
-		height: '8px',
-		width: '8px',
-		borderRadius: '50%',
-		background: btn,
-	},
-	'& .error': {
-		padding: '10px',
-		background: 'black',
-		color: 'white',
-
-		'& h1': {
-			margin: '0',
-		},
-	},
-
-	'& .content': {
-		padding: '10px',
-		background: 'black',
-	},
-	'& iframe': {
-		border: 'none',
-		width: '100%',
-		height: '315px',
-	},
-}));
 
 export default stylesContainer(Videos);

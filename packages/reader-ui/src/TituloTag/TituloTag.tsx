@@ -1,27 +1,32 @@
 import React from 'react';
-import styled from 'styled-components';
-import { ACPalette } from '@ktdra-digital/utils';
+import styled from '@emotion/styled';
 import { markdownToHtml, stylesContainer, StylesContainerFC } from '../utils';
 import { Icon, useIcon } from '@ktdra-digital/icons';
+import { PaletteKeys } from '@ktdra-digital/utils';
 
 export type TituloTagProps = {
 	icon?: Icon;
 	position?: 'left' | 'right';
 	title: string;
+	paletteKey?: PaletteKeys;
 };
 
 const TituloTag: StylesContainerFC<TituloTagProps> = ({
 	title,
 	icon,
 	position,
-	colorAC,
+	colors,
 	subsistema,
+	paletteKey = 'primary',
 }) => {
-	const Icon = icon && useIcon(icon, subsistema);
-
+	const Icon = useIcon(icon, subsistema);
 	return (
 		<TituloContainer position={position}>
-			<Title haveIcon={!!icon} position={position} color={colorAC.alternative}>
+			<Title
+				haveIcon={!!icon}
+				position={position}
+				color={colors[paletteKey].main}
+			>
 				<div dangerouslySetInnerHTML={{ __html: markdownToHtml(title) }} />
 
 				{Icon && <Icon style={{ width: 50, height: 50 }} />}
@@ -49,8 +54,12 @@ export const Title = styled.div<{
 	position?: 'left' | 'right';
 	haveIcon: boolean;
 }>`
+	p {
+		margin: 0;
+	}
 	fill: #fff;
-	padding: 5px;
+	padding: 3px 5px;
+
 	${({ position, haveIcon }) =>
 		`	padding-${position}:${!haveIcon ? '50px' : '5px'};`}
 

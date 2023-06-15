@@ -1,0 +1,1 @@
+export { default as LecturaBT } from './Lectura-BT';

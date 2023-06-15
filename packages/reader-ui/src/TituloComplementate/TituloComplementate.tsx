@@ -1,26 +1,34 @@
 import React from 'react';
-import styled from 'styled-components';
-import { ACPalette, Color } from '@ktdra-digital/utils';
+import styled from '@emotion/styled';
+import { Color } from '@ktdra-digital/utils';
 import { StylesContainerFC, markdownToHtml, stylesContainer } from '../utils';
-import { useIcon } from '@ktdra-digital/icons';
+import { Icon, useIcon } from '@ktdra-digital/icons';
 
 export type TituloComplementateProps = {
 	title: string;
+	remColorTitle: boolean;
+	icon?: Icon;
+	remColorIcon: boolean;
 };
 
 const TituloComplementate: StylesContainerFC<TituloComplementateProps> = ({
 	title,
+	colors,
+	icon,
+	remColorIcon,
+	remColorTitle,
 	subsistema,
-	ACPalette,
 }) => {
-	const { primary, secondary } = ACPalette;
-	const Icon = useIcon(
-		{ name: 'Complementate', folder: '', isDependent: true },
-		subsistema
-	);
+	const { primary, secondary } = colors;
+	const Icon = icon && useIcon(icon, subsistema);
 
 	return (
-		<TituloComplementateStyle primary={primary} secondary={secondary}>
+		<TituloComplementateStyle
+			remColorIcon={remColorIcon}
+			remColorTitle={remColorTitle}
+			primary={primary}
+			secondary={secondary}
+		>
 			{Icon && <Icon />}
 
 			<div
@@ -33,18 +41,19 @@ const TituloComplementate: StylesContainerFC<TituloComplementateProps> = ({
 	);
 };
 
-export default stylesContainer(TituloComplementate, {
-	colorType: 'ACPalette',
-});
+export default stylesContainer(TituloComplementate);
 
-export const TituloComplementateStyle = styled.div<{
-	primary: Color;
-	secondary: Color;
-}>`
+export const TituloComplementateStyle = styled.div<
+	Pick<TituloComplementateProps, 'remColorIcon' | 'remColorTitle'> & {
+		primary: Color;
+		secondary: Color;
+	}
+>`
 	display: flex;
 	align-items: center;
 	gap: 10px;
-	color: ${({ secondary }) => secondary.alternative};
+	color: ${({ secondary, remColorTitle }) =>
+		!remColorTitle ? secondary.alternative : '#000'};
 
 	.text {
 		font-family: '--apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto',
@@ -55,14 +64,16 @@ export const TituloComplementateStyle = styled.div<{
 
 	svg {
 		width: min(60px, 60px);
-
+		flex-shrink: 0;
 		path {
-			&:nth-child(1) {
-				fill: ${({ secondary }) => secondary.alternative};
+			${({ remColorIcon, secondary, primary }) =>
+				!remColorIcon &&
+				`&:nth-child(1) {
+				fill: ${primary.alternative};
 			}
 			&:nth-child(2) {
-				fill: ${({ primary }) => primary.alternative};
-			}
+				fill: ${secondary.alternative};
+			}`}
 		}
 	}
 

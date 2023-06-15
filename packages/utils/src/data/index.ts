@@ -1,1 +1,1 @@
-export * from './areaconocimiento';
+export * from './Subs';

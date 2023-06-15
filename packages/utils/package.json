@@ -1,34 +1,51 @@
 {
 	"name": "@ktdra-digital/utils",
-	"version": "0.0.3",
-	"description": "Now I’m the model of a modern major general / The venerated Virginian veteran whose men are all / Lining up, to put me up on a pedestal / Writin’ letters to relatives / Embellishin’ my elegance and eloquence / But the elephant is in the room / The truth is in ya face when ya hear the British cannons go / BOOM",
-	"keywords": [],
+	"version": "0.0.14",
+	"description": "Utils for ktdra-digital (Frontend)",
 	"private": false,
-	"main": "dist/index.js",
+	"contributors": [
+		{
+			"name": "Javier Gutiérrez",
+			"email": "javier.bz.gt@gmail.com"
+		}
+	],
+	"module": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"keywords": [
+		"ktdra"
+	],
 	"files": [
 		"dist"
 	],
 	"author": {
-		"name": "Ktdra Team",
-		"email": "mvp.desarrollo@gmail.com"
+		"name": "ktdra Team",
+		"email": "mvp.desarrollo@gmail.com",
+		"url": "https://k-tdra.com/"
 	},
-	"license": "ISC",
-	"publishConfig": {
-		"access": "public",
-		"directory": "dist"
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/JavGt/ktdra-packages/",
+		"directory": "/packages/utils"
 	},
 	"scripts": {
+		"build": "yarn delete:dist && yarn build:tsc",
 		"delete:dist": "node ../../scripts/delete-dist.mjs",
-		"build": "yarn delete:dist && yarn build:tsc && yarn build:pckTp",
 		"build:tsc": "tsc",
-		"build:pckTp": "node ../../scripts/create-package-types.mjs",
-		"build:crPackage": "node ../../scripts/create-package.mjs",
-		"release": "npm publish --registry https://registry.npmjs.org/ "
+		"watch:tsc": "tsc -w",
+		"release": "npm publish --access public --registry https://registry.npmjs.org"
 	},
 	"devDependencies": {
+		"@types/jest": "^29.5.2",
+		"jest": "^29.5.0",
 		"typescript": "^5.0.4"
 	},
 	"peerDependencies": {
 		"react": ">=17.0.0"
-	}
+	},
+	"publishConfig": {
+		"access": "public",
+		"directory": "dist"
+	},
+	"sideEffects": false,
+	"license": "MIT"
 }

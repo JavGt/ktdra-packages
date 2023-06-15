@@ -7,7 +7,7 @@
 		"release:reader-ui": "lerna run release --scope=@ktdra-digital/reader-ui",
 		"build:reader-ui": "lerna run build --scope=@ktdra-digital/reader-ui",
 		"build:utils": "lerna run build --scope=@ktdra-digital/utils",
-		"reader-ui:story": "npx lerna run storybook --scope @ktdra-digital/reader-ui",
+		"reader-ui:st": "npx lerna run storybook --scope @ktdra-digital/reader-ui",
 		"clean": "lerna clean"
 	},
 	"devDependencies": {

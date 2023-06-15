@@ -1,31 +1,35 @@
 import React from 'react';
-import styled from 'styled-components';
-import { ACPalette } from '@ktdra-digital/utils';
-import type { BT } from '@ktdra-digital/icons/dist/BT/utils/types';
-import { stylesContainer, StylesContainerFC } from '../utils';
+import styled from '@emotion/styled';
+import { markdownToHtml, stylesContainer, StylesContainerFC } from '../utils';
+import { Icon, useIcon } from '@ktdra-digital/icons';
+import { PaletteKeys } from '@ktdra-digital/utils';
 
 export type TituloTagProps = {
-	text: string;
-	icon?: BT;
+	icon?: Icon;
 	position?: 'left' | 'right';
+	title: string;
+	paletteKey?: PaletteKeys;
 };
 
 const TituloTag: StylesContainerFC<TituloTagProps> = ({
-	text,
+	title,
 	icon,
 	position,
-	colorAC,
+	colors,
+	subsistema,
+	paletteKey = 'primary',
 }) => {
-	const colors = colorAC as ACPalette;
-
-	const Icon = icon && require('@ktdra-digital/icons/dist/BT')[icon];
-
+	const Icon = useIcon(icon, subsistema);
 	return (
 		<TituloContainer position={position}>
-			<Title haveIcon={!!icon} position={position} color={colors.primary.alternative}>
-				<div>{text}</div>
+			<Title
+				haveIcon={!!icon}
+				position={position}
+				color={colors[paletteKey].main}
+			>
+				<div dangerouslySetInnerHTML={{ __html: markdownToHtml(title) }} />
 
-				{icon && <Icon style={{ width: 50, height: 50 }} />}
+				{Icon && <Icon style={{ width: 50, height: 50 }} />}
 			</Title>
 		</TituloContainer>
 	);
@@ -41,7 +45,8 @@ export const TituloContainer = styled.div<{
 	position?: 'left' | 'right';
 }>`
 	display: flex;
-	justify-content: ${({ position }) => (position === 'left' ? 'flex-start' : 'flex-end')};
+	justify-content: ${({ position }) =>
+		position === 'left' ? 'flex-start' : 'flex-end'};
 `;
 
 export const Title = styled.div<{
@@ -49,9 +54,14 @@ export const Title = styled.div<{
 	position?: 'left' | 'right';
 	haveIcon: boolean;
 }>`
+	p {
+		margin: 0;
+	}
 	fill: #fff;
-	padding: 5px;
-	${({ position, haveIcon }) => `	padding-${position}:${!haveIcon ? '50px' : '5px'};`}
+	padding: 3px 5px;
+
+	${({ position, haveIcon }) =>
+		`	padding-${position}:${!haveIcon ? '50px' : '5px'};`}
 
 	display: flex;
 	align-items: center;
@@ -80,7 +90,9 @@ export const Title = styled.div<{
 		height: 100%;
 		bottom: 0;
 		top: 0;
-		transform: rotate(${({ position }) => (position === 'left' ? '180deg' : '0deg')});
+		transform: rotate(
+			${({ position }) => (position === 'left' ? '180deg' : '0deg')}
+		);
 	}
 
 	&::before {

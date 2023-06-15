@@ -1,0 +1,110 @@
+import { Meta } from '@storybook/blocks'
+
+<Meta title='Docs/Estandar' />
+
+# Estandar para las props de los componentes
+
+Cada componente tiene propiedades similares que se pueden estandarizar para no tener miltiples formas de hacer lo mismo.
+
+## Props Injectdos
+
+- AC (Area de Conocimiento): Este prop es vital para el uso del componente, ya que los colores y el texto que se muestra dependen de este prop.
+- background: Este prop es opcional, pero es para tener diseño, si quieres mas informacion de como usarlo, ve a la seccion de [Estilos](/docs/docs-estilos--docs#ejemplo-de-uso-para-el-componente-padre-o-background)
+- item: **Pendiente**
+
+## Props del componente
+
+### Indice
+
+- [Icon](#icon)
+- [Title](#title)
+- [Text](#text)
+- [URL](#url)
+- [Figcaption](#figcaption)
+- [Companion](#companion)
+- [Variant](#Variant)
+
+---
+
+- ### Icon:
+
+  Este es para los componentes que tienen iconos, como el componente de [Titulo Ejemplo](/docs/reader-titulos-titulo-ejemplo--docs), su tipo de ts es el siguiente:
+
+  ```typescript
+  icon: Icon;
+  ```
+
+  #### variantes de iconos
+
+  ```typescript
+  import { Icon } from '@ktdra-digital/icons';
+  //...
+  {
+  	icon: Icon;
+  	iconSecondary: Icon;
+  	iconTertiary: Icon;
+  	iconParticipantes: Icon;
+  }
+  ```
+
+---
+
+- ### Title:
+
+  Este es para los componentes que tienen titulos, como el componente de [Titulo Ejemplo](/docs/reader-titulos-titulo-ejemplo--docs), su tipo de ts es el siguiente:
+
+  ```typescript
+  title: string;
+  ```
+
+---
+
+- ### Text:
+
+  Este es para los componentes que tienen textos, como el componente de [Texto](/docs/reader-texto--docs), su tipo de ts es el siguiente:
+
+  ```typescript
+  text: string;
+  ```
+
+---
+
+- ### URL:
+
+  Este es para los componentes que tienen url, como el componente de [Video](/docs/reader-recursos-videos--docs), su tipo de ts es el siguiente:
+
+  ```typescript
+  url: `https:${string}`;
+  ```
+
+---
+
+- ### Figcaption:
+
+  Este es para los componentes que tienen figcaption, como el componente de [Imagen](/docs/reader-recursos-imagenes--docs), su tipo de ts es el siguiente:
+
+  ```typescript
+  figcaption: string;
+  ```
+
+---
+
+- ### Companion:
+
+  Este es para los componentes que tienen compañita, como el componente de [Titulo Parcial](/docs/reader-titulos-titulo-parcial--docs), su tipo de ts es el siguiente:
+
+  ```typescript
+  companion: string;
+  ```
+
+---
+
+- ### Variant
+
+  Este es para los componentes que tienen variantes, como el componente de [Placa 5E](/docs/reader-titulos-placas-5e--docs), su tipo dependera del componente:
+
+  ```typescript
+  {
+  	variant: any;
+  }
+  ```

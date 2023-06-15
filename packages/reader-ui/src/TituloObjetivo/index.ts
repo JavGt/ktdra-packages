@@ -1,0 +1,1 @@
+export { default as TituloObjetivo } from './TituloObjetivo';

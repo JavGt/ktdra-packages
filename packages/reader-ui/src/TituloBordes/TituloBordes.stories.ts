@@ -16,7 +16,6 @@ type Story = StoryObj<typeof TituloBordes>;
 
 export const UnIcono: Story = {
 	args: {
-		AC: 'Ciencias sociales',
-		text: 'Ladillos',
+		title: 'Ladillos',
 	},
 };

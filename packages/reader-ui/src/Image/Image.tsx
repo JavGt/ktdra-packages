@@ -1,52 +1,36 @@
 import React from 'react';
-import styled from 'styled-components';
 import { stylesContainer, StylesContainerFC } from '../utils';
-import { Color } from '@ktdra-digital/utils';
-import { marked } from 'marked';
+import { markdownToHtml } from '../utils/markdownToHtml';
+import { ImageStyle } from './Image.styled';
+import { PaletteKeys } from '@ktdra-digital/utils';
 
 export type ImageProps = {
-	src: string;
+	url: string;
 	figcaption?: string;
 	alt?: string;
-	width?: string;
-	height?: string;
+	width?: number;
+	height?: number;
+	paletteKey?: PaletteKeys;
 };
 
 const Image: StylesContainerFC<ImageProps> = ({
-	src,
+	url,
 	figcaption,
 	alt,
-	colorAC,
+	colors,
 	height,
 	width,
+	paletteKey = 'primary',
 }) => {
-	const color = colorAC as Color;
-
 	return (
-		<ImageStyle>
-			<picture>
-				<img src={src} alt={alt} width={width} height={height} />
+		<ImageStyle colors={colors[paletteKey]} width={width} height={height}>
+			<img src={url} alt={alt} />
 
-				<figcaption
-					style={{
-						color: color.main,
-					}}
-					dangerouslySetInnerHTML={{ __html: marked.parse(figcaption || '') }}
-				></figcaption>
-			</picture>
+			<figcaption
+				dangerouslySetInnerHTML={{ __html: markdownToHtml(figcaption || '') }}
+			/>
 		</ImageStyle>
 	);
 };
 
-export const ImageStyle = styled.div`
-	display: grid;
-	place-content: center;
-	text-align: center;
-	img {
-		display: block;
-		max-width: 100%;
-		max-height: 100%;
-	}
-`;
-
-export default stylesContainer(Image, { colorSelector: 'primary' });
+export default stylesContainer(Image);

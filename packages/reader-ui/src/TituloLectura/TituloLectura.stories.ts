@@ -8,15 +8,7 @@ const meta: Meta<typeof TituloLectura> = {
 	parameters: {
 		layout: 'fullscreen',
 	},
-	argTypes: {
-		item: {
-			backgroundColor: {
-				control: {
-					type: 'color',
-				},
-			},
-		},
-	},
+	argTypes: {},
 };
 
 export default meta;
@@ -24,7 +16,5 @@ export default meta;
 type Story = StoryObj<typeof TituloLectura>;
 
 export const Text: Story = {
-	args: {
-		AC: 'Ciencias biológicas y químicas',
-	},
+	args: {},
 };

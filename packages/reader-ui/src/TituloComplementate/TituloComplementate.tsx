@@ -1,52 +1,79 @@
 import React from 'react';
-import styled from 'styled-components';
-import { Complementate } from '@ktdra-digital/icons';
-import { AC, ACPalette, Color, useGetColorsAC } from '@ktdra-digital/utils';
+import styled from '@emotion/styled';
+import { Color } from '@ktdra-digital/utils';
+import { StylesContainerFC, markdownToHtml, stylesContainer } from '../utils';
+import { Icon, useIcon } from '@ktdra-digital/icons';
 
 export type TituloComplementateProps = {
-	AC: AC;
-	text: string;
+	title: string;
+	remColorTitle: boolean;
+	icon?: Icon;
+	remColorIcon: boolean;
 };
 
-const TituloComplementate: React.FC<TituloComplementateProps> = ({ AC, text }) => {
-	const { primary, secondary } = useGetColorsAC(AC) as ACPalette;
+const TituloComplementate: StylesContainerFC<TituloComplementateProps> = ({
+	title,
+	colors,
+	icon,
+	remColorIcon,
+	remColorTitle,
+	subsistema,
+}) => {
+	const { primary, secondary } = colors;
+	const Icon = icon && useIcon(icon, subsistema);
 
 	return (
-		<TituloComplementateStyle primary={primary} secondary={secondary}>
-			<Complementate />
+		<TituloComplementateStyle
+			remColorIcon={remColorIcon}
+			remColorTitle={remColorTitle}
+			primary={primary}
+			secondary={secondary}
+		>
+			{Icon && <Icon />}
 
-			<div className='text'>{text}</div>
+			<div
+				className='text'
+				dangerouslySetInnerHTML={{ __html: markdownToHtml(title) }}
+			/>
 
 			<div className='line' />
 		</TituloComplementateStyle>
 	);
 };
 
-export default TituloComplementate;
+export default stylesContainer(TituloComplementate);
 
-export const TituloComplementateStyle = styled.div<{
-	primary: Color;
-	secondary: Color;
-}>`
+export const TituloComplementateStyle = styled.div<
+	Pick<TituloComplementateProps, 'remColorIcon' | 'remColorTitle'> & {
+		primary: Color;
+		secondary: Color;
+	}
+>`
 	display: flex;
 	align-items: center;
 	gap: 10px;
-	color: ${({ secondary }) => secondary.alternative};
+	color: ${({ secondary, remColorTitle }) =>
+		!remColorTitle ? secondary.alternative : '#000'};
 
 	.text {
-		font-family: '--apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen';
+		font-family: '--apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto',
+			'Oxygen';
 		font-size: 20px;
+		max-width: 40%;
 	}
 
 	svg {
-		width: 60px;
+		width: min(60px, 60px);
+		flex-shrink: 0;
 		path {
-			&:nth-child(1) {
-				fill: ${({ secondary }) => secondary.alternative};
+			${({ remColorIcon, secondary, primary }) =>
+				!remColorIcon &&
+				`&:nth-child(1) {
+				fill: ${primary.alternative};
 			}
 			&:nth-child(2) {
-				fill: ${({ primary }) => primary.alternative};
-			}
+				fill: ${secondary.alternative};
+			}`}
 		}
 	}
 

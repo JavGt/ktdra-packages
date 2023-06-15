@@ -1,28 +1,36 @@
 import React from 'react';
-import { AC, Color, useGetColorsAC } from '@ktdra-digital/utils';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
+import { StylesContainerFC, stylesContainer } from '../utils';
+import { Color, PaletteKeys } from '@ktdra-digital/utils';
 
 export type DividerProps = {
-	AC: AC;
-	type?: React.CSSProperties['borderStyle'];
-	size?: number;
+	type: React.CSSProperties['borderStyle'];
+	size: number;
+	paletteKey?: PaletteKeys;
 };
 
-const Divider: React.FC<DividerProps> = ({ type, AC, size }) => {
-	const { main } = useGetColorsAC(AC, 'primary') as Color;
-
-	return <DividerStyled size={size} type={type} color={main} />;
+const Divider: StylesContainerFC<DividerProps> = ({
+	type = 'solid',
+	size = 10,
+	colors,
+	paletteKey,
+}) => {
+	return (
+		<DividerStyled
+			size={size}
+			type={type}
+			colors={colors[paletteKey || 'primary']}
+		/>
+	);
 };
 
-Divider.defaultProps = {
-	type: 'groove',
-};
-export default Divider;
+export default stylesContainer(Divider);
 
 const DividerStyled = styled.div<{
-	size?: number;
-	color: string;
+	size: number;
+	colors: Color;
 	type: React.CSSProperties['borderStyle'];
 }>`
-	border-bottom: ${({ size, color, type }) => `${size}px ${type} ${color}`};
+	border-bottom: ${({ size, colors, type }) =>
+		`${size}px ${type} ${colors.main}`};
 `;

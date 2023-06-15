@@ -1,11 +1,10 @@
 {
 	"compilerOptions": {
-		"target": "es5",
-		"module": "CommonJS",
+		"target": "ES2016",
+		"module": "ES2020",
 		"esModuleInterop": true,
 		"forceConsistentCasingInFileNames": true,
 		"strict": true,
-		"incremental": true,
 		"declaration": true,
 		"allowJs": true,
 		"skipLibCheck": true,
@@ -13,7 +12,7 @@
 		"isolatedModules": true,
 		"moduleResolution": "node",
 		"jsx": "react",
-		"sourceMap": true
+		"noImplicitAny": false
 	},
 	"exclude": ["node_modules"]
 }

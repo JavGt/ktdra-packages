@@ -1,0 +1,16 @@
+export { default as ActividadSugerida } from './ActividadSugerida';
+export { default as Complementate } from './Complementate';
+export { default as Conectate } from './Conectate';
+export { default as Cuestionate } from './Cuestionate';
+export { default as DesarrolloClase } from './DesarrolloClase';
+export { default as Experimental } from './Experimental';
+export { default as Formativa } from './Formativa';
+export { default as GuiaClase } from './GuiaClase';
+export { default as Lectora } from './Lectora';
+export { default as Lectura } from './Lectura';
+export { default as Paginas } from './Paginas';
+export { default as ProyectoIntegrador } from './ProyectoIntegrador';
+export { default as Recuperacion } from './Recuperacion';
+export { default as Tic } from './Tic';
+export { default as Tiempo } from './Tiempo';
+export { default as Transversal } from './Transversal';

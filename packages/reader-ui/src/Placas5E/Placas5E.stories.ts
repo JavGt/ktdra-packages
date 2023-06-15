@@ -17,34 +17,33 @@ type Story = StoryObj<typeof Placas5E>;
 export const Elaboramos: Story = {
 	args: {
 		variant: 'elaboramos',
-		AC: 'Ciencias sociales',
+		item:{
+			width: 30,
+		}
 	},
 };
 
 export const Enganchamos: Story = {
 	args: {
 		variant: 'enganchamos',
-		AC: 'Ciencias sociales',
 	},
 };
 
 export const Evaluamos: Story = {
 	args: {
 		variant: 'evaluamos',
-		AC: 'Ciencias sociales',
+		idioma:"en"
 	},
 };
 
 export const Explicamos: Story = {
 	args: {
 		variant: 'explicamos',
-		AC: 'Ciencias sociales',
 	},
 };
 
 export const Exploramos: Story = {
 	args: {
 		variant: 'exploramos',
-		AC: 'Ciencias sociales',
 	},
 };

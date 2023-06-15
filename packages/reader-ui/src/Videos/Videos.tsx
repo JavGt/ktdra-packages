@@ -1,76 +1,73 @@
-import React from 'react';
-import { styled } from '@mui/material';
-import { AC, Color, useGetColorsAC } from '@ktdra-digital/utils';
-import { WrapperStyle } from '../WrapperStyle';
-import { ComponentStyled } from '../WrapperStyle/WrapperStyle';
+import React, { useEffect, useState } from 'react';
+import { type StylesContainerFC, stylesContainer } from '../utils';
+import { VideoStyled } from './Videos.styled';
+import { PaletteKeys } from '@ktdra-digital/utils';
 
 export type VideosProps = {
-	AC: AC;
 	url: string;
+	paletteKey?: PaletteKeys;
 };
 
-const Videos: ComponentStyled<VideosProps> = ({ AC, url, background, item }) => {
-	const color = useGetColorsAC(AC, 'primary') as Color;
+const Videos: StylesContainerFC<VideosProps> = ({
+	url,
+	colors,
+	paletteKey = 'primary',
+}) => {
+	const [videoId, setVideoId] = useState('' as string);
+
+	const [isShorts, setIsShorts] = useState(false as boolean);
+	const [error, setError] = useState(false as boolean);
+
+	useEffect(() => {
+		try {
+			const youtubeURL = new URL(url);
+
+			if (
+				youtubeURL.pathname.startsWith('/shorts') ||
+				youtubeURL.pathname.startsWith('/embed')
+			) {
+				const path = youtubeURL.pathname.split('/');
+				const videoId = path[path.length - 1];
+				setIsShorts(true);
+				setVideoId(videoId);
+				return;
+			}
+
+			const params = new URLSearchParams(youtubeURL.search);
+
+			const videoId = params.get('v') as string;
+
+			setVideoId(videoId);
+		} catch (error) {
+			setError(true);
+		}
+	}, [url]);
 
 	return (
-		<WrapperStyle background={background} item={item}>
-			<VideoS className='iframe' color={color.alternative} btn={color.light}>
-				<div className='header'>
-					<span className='btn'></span>
-					<span className='btn'></span>
-					<span className='btn'></span>
-				</div>
+		<VideoStyled className='iframe' colors={colors[paletteKey]}>
+			<div className='header'>
+				<span className='btn'></span>
+				<span className='btn'></span>
+				<span className='btn'></span>
+			</div>
+			{error ? (
+				<div className='error'>
+					<h1>URL inválida</h1>
 
+					<p>Por favor, verifique se a URL está correta.</p>
+				</div>
+			) : (
 				<div className='content'>
 					<iframe
-						src={url}
+						src={`https://www.youtube.com/embed/${videoId}`}
 						title='YouTube video player'
 						allowFullScreen
 						allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
 					/>
 				</div>
-			</VideoS>
-		</WrapperStyle>
+			)}
+		</VideoStyled>
 	);
 };
 
-const VideoS = styled('div')<{
-	color: string;
-	btn: string;
-}>(({ color, btn }) => ({
-	display: 'flex',
-	borderRadius: ' 30px 30px 20px 20px',
-	overflow: 'hidden',
-	border: `2px solid #ffffff50`,
-	flexDirection: 'column',
-	boxShadow: '10px 10px 10px 0 rgba(0, 0, 0, 0.2)',
-
-	'& .header': {
-		display: 'flex',
-		alignItems: 'center',
-		width: '100%',
-		height: '50px',
-		background: color,
-		gap: '5px',
-		padding: '0 20px',
-	},
-
-	'& .btn': {
-		height: '8px',
-		width: '8px',
-		borderRadius: '50%',
-		background: btn,
-	},
-
-	'& .content': {
-		padding: '10px',
-		background: 'black',
-	},
-	'& iframe': {
-		border: 'none',
-		width: '100%',
-		height: '315px',
-	},
-}));
-
-export default Videos;
+export default stylesContainer(Videos);

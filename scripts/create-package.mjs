@@ -20,7 +20,7 @@ if (await fse.pathExists(typeDefinitionsFilePath)) {
 }
 
 if (await fse.pathExists(indexPath)) {
-	newPackageData.main = './index.js';
+	newPackageData.module = './index.js';
 }
 
 const targetPath = path.resolve(buildPath, './package.json');

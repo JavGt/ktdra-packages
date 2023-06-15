@@ -1,27 +1,29 @@
 import React from 'react';
-import { Lectura } from '@ktdra-digital/icons';
 import styled from 'styled-components';
-import { AC, Color, useGetColorsAC } from '@ktdra-digital/utils';
-import WrapperStyle, { ComponentStyled } from '../WrapperStyle/WrapperStyle';
+import { Color, PaletteKeys } from '@ktdra-digital/utils';
+import { StylesContainerFC, stylesContainer } from '../utils';
+import { useIcon } from '@ktdra-digital/icons';
 
-export type TituloLecturaProps = { AC: AC };
+export type TituloLecturaProps = {
+	paletteKey?: PaletteKeys;
+};
 
-const TituloLectura: ComponentStyled<TituloLecturaProps> = ({ AC, background, item }) => {
-	const colors = useGetColorsAC(AC, 'primary') as Color;
+const TituloLectura: StylesContainerFC<TituloLecturaProps> = ({
+	colors,
+	subsistema,
+	paletteKey = 'primary',
+}) => {
+	const Icon = useIcon(
+		{ name: 'Lectura', folder: '', isDependent: true },
+		subsistema
+	);
 
 	return (
-		<WrapperStyle background={background} item={item}>
-			<TituloLecturaStyle colors={colors}>
-				<Lectura
-					style={{
-						width: 60,
-						fill: colors.main,
-					}}
-				/>
+		<TituloLecturaStyle colors={colors[paletteKey]} className='titulo-lectura'>
+			{Icon && <Icon style={{ width: 60, fill: colors[paletteKey].main }} />}
 
-				<div className='linea' />
-			</TituloLecturaStyle>
-		</WrapperStyle>
+			<div className='linea' />
+		</TituloLecturaStyle>
 	);
 };
 
@@ -29,6 +31,7 @@ export const TituloLecturaStyle = styled.div<{ colors: Color }>`
 	display: flex;
 	align-items: center;
 	gap: 10px;
+	width: 100%;
 
 	& .linea {
 		height: 2px;
@@ -50,4 +53,4 @@ export const TituloLecturaStyle = styled.div<{ colors: Color }>`
 	}
 `;
 
-export default TituloLectura;
+export default stylesContainer(TituloLectura);

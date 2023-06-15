@@ -5,7 +5,7 @@ export type Px = `${number}px`;
 
 export type Hex = `#${string}`;
 
-export type Insets = Record<Sides, Px>;
+export type Insets = Record<Sides, number>;
 
 export type SidesHorizontal = 'right' | 'left';
 
@@ -27,8 +27,8 @@ export type InsetsVertex = {
 
 // Types styles -------------------------------
 export type Styles = Partial<{
-	margin: number | InsetsGroup | Insets;
-	padding: number | InsetsGroup | Insets;
+	margin: Insets;
+	padding: Insets;
 	backgroundColor: React.CSSProperties['backgroundColor'];
 	color: React.CSSProperties['color'];
 	borderRadius: BorderRadius;
@@ -44,7 +44,7 @@ export type Border = {
 	type?: React.CSSProperties['borderStyle'];
 };
 
-export type BorderRadius = number | InsetsVertex;
+export type BorderRadius = InsetsVertex;
 
 export type WrapperStyleProps = {
 	styles?: Styles;

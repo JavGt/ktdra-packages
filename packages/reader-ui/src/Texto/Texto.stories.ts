@@ -30,7 +30,6 @@ export const TextoConEstilo: Story = {
 			padding: 20,
 			backgroundColor: '#F2F2F2',
 			margin: 20,
-			borderRadius: '10px',
 		},
 	},
 };

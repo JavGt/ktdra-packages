@@ -2,7 +2,9 @@ import React from 'react';
 import { type Styles, WrapperStyle } from '../WrapperStyle';
 import { AC, Palette, useColorsAC } from '@ktdra-digital/utils';
 
-export type FormValues<T> = T & Styles;
+export type FormValues<T> = T & {
+	styles?: Styles;
+};
 
 export type Subsistema = 'BT' | 'DGB';
 

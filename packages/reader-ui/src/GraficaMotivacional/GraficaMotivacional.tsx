@@ -5,12 +5,15 @@ import {
 	CaraEscalaBaja,
 	CaraEscalaMedia,
 } from '@ktdra-digital/icons/dist/COMMON';
+import { StylesContainerFC, stylesContainer } from '../utils';
 
 export type GraficaMotivacionalProps = {
 	title?: string;
 };
 
-const GraficaMotivacional: React.FC<GraficaMotivacionalProps> = ({ title }) => {
+const GraficaMotivacional: StylesContainerFC<GraficaMotivacionalProps> = ({
+	title,
+}) => {
 	return (
 		<GraficaMotivacionalStyle>
 			{title && <h2 className='title'>{title}</h2>}
@@ -181,4 +184,4 @@ export const GraficaMotivacionalStyle = styled.div`
 	}
 `;
 
-export default GraficaMotivacional;
+export default stylesContainer(GraficaMotivacional);

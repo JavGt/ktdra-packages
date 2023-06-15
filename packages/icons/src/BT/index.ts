@@ -8,6 +8,8 @@ export { default as Formativa } from './Formativa';
 export { default as GuiaClase } from './GuiaClase';
 export { default as Lectora } from './Lectora';
 export { default as Lectura } from './Lectura';
+export * from './PARTICIPANTES';
+export * from './PLACAS5E';
 export { default as Paginas } from './Paginas';
 export { default as ProyectoIntegrador } from './ProyectoIntegrador';
 export { default as Recuperacion } from './Recuperacion';

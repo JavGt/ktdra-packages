@@ -28,8 +28,8 @@ export const StyledComponent = styled.div<Styles>`
 		}px`;
 	}};
 
+width: ${({ width }) => `${width ?? 100}%`};
 	.wrapperStyle--content {
-		width: ${({ width }) => `${width ?? 100}%`};
 	}
 
 	${({ border }) => {

@@ -7,6 +7,7 @@ import { StylesContainerFC, stylesContainer } from '../utils';
 export type TituloEjemploProps = {
 	icon?: Icon;
 	iconSecondary?: Icon;
+	iconTertiary?: Icon;
 	iconParticipantes?: Icon;
 	title: string;
 	notVisibleArrow?: boolean;
@@ -15,6 +16,7 @@ export type TituloEjemploProps = {
 const TituloEjemplo: StylesContainerFC<TituloEjemploProps> = ({
 	icon,
 	iconSecondary,
+	iconTertiary,
 	iconParticipantes,
 	title,
 	subsistema,
@@ -28,6 +30,8 @@ const TituloEjemplo: StylesContainerFC<TituloEjemploProps> = ({
 	const IconSecondary = useIcon(iconSecondary, subsistema);
 
 	const Participantes = useIcon(iconParticipantes, subsistema);
+
+	const IconTertiary = useIcon(iconTertiary, subsistema);
 
 	return (
 		<Stack
@@ -49,6 +53,19 @@ const TituloEjemplo: StylesContainerFC<TituloEjemploProps> = ({
 			)}
 
 			{IconSecondary && <IconSecondary />}
+
+			{IconSecondary && IconTertiary && (
+				<Box
+					sx={{
+						width: 7,
+						height: 7,
+						background: secondary.alternative,
+						borderRadius: 100,
+					}}
+				/>
+			)}
+
+			{IconTertiary && <IconTertiary />}
 
 			{!notVisibleArrow && <Complementate />}
 

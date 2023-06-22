@@ -6,7 +6,10 @@ const withStates = (Story, context) => {
 		subsistema: string;
 	};
 
-	return <Story {...context} args={{ AC, subsistema, ...context.args }} />;
+	return <div style={{
+		fontFamily: "--apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
+	}}>
+	<Story {...context} args={{ AC, subsistema, ...context.args }} /></div>;
 };
 
 export default withStates;

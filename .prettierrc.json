@@ -1,7 +1,7 @@
 {
 	"trailingComma": "es5",
 	"tabWidth": 2,
-	"useTabs": true,
+	"useTabs": false,
 	"semi": true,
 	"singleQuote": true,
 	"bracketSameLine": false,
@@ -9,5 +9,12 @@
 	"bracketSpacing": true,
 	"jsxSingleQuote": true,
 	"printWidth": 80,
-	"proseWrap": "preserve"
-}
+	"proseWrap": "preserve",
+	"quoteProps": "as-needed",
+	"requirePragma": false,
+	"insertPragma": false,
+	"jsxBracketSameLine": false,
+	"htmlWhitespaceSensitivity": "css",
+	"endOfLine": "lf"
+  }
+  

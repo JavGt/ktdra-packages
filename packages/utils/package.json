@@ -48,5 +48,9 @@
 		"directory": "dist"
 	},
 	"sideEffects": false,
-	"license": "MIT"
+	"license": "MIT",
+	"dependencies": {
+		"jest": "^29.5.0",
+		"ts-jest": "^29.1.0"
+	}
 }

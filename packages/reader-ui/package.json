@@ -1,6 +1,6 @@
 {
 	"name": "@ktdra-digital/reader-ui",
-	"version": "0.0.36",
+	"version": "0.0.37",
 	"description": "UI components for ktdra reader (Frontend)",
 	"private": false,
 	"contributors": [

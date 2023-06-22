@@ -1,3 +1,5 @@
+// This function filters the ICONS array based on the selected folders.
+
 import { ICONS } from '../../constants';
 import { FoldersIcon } from '../../types';
 

@@ -1,0 +1,907 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`optionsIcons should return all icons 1`] = `
+[
+  {
+    "folder": "BT",
+    "icons": [
+      {
+        "label": "Actividad sugerida",
+        "value": {
+          "folder": "BT",
+          "name": "ActividadSugerida",
+        },
+      },
+      {
+        "label": "Complementate",
+        "value": {
+          "folder": "BT",
+          "name": "Complementate",
+        },
+      },
+      {
+        "label": "Conectate",
+        "value": {
+          "folder": "BT",
+          "name": "Conectate",
+        },
+      },
+      {
+        "label": "Cuestionate",
+        "value": {
+          "folder": "BT",
+          "name": "Cuestionate",
+        },
+      },
+      {
+        "label": "Desarrollo clase",
+        "value": {
+          "folder": "BT",
+          "name": "DesarrolloClase",
+        },
+      },
+      {
+        "label": "Experimental",
+        "value": {
+          "folder": "BT",
+          "name": "Experimental",
+        },
+      },
+      {
+        "label": "Formativa",
+        "value": {
+          "folder": "BT",
+          "name": "Formativa",
+        },
+      },
+      {
+        "label": "Guia clase",
+        "value": {
+          "folder": "BT",
+          "name": "GuiaClase",
+        },
+      },
+      {
+        "label": "Lectora",
+        "value": {
+          "folder": "BT",
+          "name": "Lectora",
+        },
+      },
+      {
+        "label": "Lectura",
+        "value": {
+          "folder": "BT",
+          "name": "Lectura",
+        },
+      },
+      {
+        "label": "Paginas",
+        "value": {
+          "folder": "BT",
+          "name": "Paginas",
+        },
+      },
+      {
+        "label": "Proyecto integrador",
+        "value": {
+          "folder": "BT",
+          "name": "ProyectoIntegrador",
+        },
+      },
+      {
+        "label": "Recuperacion",
+        "value": {
+          "folder": "BT",
+          "name": "Recuperacion",
+        },
+      },
+      {
+        "label": "Tic",
+        "value": {
+          "folder": "BT",
+          "name": "Tic",
+        },
+      },
+      {
+        "label": "Tiempo",
+        "value": {
+          "folder": "BT",
+          "name": "Tiempo",
+        },
+      },
+      {
+        "label": "Transversal",
+        "value": {
+          "folder": "BT",
+          "name": "Transversal",
+        },
+      },
+    ],
+  },
+  {
+    "folder": "BT/PARTICIPANTES",
+    "icons": [
+      {
+        "label": "Grupo",
+        "value": {
+          "folder": "BT/PARTICIPANTES",
+          "name": "Grupo",
+        },
+      },
+      {
+        "label": "Individual",
+        "value": {
+          "folder": "BT/PARTICIPANTES",
+          "name": "Individual",
+        },
+      },
+      {
+        "label": "Parejas",
+        "value": {
+          "folder": "BT/PARTICIPANTES",
+          "name": "Parejas",
+        },
+      },
+      {
+        "label": "Plenaria",
+        "value": {
+          "folder": "BT/PARTICIPANTES",
+          "name": "Plenaria",
+        },
+      },
+    ],
+  },
+  {
+    "folder": "BT/PLACAS5E",
+    "icons": [
+      {
+        "label": "Elaboramos",
+        "value": {
+          "folder": "BT/PLACAS5E",
+          "name": "Elaboramos",
+        },
+      },
+      {
+        "label": "Enganchamos",
+        "value": {
+          "folder": "BT/PLACAS5E",
+          "name": "Enganchamos",
+        },
+      },
+      {
+        "label": "Evaluamos",
+        "value": {
+          "folder": "BT/PLACAS5E",
+          "name": "Evaluamos",
+        },
+      },
+      {
+        "label": "Explicamos",
+        "value": {
+          "folder": "BT/PLACAS5E",
+          "name": "Explicamos",
+        },
+      },
+      {
+        "label": "Exploramos",
+        "value": {
+          "folder": "BT/PLACAS5E",
+          "name": "Exploramos",
+        },
+      },
+    ],
+  },
+  {
+    "folder": "COMMON",
+    "icons": [
+      {
+        "label": "Cara escala alta",
+        "value": {
+          "folder": "COMMON",
+          "name": "CaraEscalaAlta",
+        },
+      },
+      {
+        "label": "Cara escala baja",
+        "value": {
+          "folder": "COMMON",
+          "name": "CaraEscalaBaja",
+        },
+      },
+      {
+        "label": "Cara escala media",
+        "value": {
+          "folder": "COMMON",
+          "name": "CaraEscalaMedia",
+        },
+      },
+    ],
+  },
+  {
+    "folder": "DGB",
+    "icons": [
+      {
+        "label": "Actividad sugerida",
+        "value": {
+          "folder": "DGB",
+          "name": "ActividadSugerida",
+        },
+      },
+      {
+        "label": "Complementate",
+        "value": {
+          "folder": "DGB",
+          "name": "Complementate",
+        },
+      },
+      {
+        "label": "Conectate",
+        "value": {
+          "folder": "DGB",
+          "name": "Conectate",
+        },
+      },
+      {
+        "label": "Cuestionate",
+        "value": {
+          "folder": "DGB",
+          "name": "Cuestionate",
+        },
+      },
+      {
+        "label": "Desarrollo clase",
+        "value": {
+          "folder": "DGB",
+          "name": "DesarrolloClase",
+        },
+      },
+      {
+        "label": "Experimental",
+        "value": {
+          "folder": "DGB",
+          "name": "Experimental",
+        },
+      },
+      {
+        "label": "Formativa",
+        "value": {
+          "folder": "DGB",
+          "name": "Formativa",
+        },
+      },
+      {
+        "label": "Guia clase",
+        "value": {
+          "folder": "DGB",
+          "name": "GuiaClase",
+        },
+      },
+      {
+        "label": "Lectora",
+        "value": {
+          "folder": "DGB",
+          "name": "Lectora",
+        },
+      },
+      {
+        "label": "Lectura",
+        "value": {
+          "folder": "DGB",
+          "name": "Lectura",
+        },
+      },
+      {
+        "label": "Paginas",
+        "value": {
+          "folder": "DGB",
+          "name": "Paginas",
+        },
+      },
+      {
+        "label": "Proyecto integrador",
+        "value": {
+          "folder": "DGB",
+          "name": "ProyectoIntegrador",
+        },
+      },
+      {
+        "label": "Recuperacion",
+        "value": {
+          "folder": "DGB",
+          "name": "Recuperacion",
+        },
+      },
+      {
+        "label": "Tic",
+        "value": {
+          "folder": "DGB",
+          "name": "Tic",
+        },
+      },
+      {
+        "label": "Tiempo",
+        "value": {
+          "folder": "DGB",
+          "name": "Tiempo",
+        },
+      },
+      {
+        "label": "Transversal",
+        "value": {
+          "folder": "DGB",
+          "name": "Transversal",
+        },
+      },
+    ],
+  },
+  {
+    "folder": "DGB/PARTICIPANTES",
+    "icons": [
+      {
+        "label": "Grupo",
+        "value": {
+          "folder": "DGB/PARTICIPANTES",
+          "name": "Grupo",
+        },
+      },
+      {
+        "label": "Individual",
+        "value": {
+          "folder": "DGB/PARTICIPANTES",
+          "name": "Individual",
+        },
+      },
+      {
+        "label": "Parejas",
+        "value": {
+          "folder": "DGB/PARTICIPANTES",
+          "name": "Parejas",
+        },
+      },
+      {
+        "label": "Plenaria",
+        "value": {
+          "folder": "DGB/PARTICIPANTES",
+          "name": "Plenaria",
+        },
+      },
+    ],
+  },
+  {
+    "folder": "DGB/PLACAS5E",
+    "icons": [
+      {
+        "label": "Elaboramos",
+        "value": {
+          "folder": "DGB/PLACAS5E",
+          "name": "Elaboramos",
+        },
+      },
+      {
+        "label": "Enganchamos",
+        "value": {
+          "folder": "DGB/PLACAS5E",
+          "name": "Enganchamos",
+        },
+      },
+      {
+        "label": "Evaluamos",
+        "value": {
+          "folder": "DGB/PLACAS5E",
+          "name": "Evaluamos",
+        },
+      },
+      {
+        "label": "Explicamos",
+        "value": {
+          "folder": "DGB/PLACAS5E",
+          "name": "Explicamos",
+        },
+      },
+      {
+        "label": "Exploramos",
+        "value": {
+          "folder": "DGB/PLACAS5E",
+          "name": "Exploramos",
+        },
+      },
+    ],
+  },
+  {
+    "folder": "INGLES",
+    "icons": [
+      {
+        "label": "Grammar note",
+        "value": {
+          "folder": "INGLES",
+          "name": "GrammarNote",
+        },
+      },
+      {
+        "label": "Listening",
+        "value": {
+          "folder": "INGLES",
+          "name": "Listening",
+        },
+      },
+      {
+        "label": "Reading",
+        "value": {
+          "folder": "INGLES",
+          "name": "Reading",
+        },
+      },
+      {
+        "label": "Speaking",
+        "value": {
+          "folder": "INGLES",
+          "name": "Speaking",
+        },
+      },
+      {
+        "label": "Writing",
+        "value": {
+          "folder": "INGLES",
+          "name": "Writing",
+        },
+      },
+    ],
+  },
+  {
+    "folder": "KTDRA",
+    "icons": [
+      {
+        "label": "Logo completo primario",
+        "value": {
+          "folder": "KTDRA",
+          "name": "LogoCompletoPrimario",
+        },
+      },
+      {
+        "label": "Logo completo secundario",
+        "value": {
+          "folder": "KTDRA",
+          "name": "LogoCompletoSecundario",
+        },
+      },
+      {
+        "label": "Logo texto",
+        "value": {
+          "folder": "KTDRA",
+          "name": "LogoTexto",
+        },
+      },
+      {
+        "label": "LogoImage",
+        "value": {
+          "folder": "KTDRA",
+          "name": "LogoImage",
+        },
+      },
+    ],
+  },
+  {
+    "folder": "NEM",
+    "icons": [
+      {
+        "label": "Fomento",
+        "value": {
+          "folder": "NEM",
+          "name": "Fomento",
+        },
+      },
+      {
+        "label": "Honestidad",
+        "value": {
+          "folder": "NEM",
+          "name": "Honestidad",
+        },
+      },
+      {
+        "label": "Interculturalidad",
+        "value": {
+          "folder": "NEM",
+          "name": "Interculturalidad",
+        },
+      },
+      {
+        "label": "Naturaleza",
+        "value": {
+          "folder": "NEM",
+          "name": "Naturaleza",
+        },
+      },
+      {
+        "label": "Participacion",
+        "value": {
+          "folder": "NEM",
+          "name": "Participacion",
+        },
+      },
+      {
+        "label": "Paz",
+        "value": {
+          "folder": "NEM",
+          "name": "Paz",
+        },
+      },
+      {
+        "label": "Respeto",
+        "value": {
+          "folder": "NEM",
+          "name": "Respeto",
+        },
+      },
+      {
+        "label": "Responsabilidad",
+        "value": {
+          "folder": "NEM",
+          "name": "Responsabilidad",
+        },
+      },
+    ],
+  },
+]
+`;
+
+exports[`optionsIcons should return icons with BT 1`] = `
+[
+  {
+    "folder": "BT",
+    "icons": [
+      {
+        "label": "Actividad sugerida",
+        "value": {
+          "folder": "BT",
+          "name": "ActividadSugerida",
+        },
+      },
+      {
+        "label": "Complementate",
+        "value": {
+          "folder": "BT",
+          "name": "Complementate",
+        },
+      },
+      {
+        "label": "Conectate",
+        "value": {
+          "folder": "BT",
+          "name": "Conectate",
+        },
+      },
+      {
+        "label": "Cuestionate",
+        "value": {
+          "folder": "BT",
+          "name": "Cuestionate",
+        },
+      },
+      {
+        "label": "Desarrollo clase",
+        "value": {
+          "folder": "BT",
+          "name": "DesarrolloClase",
+        },
+      },
+      {
+        "label": "Experimental",
+        "value": {
+          "folder": "BT",
+          "name": "Experimental",
+        },
+      },
+      {
+        "label": "Formativa",
+        "value": {
+          "folder": "BT",
+          "name": "Formativa",
+        },
+      },
+      {
+        "label": "Guia clase",
+        "value": {
+          "folder": "BT",
+          "name": "GuiaClase",
+        },
+      },
+      {
+        "label": "Lectora",
+        "value": {
+          "folder": "BT",
+          "name": "Lectora",
+        },
+      },
+      {
+        "label": "Lectura",
+        "value": {
+          "folder": "BT",
+          "name": "Lectura",
+        },
+      },
+      {
+        "label": "Paginas",
+        "value": {
+          "folder": "BT",
+          "name": "Paginas",
+        },
+      },
+      {
+        "label": "Proyecto integrador",
+        "value": {
+          "folder": "BT",
+          "name": "ProyectoIntegrador",
+        },
+      },
+      {
+        "label": "Recuperacion",
+        "value": {
+          "folder": "BT",
+          "name": "Recuperacion",
+        },
+      },
+      {
+        "label": "Tic",
+        "value": {
+          "folder": "BT",
+          "name": "Tic",
+        },
+      },
+      {
+        "label": "Tiempo",
+        "value": {
+          "folder": "BT",
+          "name": "Tiempo",
+        },
+      },
+      {
+        "label": "Transversal",
+        "value": {
+          "folder": "BT",
+          "name": "Transversal",
+        },
+      },
+    ],
+  },
+]
+`;
+
+exports[`optionsIcons should return icons with BT and DGB 1`] = `
+[
+  {
+    "folder": "BT",
+    "icons": [
+      {
+        "label": "Actividad sugerida",
+        "value": {
+          "folder": "BT",
+          "name": "ActividadSugerida",
+        },
+      },
+      {
+        "label": "Complementate",
+        "value": {
+          "folder": "BT",
+          "name": "Complementate",
+        },
+      },
+      {
+        "label": "Conectate",
+        "value": {
+          "folder": "BT",
+          "name": "Conectate",
+        },
+      },
+      {
+        "label": "Cuestionate",
+        "value": {
+          "folder": "BT",
+          "name": "Cuestionate",
+        },
+      },
+      {
+        "label": "Desarrollo clase",
+        "value": {
+          "folder": "BT",
+          "name": "DesarrolloClase",
+        },
+      },
+      {
+        "label": "Experimental",
+        "value": {
+          "folder": "BT",
+          "name": "Experimental",
+        },
+      },
+      {
+        "label": "Formativa",
+        "value": {
+          "folder": "BT",
+          "name": "Formativa",
+        },
+      },
+      {
+        "label": "Guia clase",
+        "value": {
+          "folder": "BT",
+          "name": "GuiaClase",
+        },
+      },
+      {
+        "label": "Lectora",
+        "value": {
+          "folder": "BT",
+          "name": "Lectora",
+        },
+      },
+      {
+        "label": "Lectura",
+        "value": {
+          "folder": "BT",
+          "name": "Lectura",
+        },
+      },
+      {
+        "label": "Paginas",
+        "value": {
+          "folder": "BT",
+          "name": "Paginas",
+        },
+      },
+      {
+        "label": "Proyecto integrador",
+        "value": {
+          "folder": "BT",
+          "name": "ProyectoIntegrador",
+        },
+      },
+      {
+        "label": "Recuperacion",
+        "value": {
+          "folder": "BT",
+          "name": "Recuperacion",
+        },
+      },
+      {
+        "label": "Tic",
+        "value": {
+          "folder": "BT",
+          "name": "Tic",
+        },
+      },
+      {
+        "label": "Tiempo",
+        "value": {
+          "folder": "BT",
+          "name": "Tiempo",
+        },
+      },
+      {
+        "label": "Transversal",
+        "value": {
+          "folder": "BT",
+          "name": "Transversal",
+        },
+      },
+    ],
+  },
+  {
+    "folder": "DGB",
+    "icons": [
+      {
+        "label": "Actividad sugerida",
+        "value": {
+          "folder": "DGB",
+          "name": "ActividadSugerida",
+        },
+      },
+      {
+        "label": "Complementate",
+        "value": {
+          "folder": "DGB",
+          "name": "Complementate",
+        },
+      },
+      {
+        "label": "Conectate",
+        "value": {
+          "folder": "DGB",
+          "name": "Conectate",
+        },
+      },
+      {
+        "label": "Cuestionate",
+        "value": {
+          "folder": "DGB",
+          "name": "Cuestionate",
+        },
+      },
+      {
+        "label": "Desarrollo clase",
+        "value": {
+          "folder": "DGB",
+          "name": "DesarrolloClase",
+        },
+      },
+      {
+        "label": "Experimental",
+        "value": {
+          "folder": "DGB",
+          "name": "Experimental",
+        },
+      },
+      {
+        "label": "Formativa",
+        "value": {
+          "folder": "DGB",
+          "name": "Formativa",
+        },
+      },
+      {
+        "label": "Guia clase",
+        "value": {
+          "folder": "DGB",
+          "name": "GuiaClase",
+        },
+      },
+      {
+        "label": "Lectora",
+        "value": {
+          "folder": "DGB",
+          "name": "Lectora",
+        },
+      },
+      {
+        "label": "Lectura",
+        "value": {
+          "folder": "DGB",
+          "name": "Lectura",
+        },
+      },
+      {
+        "label": "Paginas",
+        "value": {
+          "folder": "DGB",
+          "name": "Paginas",
+        },
+      },
+      {
+        "label": "Proyecto integrador",
+        "value": {
+          "folder": "DGB",
+          "name": "ProyectoIntegrador",
+        },
+      },
+      {
+        "label": "Recuperacion",
+        "value": {
+          "folder": "DGB",
+          "name": "Recuperacion",
+        },
+      },
+      {
+        "label": "Tic",
+        "value": {
+          "folder": "DGB",
+          "name": "Tic",
+        },
+      },
+      {
+        "label": "Tiempo",
+        "value": {
+          "folder": "DGB",
+          "name": "Tiempo",
+        },
+      },
+      {
+        "label": "Transversal",
+        "value": {
+          "folder": "DGB",
+          "name": "Transversal",
+        },
+      },
+    ],
+  },
+]
+`;

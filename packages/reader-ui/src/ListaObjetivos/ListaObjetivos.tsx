@@ -59,7 +59,6 @@ export const Item = styled.div`
 	display: flex;
 	gap: 20px;
 	margin-bottom: 15px;
-	height: 100%;
 	align-items: center;
 
 	&:last-child {

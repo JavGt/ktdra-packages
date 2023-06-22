@@ -1,6 +1,6 @@
 {
 	"name": "@ktdra-digital/utils",
-	"version": "0.0.14",
+	"version": "0.0.16",
 	"description": "Utils for ktdra-digital (Frontend)",
 	"private": false,
 	"contributors": [
@@ -11,6 +11,7 @@
 	],
 	"module": "dist/index.js",
 	"types": "dist/index.d.ts",
+	"type": "module",
 	"keywords": [
 		"ktdra"
 	],
@@ -47,5 +48,9 @@
 		"directory": "dist"
 	},
 	"sideEffects": false,
-	"license": "MIT"
+	"license": "MIT",
+	"dependencies": {
+		"jest": "^29.5.0",
+		"ts-jest": "^29.1.0"
+	}
 }

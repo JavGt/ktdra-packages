@@ -23,7 +23,6 @@ export const Default: Story = {
 					folder: '/PLACAS5E',
 					isDependent: true,
 				},
-				title: 'Páginas',
 				text: '21-22',
 			},
 			{

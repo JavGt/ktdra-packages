@@ -1,14 +1,12 @@
-<a href="https://www.k-tdra.com" target="_blank">
- <img src="https://www.k-tdra.digital/Logotype_official_nombre.svg" alt="K-TDRA"/>
-</a>
-
 # @ktdra-digital/reader-ui
 
-¡Bienvenido a la librería de iconos @ktdra-digital/reader-ui! Esta librería ha sido diseñada especialmente para ser utilizada en nuestra empresa interna y proporciona una librería de componentes para el reader
+[![K-TDRA](https://www.k-tdra.digital/Logotype_official_nombre.svg)](https://www.k-tdra.com)
+
+¡Bienvenido a la librería de componentes @ktdra-digital/reader-ui! Esta librería ha sido diseñada especialmente para ser utilizada en nuestra empresa interna y proporciona una librería de componentes para el reader.
 
 ## Instalación
 
-Puedes instalar la librería de iconos @ktdra-digital/reader-ui utilizando npm (Node Package Manager). Abre tu terminal y ejecuta el siguiente comando:
+Puedes instalar la librería de componentes de react @ktdra-digital/reader-ui utilizando npm (Node Package Manager). Abre tu terminal y ejecuta el siguiente comando:
 
 ### NPM
 
@@ -27,6 +25,10 @@ yarn add @ktdra-digital/reader-ui
 ```bash
 pnpm add @ktdra-digital/reader-ui
 ```
+
+## **Nota importante:**
+
+Las librerías desarrolladas de ktdra son destinadas únicamente para uso privado y no están disponibles para el público en general.
 
 ## Licencia
 

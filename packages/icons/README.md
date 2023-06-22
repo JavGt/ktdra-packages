@@ -1,8 +1,6 @@
-<a href="https://www.k-tdra.com" target="_blank">
- <img src="https://www.k-tdra.digital/Logotype_official_nombre.svg" alt="K-TDRA"/>
-</a>
-
 # @ktdra-digital/icons
+
+[![K-TDRA](https://www.k-tdra.digital/Logotype_official_nombre.svg)](https://www.k-tdra.com)
 
 ¡Bienvenido a la librería de iconos @ktdra-digital/icons! Esta librería ha sido diseñada especialmente para ser utilizada en nuestra empresa interna y proporciona una amplia variedad de iconos para mejorar la experiencia visual de nuestras aplicaciones y proyectos para la empresa [Ktdra](https://www.k-tdra.com).
 
@@ -41,6 +39,10 @@ import { IconoNombre } from '@ktdra-digital/icons';
 //...
 <IconoNombre className='mi-clase-css' style={{ color: 'red', fontSize: '2rem' }} />;
 ```
+
+## **Nota importante:**
+
+Las librerías desarrolladas de ktdra son destinadas únicamente para uso privado y no están disponibles para el público en general.
 
 ## Licencia
 

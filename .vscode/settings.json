@@ -1,14 +1,10 @@
 {
-	"cSpell.words": ["ktdra", "svgr"],
-	"js/ts.implicitProjectConfig.checkJs": true,
-	"reactCreateComponent.settings.importReactOnTop": true,
-	"reactCreateComponent.settings.SelectLanguage": "TypeScript",
-	"reactCreateComponent.settings.SelectTypeStyle": "Style Component",
-	"svg.preview.background": "transparent",
-	"editor.formatOnSave": false,
-	"conventionalCommits.scopes": [
-		"text-editor",
-		"reader-ui",
-		"icons"
-	],
+  "cSpell.words": ["ktdra", "stylegroup", "svgr"],
+  "js/ts.implicitProjectConfig.checkJs": true,
+  "reactCreateComponent.settings.importReactOnTop": true,
+  "reactCreateComponent.settings.SelectLanguage": "TypeScript",
+  "reactCreateComponent.settings.SelectTypeStyle": "Style Component",
+  "svg.preview.background": "transparent",
+  "editor.formatOnSave": false,
+  "conventionalCommits.scopes": ["text-editor", "reader-ui", "icons"]
 }

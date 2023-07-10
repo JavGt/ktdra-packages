@@ -1,13 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import TituloBordes from './TituloBordes';
+import { titles } from '../constants/index';
 
 const meta: Meta<typeof TituloBordes> = {
-	title: 'Reader/Titulos/Titulo Bordes',
-	component: TituloBordes,
-	tags: ['autodocs'],
-	parameters: {
-		layout: 'fullscreen',
-	},
+  title: 'Reader/Titulos/Titulo Bordes',
+  component: TituloBordes,
+  tags: ['autodocs'],
+  parameters: {
+    layout: 'fullscreen',
+  },
 };
 
 export default meta;
@@ -15,7 +16,7 @@ export default meta;
 type Story = StoryObj<typeof TituloBordes>;
 
 export const UnIcono: Story = {
-	args: {
-		title: 'Ladillos',
-	},
+  args: {
+    title: titles.medium,
+  },
 };

@@ -3,8 +3,8 @@
  * @see https://react-svgr.com/docs/custom-templates/
  */
 const template = (variables, context) => {
-	const nameComponent = variables.componentName.replace('Svg', '');
-	const alert = `
+  const nameComponent = variables.componentName.replace('Svg', '');
+  const alert = `
 	/** -------------- PRECAUCIÓN --------------------------------
      *  	El componente "${variables.componentName.replace('Svg', '')}"
      * tiene derecho de autor y es propiedad de ktdra
@@ -13,7 +13,7 @@ const template = (variables, context) => {
      */
 	`;
 
-	return context.tpl`
+  return context.tpl`
 		${alert}
 
 		${variables.imports}

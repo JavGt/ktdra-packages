@@ -3,21 +3,21 @@ import { type Styles, WrapperStyle } from '../WrapperStyle';
 import { AC, Palette, useColorsAC } from '@ktdra-digital/utils';
 
 export type FormValues<T> = T & {
-	styles?: Styles;
+  styles?: Styles;
 };
 
 export type Subsistema = 'BT' | 'DGB';
 
 export type InjectedProps = {
-	colors: Palette;
-	AC: AC;
-	subsistema: Subsistema;
+  colors: Palette;
+  AC: AC;
+  subsistema: Subsistema;
 };
 
 export type PropsHOC<PropsComponent = {}> = PropsComponent & {
-	AC: AC;
-	subsistema: Subsistema;
-	styles?: Styles;
+  AC: AC;
+  subsistema: Subsistema;
+  styles?: Styles;
 };
 
 /**
@@ -27,7 +27,7 @@ export type PropsHOC<PropsComponent = {}> = PropsComponent & {
  * @example
  */
 export type StylesContainerFC<PropsComponent = {}> = React.FC<
-	PropsComponent & InjectedProps
+  PropsComponent & InjectedProps
 >;
 
 /**
@@ -41,28 +41,28 @@ export type StylesContainerFC<PropsComponent = {}> = React.FC<
  * export default stylesContainer(Component, {colorSelector: 'primary'})
  */
 export const stylesContainer = <PropsComponent = {},>(
-	Component: React.ComponentType<PropsComponent & InjectedProps>
+  Component: React.ComponentType<PropsComponent & InjectedProps>
 ) => {
-	const ComponentHOC: React.FC<PropsHOC<PropsComponent>> = ({
-		styles,
-		...rest
-	}) => {
-		const colors = useColorsAC({ area: rest.AC, subsistema: rest.subsistema });
+  const ComponentHOC: React.FC<PropsHOC<PropsComponent>> = ({
+    styles,
+    ...rest
+  }) => {
+    const colors = useColorsAC({ area: rest.AC, subsistema: rest.subsistema });
 
-		const injectProps = {
-			colors,
-			AC: rest.AC,
-			subsistema: rest.subsistema,
-		} as InjectedProps;
+    const injectProps = {
+      colors,
+      AC: rest.AC,
+      subsistema: rest.subsistema,
+    } as InjectedProps;
 
-		return (
-			<WrapperStyle styles={styles}>
-				<Component {...injectProps} {...(rest as PropsComponent)} />
-			</WrapperStyle>
-		);
-	};
+    return (
+      <WrapperStyle styles={styles}>
+        <Component {...injectProps} {...(rest as PropsComponent)} />
+      </WrapperStyle>
+    );
+  };
 
-	ComponentHOC.displayName = 'stylesContainer';
+  ComponentHOC.displayName = 'stylesContainer';
 
-	return ComponentHOC;
+  return ComponentHOC;
 };

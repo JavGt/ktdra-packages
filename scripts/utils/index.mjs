@@ -9,10 +9,12 @@ import chalk from 'chalk';
 const log = console.log;
 
 /** @type {log} */
-export const tagLog = (tag, status = 'success') => log(chalk[status !== 'error' ? 'bgGreen' : 'bgRed'].black(tag));
+export const tagLog = (tag, status = 'success') =>
+  log(chalk[status !== 'error' ? 'bgGreen' : 'bgRed'].black(tag));
 
 /** @type {log} */
-export const lineLog = (text, status = 'success') => log(chalk[status !== 'error' ? 'green' : 'red'].bold('> ', text));
+export const lineLog = (text, status = 'success') =>
+  log(chalk[status !== 'error' ? 'green' : 'red'].bold('> ', text));
 
 export const packagePath = process.cwd();
 
@@ -20,7 +22,10 @@ export const buildPath = path.join(packagePath, 'dist');
 export const srcPath = path.join(packagePath, 'src');
 
 export const packageJson = async () => {
-	const packageData = await fse.readFile(path.resolve(packagePath, './package.json'), 'utf8');
+  const packageData = await fse.readFile(
+    path.resolve(packagePath, './package.json'),
+    'utf8'
+  );
 
-	return JSON.parse(packageData);
+  return JSON.parse(packageData);
 };

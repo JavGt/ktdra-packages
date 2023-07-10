@@ -8,21 +8,23 @@ import { buildPath, lineLog, packageJson, tagLog } from './utils/index.mjs';
 const { name } = await packageJson();
 
 (async () => {
-	// Leer todos los archivos en el directorio de compilación y verificar si son directorios
-	const files = await fse.readdir(buildPath);
+  // Leer todos los archivos en el directorio de compilación y verificar si son directorios
+  const files = await fse.readdir(buildPath);
 
-	const dirs = files.filter(f => {
-		const isDirectory = fse.lstatSync(path.join(buildPath, f)).isDirectory();
+  const dirs = files.filter((f) => {
+    const isDirectory = fse.lstatSync(path.join(buildPath, f)).isDirectory();
 
-		return isDirectory;
-	});
+    return isDirectory;
+  });
 
-	// Crear un archivo de barril para cada directorio
-	const barrelPath = path.join(buildPath, 'index.ts');
+  // Crear un archivo de barril para cada directorio
+  const barrelPath = path.join(buildPath, 'index.ts');
 
-	const template = `${dirs.map(d => `export * from './${d}';`).join('\n')}`;
+  const template = `${dirs.map((d) => `export * from './${d}';`).join('\n')}`;
 
-	fse.writeFileSync(barrelPath, template);
-	tagLog(name);
-	lineLog(`El archivo index.ts se ha creado con éxito en ${dirs.length} carpetas`);
+  fse.writeFileSync(barrelPath, template);
+  tagLog(name);
+  lineLog(
+    `El archivo index.ts se ha creado con éxito en ${dirs.length} carpetas`
+  );
 })();

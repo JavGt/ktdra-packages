@@ -1,17 +1,9 @@
 import React from 'react';
-import { stylesContainer, StylesContainerFC } from '../utils';
-import { markdownToHtml } from '../utils/markdownToHtml';
+import { stylesContainer, StylesContainerFC, markdownToHtml } from '../utils';
+import { TextoProps } from './types';
 
-export type TextoProps = {
-	text: string;
-};
-
-const Texto: StylesContainerFC<TextoProps> = ({ text }) => {
-	return (
-		<div
-			dangerouslySetInnerHTML={{ __html: markdownToHtml(text) }}
-		/>
-	);
-};
+const Texto: StylesContainerFC<TextoProps> = ({ text }) => (
+  <div dangerouslySetInnerHTML={{ __html: markdownToHtml(text) }} />
+);
 
 export default stylesContainer(Texto);

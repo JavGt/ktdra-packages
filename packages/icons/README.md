@@ -20,11 +20,11 @@ Una vez que hayas instalado la librería, puedes comenzar a utilizar los iconos 
 import { IconoNombre } from '@ktdra-digital/icons';
 
 function MiComponente() {
- return (
-  <div>
-   <IconoNombre />
-  </div>
- );
+  return (
+    <div>
+      <IconoNombre />
+    </div>
+  );
 }
 ```
 
@@ -37,7 +37,10 @@ La librería de iconos @ktdra-digital/icons proporciona una flexibilidad adicion
 ```jsx
 import { IconoNombre } from '@ktdra-digital/icons';
 //...
-<IconoNombre className='mi-clase-css' style={{ color: 'red', fontSize: '2rem' }} />;
+<IconoNombre
+  className="mi-clase-css"
+  style={{ color: 'red', fontSize: '2rem' }}
+/>;
 ```
 
 ## **Nota importante:**

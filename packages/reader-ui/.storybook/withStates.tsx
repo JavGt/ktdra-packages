@@ -1,15 +1,19 @@
+import styled from '@emotion/styled';
 import React from 'react';
+import { StoryContext } from '@storybook/react';
+import { CssBaseline } from '../src/utils/CssBaseline';
 
-const withStates = (Story, context) => {
-	const { AC, subsistema } = context.globals as {
-		AC: string;
-		subsistema: string;
-	};
+const withStates = (Story: React.ElementType, ctx: StoryContext) => {
+  const { AC, subsistema } = ctx.globals as {
+    AC: string;
+    subsistema: string;
+  };
 
-	return <div style={{
-		fontFamily: "--apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
-	}}>
-	<Story {...context} args={{ AC, subsistema, ...context.args }} /></div>;
+  return (
+    <CssBaseline>
+      <Story {...ctx} args={{ AC, subsistema, ...ctx.args }} />
+    </CssBaseline>
+  );
 };
 
 export default withStates;

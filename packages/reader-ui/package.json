@@ -1,80 +1,82 @@
 {
-	"name": "@ktdra-digital/reader-ui",
-	"version": "0.0.37",
-	"description": "UI components for ktdra reader (Frontend)",
-	"private": false,
-	"contributors": [
-		{
-			"name": "Javier Gutiérrez",
-			"email": "javier.bz.gt@gmail.com"
-		}
-	],
-	"module": "dist/index.js",
-	"types": "dist/index.d.ts",
-	"type": "module",
-	"keywords": [
-		"ktdra",
-		"react"
-	],
-	"files": [
-		"dist"
-	],
-	"author": {
-		"name": "ktdra Team",
-		"email": "mvp.desarrollo@gmail.com",
-		"url": "https://k-tdra.com/"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/JavGt/ktdra-packages/",
-		"directory": "/packages/reader-ui"
-	},
-	"scripts": {
-		"storybook": "storybook dev -p 6006",
-		"build-storybook": "storybook build",
-		"build": "yarn delete:dist && yarn build:tsc",
-		"build:pckTp": "node ../../scripts/create-package-types.mjs",
-		"build:tsc": "tsc",
-		"watch:tsc": "tsc -w",
-		"delete:dist": "node ../../scripts/delete-dist.mjs",
-		"release": "npm publish --registry https://registry.npmjs.org/"
-	},
-	"dependencies": {
-		"@emotion/react": "^11.11.0",
-		"@emotion/styled": "^11.11.0",
-		"@ktdra-digital/icons": ">=0.0.33",
-		"@ktdra-digital/utils": "*",
-		"@mui/material": "^5.12.3",
-		"jest": "^29.5.0",
-		"marked": "^5.0.1",
-		"styled-components": "^5.3.10",
-		"ts-jest": "^29.1.0"
-	},
-	"devDependencies": {
-		"@babel/preset-env": "^7.21.5",
-		"@babel/preset-react": "^7.18.6",
-		"@babel/preset-typescript": "^7.21.5",
-		"@storybook/addon-essentials": "7.0.9",
-		"@storybook/addon-interactions": "7.0.9",
-		"@storybook/addon-links": "7.0.9",
-		"@storybook/blocks": "7.0.9",
-		"@storybook/react": "7.0.9",
-		"@storybook/react-webpack5": "7.0.9",
-		"@storybook/testing-library": "0.0.14-next.2",
-		"@types/jest": "^29.5.2",
-		"@types/marked": "^4.3.0",
-		"@types/react": "^18.2.5",
-		"@types/styled-components": "^5.1.26",
-		"prop-types": "15.8.1",
-		"react": "^18.2.0",
-		"react-dom": "18.2.0",
-		"storybook": "7.0.9",
-		"typescript": "^5.0.4"
-	},
-	"publishConfig": {
-		"access": "public",
-		"directory": "dist"
-	},
-	"sideEffects": false,
-	"license": "MIT"
+  "name": "@ktdra-digital/reader-ui",
+  "version": "0.0.46",
+  "description": "UI components for ktdra reader (Frontend)",
+  "private": false,
+  "contributors": [
+    {
+      "name": "Javier Gutiérrez",
+      "email": "javier.bz.gt@gmail.com"
+    }
+  ],
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "keywords": [
+    "ktdra",
+    "react"
+  ],
+  "files": [
+    "dist"
+  ],
+  "author": {
+    "name": "ktdra Team",
+    "email": "mvp.desarrollo@gmail.com",
+    "url": "https://k-tdra.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JavGt/ktdra-packages/",
+    "directory": "/packages/reader-ui"
+  },
+  "scripts": {
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "build": "yarn delete:dist && yarn build:tsc",
+    "build:pckTp": "node ../../scripts/create-package-types.mjs",
+    "build:tsc": "tsc",
+    "watch:tsc": "tsc -w",
+    "delete:dist": "node ../../scripts/delete-dist.mjs",
+    "release": "npm publish --registry https://registry.npmjs.org/",
+    "check-types": "tsc --noEmit",
+    "check-types:watch": "tsc --noEmit --watch"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.0",
+    "@emotion/styled": "^11.11.0",
+    "@ktdra-digital/icons": ">=0.0.33",
+    "@ktdra-digital/utils": "*",
+    "jest": "^29.5.0",
+    "marked": "^5.0.1",
+    "normalize": "^0.3.1",
+    "ts-jest": "^29.1.0"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.21.5",
+    "@babel/preset-react": "^7.18.6",
+    "@babel/preset-typescript": "^7.21.5",
+    "@storybook/addon-essentials": "7.0.9",
+    "@storybook/addon-interactions": "7.0.9",
+    "@storybook/addon-links": "7.0.9",
+    "@storybook/blocks": "7.0.9",
+    "@storybook/react": "7.0.9",
+    "@storybook/react-webpack5": "7.0.9",
+    "@storybook/testing-library": "0.0.14-next.2",
+    "@types/jest": "^29.5.2",
+    "@types/marked": "^4.3.0",
+    "@types/react": "^18.2.5",
+    "@types/styled-components": "^5.1.26",
+    "normalize.css": "^8.0.1",
+    "prop-types": "15.8.1",
+    "react": "^18.2.0",
+    "react-dom": "18.2.0",
+    "storybook": "7.0.9",
+    "typescript": "^5.0.4"
+  },
+  "publishConfig": {
+    "access": "public",
+    "directory": "dist"
+  },
+  "sideEffects": false,
+  "license": "MIT"
 }

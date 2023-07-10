@@ -1,86 +1,47 @@
 import React from 'react';
-import { Box, Stack, Typography } from '@mui/material';
 import { Complementate } from '@ktdra-digital/icons/dist/BT';
-import { useIcon, type Icon } from '@ktdra-digital/icons';
+import { useIcon } from '@ktdra-digital/icons';
 import { StylesContainerFC, stylesContainer } from '../utils';
-
-export type TituloEjemploProps = {
-	icon?: Icon;
-	iconSecondary?: Icon;
-	iconTertiary?: Icon;
-	iconParticipantes?: Icon;
-	title: string;
-	notVisibleArrow?: boolean;
-};
+import { TituloEjemploProps } from './types';
+import { TituloEjemploStl } from './TituloEjemplo.styled';
 
 const TituloEjemplo: StylesContainerFC<TituloEjemploProps> = ({
-	icon,
-	iconSecondary,
-	iconTertiary,
-	iconParticipantes,
-	title,
-	subsistema,
-	colors,
-	notVisibleArrow,
+  icon,
+  iconSecondary,
+  iconTertiary,
+  iconParticipantes,
+  title,
+  subsistema,
+  colors,
+  notVisibleArrow,
 }) => {
-	const { primary, secondary } = colors;
+  const Icon = useIcon(icon, subsistema);
 
-	const Icon = useIcon(icon, subsistema);
+  const IconSecondary = useIcon(iconSecondary, subsistema);
 
-	const IconSecondary = useIcon(iconSecondary, subsistema);
+  const Participantes = useIcon(iconParticipantes, subsistema);
 
-	const Participantes = useIcon(iconParticipantes, subsistema);
+  const IconTertiary = useIcon(iconTertiary, subsistema);
 
-	const IconTertiary = useIcon(iconTertiary, subsistema);
+  return (
+    <TituloEjemploStl colors={colors}>
+      {Icon && <Icon className="icon" />}
 
-	return (
-		<Stack
-			direction='row'
-			alignItems='center'
-			sx={{ '& svg': { width: 50, height: 50, fill: secondary.alternative } }}
-		>
-			{Icon && <Icon />}
+      {Icon && IconSecondary && <div className="dot" />}
 
-			{Icon && IconSecondary && (
-				<Box
-					sx={{
-						width: 7,
-						height: 7,
-						background: secondary.alternative,
-						borderRadius: 100,
-					}}
-				/>
-			)}
+      {IconSecondary && <IconSecondary className="icon" />}
 
-			{IconSecondary && <IconSecondary />}
+      {IconSecondary && IconTertiary && <div className="dot" />}
 
-			{IconSecondary && IconTertiary && (
-				<Box
-					sx={{
-						width: 7,
-						height: 7,
-						background: secondary.alternative,
-						borderRadius: 100,
-					}}
-				/>
-			)}
+      {IconTertiary && <IconTertiary className="icon" />}
 
-			{IconTertiary && <IconTertiary />}
+      {!notVisibleArrow && <Complementate className="icon" />}
 
-			{!notVisibleArrow && <Complementate />}
+      <h3 className="title">{title}</h3>
 
-			<Typography
-				mx={0.5}
-				sx={{ color: primary.main }}
-				fontSize='20px'
-				textTransform='uppercase'
-			>
-				{title}
-			</Typography>
-
-			{Participantes && <Participantes />}
-		</Stack>
-	);
+      {Participantes && <Participantes className="icon" />}
+    </TituloEjemploStl>
+  );
 };
 
 export default stylesContainer(TituloEjemplo);

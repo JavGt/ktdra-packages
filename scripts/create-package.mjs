@@ -4,11 +4,11 @@ import path from 'path';
 import { buildPath, packageJson } from './utils/index.mjs';
 
 const { nyc, scripts, devDependencies, workspaces, ...packageDataOther } =
-	await packageJson();
+  await packageJson();
 
 const newPackageData = {
-	...packageDataOther,
-	private: false,
+  ...packageDataOther,
+  private: false,
 };
 
 const typeDefinitionsFilePath = path.resolve(buildPath, './index.d.ts');
@@ -16,13 +16,17 @@ const typeDefinitionsFilePath = path.resolve(buildPath, './index.d.ts');
 const indexPath = path.resolve(buildPath, './index.js');
 
 if (await fse.pathExists(typeDefinitionsFilePath)) {
-	newPackageData.types = './index.d.ts';
+  newPackageData.types = './index.d.ts';
 }
 
 if (await fse.pathExists(indexPath)) {
-	newPackageData.module = './index.js';
+  newPackageData.module = './index.js';
 }
 
 const targetPath = path.resolve(buildPath, './package.json');
 
-await fse.writeFile(targetPath, JSON.stringify(newPackageData, null, 2), 'utf8');
+await fse.writeFile(
+  targetPath,
+  JSON.stringify(newPackageData, null, 2),
+  'utf8'
+);

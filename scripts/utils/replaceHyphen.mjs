@@ -4,9 +4,9 @@
  * @returns {string}
  */
 export const replaceHyphen = (str) => {
-	return str.replace(/[-_](\w)/g, (_, g) => {
-		if (g.match(/\d/)) return g;
+  return str.replace(/[-_](\w)/g, (_, g) => {
+    if (g.match(/\d/)) return g;
 
-		return g.toUpperCase();
-	});
+    return g.toUpperCase();
+  });
 };

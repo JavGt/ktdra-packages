@@ -1,22 +1,22 @@
 {
-	"version": "2.0.0",
-	"tasks": [
-		{
-			"type": "nx",
-			"project": "",
-			"command": "run",
-			"positional": "@ktdra-digital/reader-ui:storybook",
-			"flags": [],
-			"problemMatcher": [],
-			"label": "nx: nx run @ktdra-digital/reader-ui:storybook",
-			"group": {
-				"kind": "build",
-				"isDefault": true
-			},
-			"presentation": {
-                "reveal": "always",
-                "panel": "dedicated"
-            }
-		}
-	]
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "nx",
+      "project": "",
+      "command": "run",
+      "positional": "@ktdra-digital/reader-ui:storybook",
+      "flags": [],
+      "problemMatcher": [],
+      "label": "nx: nx run @ktdra-digital/reader-ui:storybook",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    }
+  ]
 }

@@ -28,130 +28,130 @@ const { name } = await packageJson();
  * dentro de esa carpeta tendrá una archivo llamado "index.ts" que exportara un objeto con todos los nombres de los archivos svg
  */
 const run = async () => {
-	const files = glob.sync(`svgs/**/*.svg`, {
-		cwd: packagePath,
-	});
+  const files = glob.sync(`svgs/**/*.svg`, {
+    cwd: packagePath,
+  });
 
-	/** @type {FoldersAndFiles} */
-	const foldersAndFiles = files.reduce(
-		/** @type {ReduceFiles} */
-		(acc, file) => {
-			const folder = path.dirname(file).replace('svgs/', '');
-			const nameFile = path.basename(file, '.svg');
+  /** @type {FoldersAndFiles} */
+  const foldersAndFiles = files.reduce(
+    /** @type {ReduceFiles} */
+    (acc, file) => {
+      const folder = path.dirname(file).replace('svgs/', '');
+      const nameFile = path.basename(file, '.svg');
 
-			const component = camelCase(replaceHyphen(nameFile));
+      const component = camelCase(replaceHyphen(nameFile));
 
-			const label = camelCase(nameFile.replace(/[-_]/g, ' '));
+      const label = camelCase(nameFile.replace(/[-_]/g, ' '));
 
-			const index = acc.findIndex((item) => item.folder === folder);
+      const index = acc.findIndex((item) => item.folder === folder);
 
-			if (index === -1)
-				acc.push({
-					folder: folder,
-					icons: [
-						{
-							label,
-							value: {
-								name: component,
-								folder,
-							},
-						},
-					],
-				});
-			else acc[index].icons.push({ label, value: { name: component, folder } });
+      if (index === -1)
+        acc.push({
+          folder: folder,
+          icons: [
+            {
+              label,
+              value: {
+                name: component,
+                folder,
+              },
+            },
+          ],
+        });
+      else acc[index].icons.push({ label, value: { name: component, folder } });
 
-			return acc;
-		},
-		[]
-	);
+      return acc;
+    },
+    []
+  );
 
-	// Verificar si existe la carpeta utils
-	const folderPath = path.join(srcPath, 'constants');
-	const folderPathTypes = path.join(srcPath, 'types');
+  // Verificar si existe la carpeta utils
+  const folderPath = path.join(srcPath, 'constants');
+  const folderPathTypes = path.join(srcPath, 'types');
 
-	await createArrayFile(foldersAndFiles, folderPath);
-	await createTypeFile(foldersAndFiles, folderPathTypes);
+  await createArrayFile(foldersAndFiles, folderPath);
+  await createTypeFile(foldersAndFiles, folderPathTypes);
 };
 
 /** @type {CreateFile} */
 const createArrayFile = async (items, folderPath) => {
-	const exists = await fs
-		.access(folderPath)
-		.then(() => true)
-		.catch(() => false);
+  const exists = await fs
+    .access(folderPath)
+    .then(() => true)
+    .catch(() => false);
 
-	if (!exists) {
-		try {
-			// crear la carpeta utils
-			await fs.mkdir(folderPath, { recursive: true });
-		} catch (error) {
-			console.log(error);
-		}
-	}
+  if (!exists) {
+    try {
+      // crear la carpeta utils
+      await fs.mkdir(folderPath, { recursive: true });
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
-	const template = `export const ICONS = ${JSON.stringify(items)}`;
+  const template = `export const ICONS = ${JSON.stringify(items)}`;
 
-	try {
-		await fs.writeFile(path.join(folderPath, 'icons.ts'), template, {
-			encoding: 'utf-8',
-		});
-	} catch (error) {
-		console.log(error);
-	}
+  try {
+    await fs.writeFile(path.join(folderPath, 'icons.ts'), template, {
+      encoding: 'utf-8',
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 /** @type {CreateFile} */
 const createTypeFile = async (foldersAndFiles, folderPath) => {
-	const exists = await fs
-		.access(folderPath)
-		.then(() => true)
-		.catch(() => false);
+  const exists = await fs
+    .access(folderPath)
+    .then(() => true)
+    .catch(() => false);
 
-	if (!exists) {
-		try {
-			// crear la carpeta utils
-			await fs.mkdir(folderPath, { recursive: true });
-		} catch (error) {
-			console.log(error);
-		}
-	}
+  if (!exists) {
+    try {
+      // crear la carpeta utils
+      await fs.mkdir(folderPath, { recursive: true });
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
-	const template = `export type FoldersIcon = ${
-		foldersAndFiles.map((item) => `'${item.folder}'`).join(' | ') || "''"
-	}`;
+  const template = `export type FoldersIcon = ${
+    foldersAndFiles.map((item) => `'${item.folder}'`).join(' | ') || "''"
+  }`;
 
-	try {
-		await fs.writeFile(path.join(folderPath, 'folders.ts'), template, {
-			encoding: 'utf-8',
-		});
-	} catch (error) {
-		console.log(error);
-	}
+  try {
+    await fs.writeFile(path.join(folderPath, 'folders.ts'), template, {
+      encoding: 'utf-8',
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 /** @type {CreateFile} */
 const createBarrelFile = async (_, folderPath) => {
-	const folders = await fs.readdir(folderPath);
+  const folders = await fs.readdir(folderPath);
 
-	const isFileTs = /^(?!.*\.d\.ts$).*\.ts$/;
+  const isFileTs = /^(?!.*\.d\.ts$).*\.ts$/;
 
-	const barrel = folders
-		.map((folder) => {
-			if (folder.startsWith('index')) return '';
+  const barrel = folders
+    .map((folder) => {
+      if (folder.startsWith('index')) return '';
 
-			return isFileTs.test(folder)
-				? `export * from './${folder.replace('.ts', '')}' `
-				: '';
-		})
-		.join('\n');
+      return isFileTs.test(folder)
+        ? `export * from './${folder.replace('.ts', '')}' `
+        : '';
+    })
+    .join('\n');
 
-	try {
-		await fs.writeFile(path.join(folderPath, 'index.ts'), barrel, {
-			encoding: 'utf-8',
-		});
-	} catch (error) {
-		console.log(error);
-	}
+  try {
+    await fs.writeFile(path.join(folderPath, 'index.ts'), barrel, {
+      encoding: 'utf-8',
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 run();

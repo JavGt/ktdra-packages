@@ -1,38 +1,35 @@
 import React from 'react';
-import { type Icon, useIcon } from '@ktdra-digital/icons';
+import { useIcon } from '@ktdra-digital/icons';
 import { StylesContainerFC, stylesContainer } from '../utils';
-import { ButtonStyle } from './Button.styled';
-import { PaletteKeys } from '../../../utils/dist/colors/types';
-
-export type ButtonProps = {
-	text: string;
-	icon?: Icon;
-	url: string;
-	paletteKey?: PaletteKeys;
-};
+import { ButtonStl } from './Button.styled';
+import { ButtonProps } from './types';
 
 const Button: StylesContainerFC<ButtonProps> = ({
-	text,
-	icon,
-	url,
-	colors,
-	subsistema,
-	paletteKey,
+  text,
+  icon,
+  url,
+  colors,
+  subsistema,
+  paletteKey = 'primary',
 }) => {
-	const Icon = useIcon(icon, subsistema);
+  const Icon = useIcon(icon, subsistema);
 
-	return (
-		<ButtonStyle
-			href={url}
-			target='_blank'
-			type='button'
-			colors={colors[paletteKey || 'primary']}
-		>
-			{Icon && <Icon />}
-
-			{text}
-		</ButtonStyle>
-	);
+  return (
+    <ButtonStl
+      arial-label={text}
+      href={url}
+      role="button"
+      target="_blank"
+      type="button"
+      colors={colors[paletteKey]}
+      title={text}
+    >
+      <span>
+        {Icon && <Icon />}
+        {text}
+      </span>
+    </ButtonStl>
+  );
 };
 
 export default stylesContainer(Button);

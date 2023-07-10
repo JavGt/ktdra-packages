@@ -2,9 +2,9 @@ import { colorsBT, colorsDGB } from '../../colors';
 import { ObjColors, UseGetColorsAC } from './types';
 
 export const colors: ObjColors = {
-	BT: colorsBT,
-	DGB: colorsDGB,
-	CONALEP: colorsDGB,
+  BT: colorsBT,
+  DGB: colorsDGB,
+  CONALEP: colorsDGB,
 };
 
 /**
@@ -15,6 +15,6 @@ export const colors: ObjColors = {
  * const { primary } = useGetColorsAC({ area: 'Ciencias sociales', subsistema: 'BT', selector: 'primary' });
  */
 const useColorsAC: UseGetColorsAC = ({ area, subsistema }) =>
-	subsistema ? colors[subsistema][area] : colorsBT[area];
+  subsistema ? colors[subsistema][area] : colorsBT[area];
 
 export default useColorsAC;

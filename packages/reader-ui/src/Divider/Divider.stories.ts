@@ -2,12 +2,12 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Divider from './Divider';
 
 const meta: Meta<typeof Divider> = {
-	title: 'Reader/Divider',
-	component: Divider,
-	tags: ['autodocs'],
-	parameters: {
-		layout: 'fullscreen',
-	},
+  title: 'Reader/Divider',
+  component: Divider,
+  tags: ['autodocs'],
+  parameters: {
+    layout: 'fullscreen',
+  },
 };
 
 export default meta;
@@ -15,12 +15,12 @@ export default meta;
 type Story = StoryObj<typeof Divider>;
 
 export const Default: Story = {
-	args: {},
+  args: {},
 };
 
 export const Custom: Story = {
-	args: {
-		size: 2,
-		type: 'dashed',
-	},
+  args: {
+    size: 2,
+    type: 'dashed',
+  },
 };

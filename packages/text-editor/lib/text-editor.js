@@ -28,7 +28,7 @@ import Math from '@isaul32/ckeditor5-math/src/math';
 import AutoformatMath from '@isaul32/ckeditor5-math/src/autoformatmath';
 import { PasteFromOffice } from '@ckeditor/ckeditor5-paste-from-office';
 
-class Editor extends ClassicEditor { }
+class Editor extends ClassicEditor {}
 
 // Plugins to include in the build.
 Editor.builtinPlugins = [
@@ -54,7 +54,7 @@ Editor.builtinPlugins = [
   TextTransformation,
   Math,
   AutoformatMath,
-  PasteFromOffice
+  PasteFromOffice,
 ];
 
 // Editor configuration.
@@ -76,8 +76,8 @@ Editor.defaultConfig = {
       'selectAll',
       '|',
       'undo',
-      'redo'
-    ]
+      'redo',
+    ],
   },
   math: {
     engine: 'mathjax',
@@ -88,7 +88,7 @@ Editor.defaultConfig = {
     enablePreview: true,
     previewClassName: [],
     popupClassName: [],
-    katexRenderOptions: {}
+    katexRenderOptions: {},
   },
   language: 'es',
 };

@@ -1,28 +1,23 @@
 import React from 'react';
 import {
-	type StylesContainerFC,
-	stylesContainer,
+  type StylesContainerFC,
+  stylesContainer,
 } from '../utils/styleContainer';
 import { markdownToHtml } from '../utils/markdownToHtml';
-import { ContainerShadowStyled } from './ContainerShadow.styled';
-import { PaletteKeys } from '@ktdra-digital/utils';
-
-export type ContainerShadowProps = {
-	text: string;
-	paletteKey?: PaletteKeys;
-};
+import { ContainerShadowStl } from './ContainerShadow.styled';
+import { ContainerShadowProps } from './types';
 
 const ContainerShadow: StylesContainerFC<ContainerShadowProps> = ({
-	text,
-	colors,
-	paletteKey,
+  text,
+  colors,
+  paletteKey = 'primary',
 }) => {
-	return (
-		<ContainerShadowStyled
-			colors={colors[paletteKey || 'primary']}
-			dangerouslySetInnerHTML={{ __html: markdownToHtml(text) }}
-		/>
-	);
+  return (
+    <ContainerShadowStl
+      colors={colors[paletteKey]}
+      dangerouslySetInnerHTML={{ __html: markdownToHtml(text) }}
+    />
+  );
 };
 
 export default stylesContainer(ContainerShadow);

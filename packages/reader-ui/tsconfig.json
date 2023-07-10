@@ -1,8 +1,8 @@
 {
-	"compilerOptions": {
-		"outDir": "dist"
-	},
-	"include": ["src/**/*"],
-	"exclude": ["**/**.stories.ts"],
-	"extends": "../../tsconfig.json"
+  "compilerOptions": {
+    "outDir": "dist"
+  },
+  "include": ["src/**/*"],
+  "exclude": ["**/**.stories.ts"],
+  "extends": "../../tsconfig.json"
 }
